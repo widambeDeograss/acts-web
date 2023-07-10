@@ -20,7 +20,7 @@ export default function Footer() {
               color="purple"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
-              About Us
+              Privacy policy
             </Typography>
           </li>
           <li>
@@ -30,7 +30,7 @@ export default function Footer() {
               color="purple"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
-              License
+              Terms and conditions
             </Typography>
           </li>
           <li>
@@ -40,7 +40,7 @@ export default function Footer() {
               color="purple"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
-              Contribute
+              Copyright statements 
             </Typography>
           </li>
           <li>
