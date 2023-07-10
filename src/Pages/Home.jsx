@@ -1,6 +1,7 @@
 import React from "react";
-import { Carousel, IconButton, Typography } from "@material-tailwind/react";
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Carousel, IconButton, Typography, List, ListItem } from "@material-tailwind/react";
+import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, LinkIcon, MapPinIcon, ClockIcon } from "@heroicons/react/24/outline";
+import colors from "../constants/colors";
 
 const Home = () => {
   return (
@@ -74,6 +75,93 @@ const Home = () => {
           className="h-full w-full object-cover"
         />
       </Carousel>
+
+        <div className="flex flex-wrap justify-around mt-16 shadow-sm ">
+
+          <div  style={{ backgroundColor: colors.primary, color: "white", padding: "20px" }} >
+            <div className="flex flex-row text-centre justify-center">
+            <LinkIcon  height={40} className="-mt-2  mr-3"/>
+          <Typography variant='h5'>  <strong>QuickLinks </strong></Typography>
+            </div>
+
+            <hr />
+            <a href="https://www.pathseminary.org/admission" className="mt-3 p-10 my-10" style={{ textDecoration: "none", color: "white" }}>New students information conserning Tution Fees </a>
+            <hr />
+            <Typography variant='body4'><a href="https://www.pathseminary.org/apply" style={{ textDecoration: "none", color: "white" }}>Application Form for Doctrate students </a></Typography>
+            <hr />
+            <Typography variant='body4'><a href="https://my.globaluniversity.edu/?" style={{ textDecoration: "none", color: "white" }}>Masters students Portal </a></Typography>
+          </div>
+
+          <div className="shadow-md p-4">
+            <Typography variant='h5'> <strong>Recent Events News&upadets </strong></Typography>
+            <List >
+              <ListItem style={{display:'block'}}>
+                <div className="flex flex-row">
+                <CalendarIcon height={32}/>
+                <Typography variant='body2' >  <span>Novemver 1 2022</span></Typography>
+
+                </div>
+                <Typography variant='h6'> <strong><a color="inherit" href="#" style={{textDecoration: "none"}}>
+                New students orientation
+                    </a></strong></Typography>
+                <div className="flex flex-row">
+                
+                <ClockIcon height={25}/>
+                <Typography variant='body4'> 9:25pm</Typography>
+                <MapPinIcon height={25}/>
+                <Typography variant='body4'> acts dodoma</Typography>
+                </div>
+                
+              </ListItem>
+              <hr />
+              {/* <Divider component="li" /> */}
+
+
+              {/* <ListItem sx={{display:'block'}}>
+                <Typography variant='body2'> <CalendarMonth /> December 1 2022</Typography>
+                <Typography variant='h6'><strong> <Link color="inherit" href="/" style={{textDecoration: "none"}}>
+                Announcement to join short and long term courses - Bible Knowledge
+                    </Link> </strong></Typography>
+            
+                <Typography variant='body4'><Timer /> 9:25pm<LocationOn />acts dodoma</Typography>
+              
+              </ListItem>
+              <Divider component="li" />
+              
+
+
+              <ListItem sx={{display:'block'}}>
+                <Typography variant='body2'> <CalendarMonth /> December 1 2022</Typography>
+                <Typography variant='h6'><strong> <Link color="inherit" href="/" style={{textDecoration: "none"}}>
+                ACTS Dodoma Campus Tracer Study Report for 2021/2022 Academic Year
+                    </Link> </strong></Typography>
+              
+                <Typography variant='body4'><Timer /> 9:25pm<LocationOn />acts dodoma</Typography>
+                
+              </ListItem>
+              <Divider component="li" />
+
+
+
+              <ListItem sx={{display:'block'}}>
+                <Typography variant='body2'> <CalendarMonth /> December 1 2022</Typography>
+                <Typography variant='h6'><strong> <Link color="inherit" href="/" style={{textDecoration: "none"}}>
+                Students selected to join masters degree programmers for the academic year 2022/2023.
+                    </Link> </strong></Typography>
+                
+                <Typography variant='body4'><Timer /> 9:25pm<LocationOn />acts dodoma</Typography>
+                
+              </ListItem>
+              <Divider component="li" /> */}
+
+
+
+
+            </List>
+          </div>
+          
+
+        </div>
     </div>
   );
 };
