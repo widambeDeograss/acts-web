@@ -16,6 +16,7 @@ import {
 } from "@heroicons/react/24/outline";
 import QuickLinks from "../components/QuickLinks";
 import { useNavigate } from "react-router-dom";
+import PageHeroSection from "../components/PageHeroSection";
 
 const MastersPrograms = () => {
   const [open, setOpen] = useState(false);
@@ -81,6 +82,8 @@ const MastersPrograms = () => {
   ];
 
   return (
+    <div>
+    <PageHeroSection title="Masters Programs"/>
     <div className="mt-3 flex flex-wrap gap-2 justify-between p-10">
       <div className="lg:w-1/2 md:w-3/4 sm:w-full">
         <Button onClick={toogleOpenPrograms} color={openPrograms? "blue":"gray"} className="w-full mb-3">
@@ -408,6 +411,7 @@ const MastersPrograms = () => {
           </Button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -16,6 +16,7 @@ import {
 } from "@heroicons/react/24/outline";
 import QuickLinks from "../components/QuickLinks";
 import { useNavigate } from "react-router-dom";
+import PageHeroSection from "../components/PageHeroSection";
 
 const PhdPrograms = () => {
   const [open, setOpen] = useState(false);
@@ -31,6 +32,9 @@ const PhdPrograms = () => {
 
 
   return (
+    <div>
+
+        <PageHeroSection title="Phd programs"/>
     <div className="mt-3 flex flex-wrap gap-2 justify-between p-10">
       <div className="lg:w-1/2 md:w-3/4 sm:w-full">
         <Button
@@ -195,6 +199,7 @@ const PhdPrograms = () => {
           </Button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

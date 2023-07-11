@@ -6,6 +6,7 @@ import MastersPrograms from "./Pages/MastersPrograms";
 import PhdPrograms from "./Pages/PhdPrograms";
 import EntryRequirements from "./Pages/EntryRequirements";
 import ApplicationForm from "./Pages/ApplicationForm";
+import PageNotFound from "./Pages/PageNotFound";
 
 export default function Routeer() {
   <Router></Router>;
@@ -42,7 +43,7 @@ export default function Routeer() {
     {
       path: "*",
       element: <Navigate to="/404" replace />,
-      element: <Home /> 
+      element: <PageNotFound /> 
     },
   ]);
 
