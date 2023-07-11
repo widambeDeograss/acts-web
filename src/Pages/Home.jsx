@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Carousel,
   IconButton,
@@ -10,6 +10,7 @@ import {
   TabsBody,
   Tab,
   TabPanel,
+  Avatar,
 } from "@material-tailwind/react";
 import {
   ArrowLeftIcon,
@@ -20,22 +21,29 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 import colors from "../constants/colors";
+import QuickLinks from "../components/QuickLinks";
 
 const tabData = [
   {
     label: "Message from the principal",
+    title: "Dr. Immaculate Nhigula",
     value: "message",
     image:
       "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
-    desc: `It really matters and then like it really doesn't matter.
-    What matters is the people who are sparked by it. And the people
-    who are like offended by it, it doesn't matter.`,
+    desc: `Acts exists to develop God’s ministers
+    who are capable of pioneering
+    indigenous churches with the
+    potential to grow spiritually,
+    numerically, and geographically in
+    the power of the Holy Spirit, thus
+    fulfilling the Great commission`,
   },
   {
     label: "Mission",
     value: "mission",
+    title: " ",
     image:
-      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+      "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
     desc: `Because it's about motivating the doers. Because I'm here
     to follow my dreams and inspire other people to follow their dreams, too.`,
   },
@@ -43,6 +51,7 @@ const tabData = [
   {
     label: "Vision",
     value: "vision",
+    title: " ",
     image:
       "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
     desc: `We're not always in the position that we want to be at.
@@ -52,6 +61,13 @@ const tabData = [
 ];
 
 const Home = () => {
+  const [currentTab, setcurrentTab] = useState(tabData[0]);
+
+  const imagetab = (value) => {
+    const currentT = tabData.find((tab) => tab.value === value);
+    console.log(currentT.image);
+    setcurrentTab(currentT);
+  };
   return (
     <div>
       <Carousel
@@ -99,15 +115,19 @@ const Home = () => {
             alt="image 1"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 top-52 grid h-32 w-[60%] mx-auto place-items-center bg-black/75">
-            <div className="w-1/2 text-center md:w-2/4">
+          <div className="absolute inset-0 top-52 grid h-32  lg:w-[60%]  sm:w-[90%] mx-auto place-items-center bg-black/75">
+            <div className="w-full text-center p-5 ">
               <Typography
                 variant="lead"
                 color="white"
-                className="mb-1 opacity-80"
+                className="mb-1 opacity-80 text-base lg:text-base md:text-sm sm:text-sm"
               >
                 It is not so much for its beauty that the forest makes a claim
-                upon men&apos;s hearts,
+                upon men&apos;s hearts `Acts exists to develop God’s ministers
+                who are capable of pioneering indigenous churches with the
+                potential to grow spiritually, numerically, and geographically
+                in the power of the Holy Spirit, thus fulfilling the Great
+                commission`,,
               </Typography>
             </div>
           </div>
@@ -125,50 +145,12 @@ const Home = () => {
       </Carousel>
 
       <div className="flex flex-wrap justify-around mt-16 shadow-sm ">
-        <div
-          style={{
-            backgroundColor: colors.primary,
-            color: "white",
-            padding: "20px",
-          }}
-        >
-          <div className="flex flex-row text-centre justify-center">
-            <LinkIcon height={40} className="-mt-2  mr-3" />
-            <Typography variant="h5">
-              {" "}
-              <strong>Quick Links </strong>
-            </Typography>
-          </div>
+       <div>
+        <QuickLinks />
+       </div>
 
-          <a
-            href="https://www.pathseminary.org/admission"
-            className="mt-3 p-10 my-10"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            New students information conserning Tution Fees{" "}
-          </a>
-          <hr />
-          <Typography variant="body4">
-            <a
-              href="https://www.pathseminary.org/apply"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Application Form for Doctrate students{" "}
-            </a>
-          </Typography>
-          <hr />
-          <Typography variant="body4">
-            <a
-              href="https://my.globaluniversity.edu/?"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Masters students Portal{" "}
-            </a>
-          </Typography>
-        </div>
-
-        <div className="shadow-md p-4">
-          <Typography variant="h5">
+        <div className="shadow-md p-5 lg:w-1/3 md:w-1/2 sm:w-full">
+          <Typography variant="h6">
             {" "}
             <strong>Recent Events News&upadets </strong>
           </Typography>
@@ -201,84 +183,128 @@ const Home = () => {
               </div>
             </ListItem>
             <hr />
-            {/* <Divider component="li" /> */}
-
-            {/* <ListItem sx={{display:'block'}}>
-                <Typography variant='body2'> <CalendarMonth /> December 1 2022</Typography>
-                <Typography variant='h6'><strong> <Link color="inherit" href="/" style={{textDecoration: "none"}}>
-                Announcement to join short and long term courses - Bible Knowledge
-                    </Link> </strong></Typography>
-            
-                <Typography variant='body4'><Timer /> 9:25pm<LocationOn />acts dodoma</Typography>
-              
-              </ListItem>
-              <Divider component="li" />
-              
-
-
-              <ListItem sx={{display:'block'}}>
-                <Typography variant='body2'> <CalendarMonth /> December 1 2022</Typography>
-                <Typography variant='h6'><strong> <Link color="inherit" href="/" style={{textDecoration: "none"}}>
-                ACTS Dodoma Campus Tracer Study Report for 2021/2022 Academic Year
-                    </Link> </strong></Typography>
-              
-                <Typography variant='body4'><Timer /> 9:25pm<LocationOn />acts dodoma</Typography>
-                
-              </ListItem>
-              <Divider component="li" />
-
-
-
-              <ListItem sx={{display:'block'}}>
-                <Typography variant='body2'> <CalendarMonth /> December 1 2022</Typography>
-                <Typography variant='h6'><strong> <Link color="inherit" href="/" style={{textDecoration: "none"}}>
-                Students selected to join masters degree programmers for the academic year 2022/2023.
-                    </Link> </strong></Typography>
-                
-                <Typography variant='body4'><Timer /> 9:25pm<LocationOn />acts dodoma</Typography>
-                
-              </ListItem>
-              <Divider component="li" /> */}
           </List>
+          <div className="flex fle-row gap-1 font-bold cursor-pointer">
+           <Typography as="h6" className="font-bold">View All</Typography>
+           <ArrowRightIcon height={20} width={30}  className="mt-1"/>
+          </div>
         </div>
 
         <div className="bg-gray-400 h-auto mt-10 w-full">
           <div className="flex flex-row p-10 ">
-            <div className="w-1/4">
-            <img
-          src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-          alt="image 2"
-          className="h-full w-full object-cover rounded-sm"
-        />
+            <div className="w-1/4 ">
+              <img
+                src={currentTab?.image}
+                alt={currentTab?.value}
+                className="h-full w-full object-cover rounded-sm hidden lg:block sm:hidden"
+              />
             </div>
-            <div className="w-3/4">
-            <Tabs id="custom-animation" value="html" >
-              <TabsHeader>
-                {tabData.map(({ label, value }) => (
-                  <Tab key={value} value={value}>
-                    {label}
-                  </Tab>
-                ))}
-              </TabsHeader>
-              <TabsBody
-                animate={{
-                  initial: { y: 250 },
-                  mount: { y: 0 },
-                  unmount: { y: 250 },
-                }}
-              >
-                {tabData.map(({ value, desc }) => (
-                  <TabPanel key={value} value={value}>
-                    {desc}
-                  </TabPanel>
-                ))}
-              </TabsBody>
-            </Tabs>
+            <div className="lg:w-3/4 sm:w-full">
+              <Tabs id="custom-animation" value="message">
+                <TabsHeader>
+                  {tabData.map(({ label, value }) => (
+                    <Tab
+                      key={value}
+                      value={value}
+                      onClick={() => {
+                        imagetab(value);
+                      }}
+                    >
+                      {label}
+                    </Tab>
+                  ))}
+                </TabsHeader>
+                <TabsBody
+                  animate={{
+                    initial: { y: 250 },
+                    mount: { y: 0 },
+                    unmount: { y: 250 },
+                  }}
+                >
+                  {tabData.map(({ value, desc, title }) => (
+                    <>
+                      <TabPanel key={value} value={value}>
+                        <h2>
+                          <strong>{title}</strong>
+                        </h2>
+                        {desc}
+                      </TabPanel>
+                    </>
+                  ))}
+                </TabsBody>
+              </Tabs>
             </div>
-          
           </div>
         </div>
       </div>
+      <section>
+        <div className="mt-5">
+          <div className=" text-center">
+            <h3 className="mb-4 pt-5">
+              <strong>What students Say aboutUs</strong>
+            </h3>
+          </div>
+        </div>
+
+        <div className="flex flex-col shadow-sm text-center lg:flex-row md:flex-col sm:flex-col p-10">
+          <div className=" mb-5 mb-md-0">
+            <div className="d-flex justify-center mb-4">
+              <Avatar
+                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+                className="rounded-3xl shadow-1 h-24 w-24"
+                size="30"
+              />
+            </div>
+            <h5 className="mb-3">
+              <strong>ERNEST IDABU</strong>
+            </h5>
+            <h6 className="text-primary mb-3">
+              Masters of Arts Degree in Biblical Studies
+            </h6>
+            <p className="px-xl-3">
+              <i className="fas fa-quote-left pe-2"></i>I recommend these
+              courses to everyone, and wish you, guys, luck with the new
+              studies!
+            </p>
+          </div>
+          <div className=" mb-5 mb-md-0">
+            <div className="d-flex justify-center mb-4">
+              <Avatar
+                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+                className="rounded-3xl shadow-1 h-24 w-24"
+                size="30"
+              />
+            </div>
+            <h5 className="mb-3">FRED MSUNGU</h5>
+            <h6 className="text-primary mb-3">
+              Masters of Arts Degree(Leadership Concentration)
+            </h6>
+            <p className="px-xl-3">
+              <i className="fas fa-quote-left pe-2"></i>I am grateful for your
+              wonderful course! Your tutors are the best, and I am completely
+              satisfied with the level of professional teaching.
+            </p>
+          </div>
+          <div className=" mb-0">
+            <div className="d-flex justify-center mb-4">
+              <Avatar
+                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+                className="rounded-3xl shadow-1 h-24 w-24"
+                size="30"
+              />
+            </div>
+            <h5 className="mb-3">AURELIAN NGONYANI</h5>
+            <h6 className="text-primary mb-3">
+              Masters of Divinity Degree(Ministerial Track)
+            </h6>
+            <p className="px-xl-3">
+              <i className="fas fa-quote-left pe-2"></i>I recommend these
+              courses to everyone, and wish you, guys, luck with the new
+              studies!
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

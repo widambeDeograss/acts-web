@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Navbar,
   MobileNav,
@@ -17,15 +17,21 @@ import {
 import "./nav.css";
 import logo from "../assets/logo.png";
 import colors from "../constants/colors";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
+  const [scrolled, setscrolled] = useState(false);
+  const navigate = useNavigate()
 
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
+    window.addEventListener(
+      "scroll" ,() => setscrolled(true)
+    )
   }, []);
 
   const navList = (
@@ -37,7 +43,7 @@ export default function NavBar() {
     >
       <Typography as="li" variant="small" className="p-1 font-normal">
         <a
-          href="#"
+          href="/"
           className="flex items-center hover:border-b-2 hover:border-b-purple-900"
         >
           Home
@@ -45,37 +51,36 @@ export default function NavBar() {
       </Typography>
 
       <Typography as="li" variant="small" className="p-1 font-normal">
-        <a
-          href="#"
-          className="flex items-center hover:border-b-2 hover:border-b-purple-900"
-        >
-          AboutUs
-        </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <a
-          href="#"
-          className="flex items-center hover:border-b-2 hover:border-b-purple-900"
-        >
-          Campus
-        </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-      <div class="relative hover-trigger">
+        <div class="relative hover-trigger">
           <a
             href="#"
             className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
           >
-            Academics
+            AboutUs
+            <svg
+              class="w-2.5 h-2.5 ml-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
           </a>
           <div class=" px-4 py-2  hover-target">
-          <Card className="absolute z-50">
-                <List>
-                  <ListItem className="hover:text-purple-900">Masters Programs</ListItem>
-                  <ListItem>Phd Programs</ListItem>
-                  <ListItem>Settings</ListItem>
-                </List>
-              </Card>
+            <Card className="absolute z-50 top-0 mt-6 ">
+              <List>
+                <ListItem>Historical Background</ListItem>
+                <ListItem>Staff</ListItem>
+                <ListItem>Contact Us</ListItem>
+              </List>
+            </Card>
           </div>
         </div>
       </Typography>
@@ -85,22 +90,110 @@ export default function NavBar() {
             href="#"
             className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
           >
-            Admission
-            <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-  </svg>
+            Campus
+            <svg
+              class="w-2.5 h-2.5 ml-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
           </a>
-          <div class="absolute z-50 top-0 bottom-5 px-4 py-2  hover-target">
-          <Card className="">
-                <List>
-                  <ListItem>Entry Requirements</ListItem>
-                  <ListItem>Apply online</ListItem>
-                  <ListItem>Settings</ListItem>
-                </List>
-              </Card>
+          <div class=" bottom-5 px-4 py-2  hover-target">
+            <Card className="absolute z-50">
+              <List>
+                <ListItem>Campus tour</ListItem>
+                <ListItem>Campus gallery</ListItem>
+              </List>
+            </Card>
           </div>
         </div>
       </Typography>
+      <Typography as="li" variant="small" className="p-1 font-normal">
+        <div class="relative hover-trigger">
+          <a
+            href="#"
+            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
+          >
+            Academics
+            <svg
+              class="w-2.5 h-2.5 ml-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </a>
+          <div class=" px-4 py-2  hover-target">
+            <Card className="absolute z-50">
+              <List>
+                <ListItem className="hover:text-purple-900"
+                onClick={() => navigate("/academics/masters_programs")}
+                >
+                  Masters Programs
+                </ListItem>
+                <ListItem
+                onClick={() => navigate("/academics/Phd_programs")}
+                >Phd Programs</ListItem>
+              </List>
+            </Card>
+          </div>
+        </div>
+      </Typography>
+      <Typography as="li" variant="small" className="p-1 font-normal">
+        <div class="relative hover-trigger">
+          <a
+            href="#"
+            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
+          >
+             Admission
+            <svg
+              class="w-2.5 h-2.5 ml-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </a>
+          <div class=" px-4 py-2  hover-target">
+          <Card className="absolute z-50 top-0 mt-6">
+              <List>
+                <ListItem
+                onClick={() => navigate("/admission/entry_requirements")}
+                >Entry Requirements</ListItem>
+                <ListItem
+                onClick={() => navigate("/admission/acts_online_application")}
+                >Apply online</ListItem>
+              </List>
+            </Card>
+          </div>
+        </div>
+      </Typography>
+     
     </ul>
   );
 
@@ -170,6 +263,7 @@ export default function NavBar() {
               style={{
                 backgroundColor: colors.primary,
               }}
+              onClick={() => navigate("/admission/acts_online_application")}
             >
               <span>Appy Now</span>
             </Button>
@@ -220,6 +314,7 @@ export default function NavBar() {
             size="sm"
             fullWidth
             className="mb-2"
+            onClick={() => navigate("/admission/acts_online_application")}
           >
             <span>Appy Now</span>
           </Button>
