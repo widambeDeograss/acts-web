@@ -37,7 +37,7 @@ const ApplicationForm = () => {
       <Card className="w-4/5 border-black border-t-2  h-auto m-auto">
         <img src={logo} alt="logo-ct" className="w-16 h-16 mx-auto py-2" />
         <hr />
-        <Typography className="font-bold ">Application Form</Typography>
+        <Typography className="font-bold mt-5 p-3 text-lg ">APPLICATION FORM</Typography>
         <div className="w-[90%] mx-auto py-2 px-4">
           {!displaySummary && (
             <Stepper
@@ -47,7 +47,7 @@ const ApplicationForm = () => {
             >
               <Step onClick={() => setActiveStep(0)}>
                 <UserIcon className="h-5 w-5" />
-                <div className="absolute -bottom-[4.5rem] w-max text-center">
+                <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden">
                   <Typography
                     variant="h7"
                     color={activeStep === 0 ? "blue" : "blue-gray"}
@@ -58,7 +58,7 @@ const ApplicationForm = () => {
               </Step>
               <Step onClick={() => setActiveStep(1)}>
                 <CogIcon className="h-5 w-5" />
-                <div className="absolute -bottom-[4.5rem] w-max text-center">
+                <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden ">
                   <Typography
                     variant="h7"
                     color={activeStep === 1 ? "blue" : "blue-gray"}
@@ -69,7 +69,7 @@ const ApplicationForm = () => {
               </Step>
               <Step onClick={() => setActiveStep(2)}>
                 <BuildingLibraryIcon className="h-5 w-5" />
-                <div className="absolute -bottom-[4.5rem] w-max text-center">
+                <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden">
                   <Typography
                     variant="h7"
                     color={activeStep === 2 ? "blue" : "blue-gray"}
@@ -80,7 +80,7 @@ const ApplicationForm = () => {
               </Step>
             </Stepper>
           )}
-          <div className="mt-20 mx-auto ">
+          <div className="mt-20 mx-auto  ">
             {(displaySummary && (
               //<div className="flex flex-col justify-between absolute top-40 w-[450px] md:static mb-40 rounded-2xl mx-8 px-16 pt-10 pb-16 bg-white md:px-0 md:py-5 md:mx-28 md:w-100 md:my-2">
               <>
