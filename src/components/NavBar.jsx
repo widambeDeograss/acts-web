@@ -110,8 +110,13 @@ export default function NavBar() {
           <div class=" bottom-5 px-4 py-2  hover-target">
             <Card className="absolute z-50">
               <List>
-                <ListItem>Campus tour</ListItem>
-                <ListItem>Campus gallery</ListItem>
+                <ListItem
+                 onClick={() => navigate("acts/campus_tour")}
+                >Campus tour</ListItem>
+                <ListItem
+                onClick={() => navigate("acts/campus_gallery")}
+                >
+                  Campus gallery</ListItem>
               </List>
             </Card>
           </div>

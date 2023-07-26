@@ -15,6 +15,8 @@ import {
 } from "@heroicons/react/24/outline";
 import ApplicationSummary from "./ApplicationSummary";
 import ApplicantPersonalInfo from "../components/ApplicantPersonalInfo";
+import ApplicantReferenceForm from "../components/ApplicantReferenceForm";
+import ApplicantAcademicForm from "../components/ApplicantAcademicForm";
 
 const ApplicationForm = () => {
   const [steps, setSteps] = useState([
@@ -101,7 +103,7 @@ const ApplicationForm = () => {
                       />
                     )) ||
                       (activeStep === 1 && (
-                        <ApplicantPersonalInfo
+                        <ApplicantReferenceForm
                         // onChangeYourInfo={changeYourInfo}
                         // yourInfo={yourInfo}
                         // currentStep={stepNumber}
@@ -109,7 +111,7 @@ const ApplicationForm = () => {
                         />
                       )) ||
                       (activeStep === 2 && (
-                        <ApplicantPersonalInfo
+                        <ApplicantAcademicForm
                         // onChangeYourInfo={changeYourInfo}
                         // yourInfo={yourInfo}
                         // currentStep={stepNumber}

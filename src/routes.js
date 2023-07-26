@@ -7,6 +7,10 @@ import PhdPrograms from "./Pages/PhdPrograms";
 import EntryRequirements from "./Pages/EntryRequirements";
 import ApplicationForm from "./Pages/ApplicationForm";
 import PageNotFound from "./Pages/PageNotFound";
+import AdminLayout from "./components/adminComponents/AdminLayout";
+import AdminHomePage from "./Pages/ADMINPAGES/Home";
+import CampusTour from "./Pages/CompusTour";
+import CampusGallery from "./Pages/CampusGallery";
 
 export default function Routeer() {
   <Router></Router>;
@@ -25,19 +29,19 @@ export default function Routeer() {
         { path: "academics/Phd_programs", element: <PhdPrograms /> },
         { path: "admission/entry_requirements", element: <EntryRequirements /> },
         { path: "admission/acts_online_application", element: <ApplicationForm /> },
-        // { path: "programs", element: <Programs /> },
+        { path: "acts/campus_tour", element: <CampusTour /> },
         // { path: "management", element: <Leaders /> },
-        // { path: "gallery", element: <Gallery /> },
+        { path: "acts/campus_gallery", element: <CampusGallery /> },
         // { path: "contact", element: <ContactUs /> },
 
       ],
     },
     {
-      path: "/adminCompose",
-      // element: <AdminLayout />,
+      path: "/acts/admin/*",
+      element: <AdminLayout />,
       children: [
-        // { element: <Navigate to="/admnDashboard/allqs" />, index: true },
-        // { path: "allqs", element: <AllQuestions /> },
+        { element: <Navigate to="/acts/admin/AdminHome" />, index: true },
+        { path: "AdminHome", element: <AdminHomePage /> },
     ],
     },
     {
