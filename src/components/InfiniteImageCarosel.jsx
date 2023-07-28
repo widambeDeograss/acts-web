@@ -42,14 +42,14 @@ const ImageSlider = ({ images }) => {
             >
               <figure className="relative ">
               <img
-                src={image}
+                src={image?.img}
                 alt={`Image ${index + 1}`}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-64 object-cover rounded-xl"
               />
                 <figcaption className="absolute bottom-2 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-2 px-1 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
                   <div>
-                    <Typography variant="h7" color="blue-gray">
-                      Sara Lamalo
+                    <Typography variant="h7" color="blue-gray" className="text-sm " >
+                      {image?.author}
                     </Typography>
                    
                   </div>

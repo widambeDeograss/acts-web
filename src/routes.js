@@ -11,6 +11,8 @@ import AdminLayout from "./components/adminComponents/AdminLayout";
 import AdminHomePage from "./Pages/ADMINPAGES/Home";
 import CampusTour from "./Pages/CompusTour";
 import CampusGallery from "./Pages/CampusGallery";
+import ContactUs from "./Pages/ContactUs";
+import AboutUs from "./Pages/AboutUs";
 
 export default function Routeer() {
   <Router></Router>;
@@ -29,10 +31,10 @@ export default function Routeer() {
         { path: "academics/Phd_programs", element: <PhdPrograms /> },
         { path: "admission/entry_requirements", element: <EntryRequirements /> },
         { path: "admission/acts_online_application", element: <ApplicationForm /> },
-        { path: "acts/campus_tour", element: <CampusTour /> },
-        // { path: "management", element: <Leaders /> },
+        { path: "acts/campus_tour", element: <CampusGallery /> },
+        { path: "acts/about_us", element: <AboutUs /> },
         { path: "acts/campus_gallery", element: <CampusGallery /> },
-        // { path: "contact", element: <ContactUs /> },
+        { path: "acts/contact_us", element: <ContactUs /> },
 
       ],
     },

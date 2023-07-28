@@ -76,50 +76,31 @@ export default function NavBar() {
           <div class=" px-4 py-2  hover-target">
             <Card className="absolute z-50 top-0 mt-6 ">
               <List>
-                <ListItem>Historical Background</ListItem>
-                <ListItem>Staff</ListItem>
-                <ListItem>Contact Us</ListItem>
+                <ListItem
+                 onClick={()=> navigate("acts/about_us")}
+                >Historical Background</ListItem>
+                <ListItem
+                 onClick={()=> navigate("acts/contact_us")}
+                >Staff</ListItem>
+                <ListItem
+                onClick={()=> navigate("acts/contact_us")}
+                >Contact Us</ListItem>
               </List>
             </Card>
           </div>
         </div>
       </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <div class="relative hover-trigger">
+      <Typography as="li" variant="small" className="p-1 font-normal"
+      onClick={() => navigate("acts/campus_tour")}
+      >
+        <div class="relative ">
           <a
             href="#"
             className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
           >
             Campus
-            <svg
-              class="w-2.5 h-2.5 ml-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
+      
           </a>
-          <div class=" bottom-5 px-4 py-2  hover-target">
-            <Card className="absolute z-50">
-              <List>
-                <ListItem
-                 onClick={() => navigate("acts/campus_tour")}
-                >Campus tour</ListItem>
-                <ListItem
-                onClick={() => navigate("acts/campus_gallery")}
-                >
-                  Campus gallery</ListItem>
-              </List>
-            </Card>
-          </div>
         </div>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-normal">

@@ -22,14 +22,21 @@ import {
 } from "@heroicons/react/24/outline";
 import colors from "../constants/colors";
 import QuickLinks from "../components/QuickLinks";
+import pe9 from "../assets/img/DJI_0981-min.JPG";
+import pe8 from "../assets/img/DJI_0974.jpeg";
+import nhigula from "../assets/img/nhigula faculty.png";
+import buildingACt from "../assets/img/topActs.jpeg";
+import pl8 from "../assets/img/_MG_9770.jpg";
+import fred from "../assets/img/msuguFred.jpg";
+import ngonyani from "../assets/img/ngonyaniStu.jpg";
+import ernest from "../assets/img/ereneststu.jpg";
 
 const tabData = [
   {
     label: "Message from the principal",
     title: "Dr. Immaculate Nhigula",
     value: "message",
-    image:
-      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+    image: nhigula,
     desc: `Acts exists to develop God’s ministers
     who are capable of pioneering
     indigenous churches with the
@@ -42,21 +49,16 @@ const tabData = [
     label: "Mission",
     value: "mission",
     title: " ",
-    image:
-      "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
-    desc: `Because it's about motivating the doers. Because I'm here
-    to follow my dreams and inspire other people to follow their dreams, too.`,
+    image: pe8,
+    desc: `To prepare, empower and develop servant leaders with the best Pentecostal training, skills, integrity and passion for multiplying the church and reach the world with the gospel of Jesus Christ in the power of Holy Spirit.`,
   },
 
   {
     label: "Vision",
     value: "vision",
     title: " ",
-    image:
-      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
-    desc: `We're not always in the position that we want to be at.
-    We're constantly growing. We're constantly making mistakes. We're
-    constantly trying to express ourselves and actualize our dreams.`,
+    image: pl8,
+    desc: `To have servant leaders who are committed to God and His Word, spiritually transformed and empowered by Holy Spirit to reach and impact nations with the gospel of Jesus Christ.`,
   },
 ];
 
@@ -110,11 +112,7 @@ const Home = () => {
         )}
       >
         <div className="relative h-full w-full">
-          <img
-            src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-            alt="image 1"
-            className="h-full w-full object-cover"
-          />
+          <img src={pe9} alt="image 1" className="h-full w-full object-cover" />
           <div className="absolute inset-0 top-52 grid h-32  lg:w-[60%]  sm:w-[90%] mx-auto place-items-center bg-black/75">
             <div className="w-full text-center p-5 ">
               <Typography
@@ -132,22 +130,18 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <img src={pl8} alt="image 2" className="h-full w-full object-cover" />
         <img
-          src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-          alt="image 2"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+          src={buildingACt}
           alt="image 3"
           className="h-full w-full object-cover"
         />
       </Carousel>
 
       <div className="flex flex-wrap justify-around mt-16 shadow-sm ">
-       <div>
-        <QuickLinks />
-       </div>
+        <div>
+          <QuickLinks />
+        </div>
 
         <div className="shadow-md p-5 lg:w-1/3 md:w-1/2 sm:w-full">
           <Typography variant="h6">
@@ -185,18 +179,20 @@ const Home = () => {
             <hr />
           </List>
           <div className="flex fle-row gap-1 font-bold cursor-pointer">
-           <Typography as="h6" className="font-bold">View All</Typography>
-           <ArrowRightIcon height={20} width={30}  className="mt-1"/>
+            <Typography as="h6" className="font-bold">
+              View All
+            </Typography>
+            <ArrowRightIcon height={20} width={30} className="mt-1" />
           </div>
         </div>
 
         <div className="bg-gray-400 h-auto mt-10 w-full">
           <div className="flex flex-row p-10 ">
-            <div className="w-1/4 ">
+            <div className="w-1/4 rounded-lg overflow-hidden mr-2">
               <img
                 src={currentTab?.image}
                 alt={currentTab?.value}
-                className="h-full w-full object-cover rounded-sm hidden lg:block sm:hidden"
+                className="h-full w-full object-cover  hidden lg:block sm:hidden"
               />
             </div>
             <div className="lg:w-3/4 sm:w-full">
@@ -238,72 +234,84 @@ const Home = () => {
         </div>
       </div>
       <section>
-        <div className="mt-5">
-          <div className=" text-center">
-            <h3 className="mb-4 pt-5">
-              <strong>What students Say aboutUs</strong>
-            </h3>
-          </div>
-        </div>
-
-        <div className="flex flex-col shadow-sm text-center lg:flex-row md:flex-col sm:flex-col p-10">
-          <div className=" mb-5 mb-md-0">
-            <div className="d-flex justify-center mb-4">
-              <Avatar
-                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-                className="rounded-3xl shadow-1 h-24 w-24"
-                size="30"
-              />
-            </div>
-            <h5 className="mb-3">
-              <strong>ERNEST IDABU</strong>
-            </h5>
-            <h6 className="text-primary mb-3">
-              Masters of Arts Degree in Biblical Studies
-            </h6>
-            <p className="px-xl-3">
-              <i className="fas fa-quote-left pe-2"></i>I recommend these
-              courses to everyone, and wish you, guys, luck with the new
-              studies!
+        <section class="bg-white ">
+          <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+          <div class="mx-auto max-w-screen-sm">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+              Testimonials
+            </h2>
+            <p class="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
+              What our students say about us
             </p>
           </div>
-          <div className=" mb-5 mb-md-0">
-            <div className="d-flex justify-center mb-4">
-              <Avatar
-                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-                className="rounded-3xl shadow-1 h-24 w-24"
-                size="30"
-              />
-            </div>
-            <h5 className="mb-3">FRED MSUNGU</h5>
-            <h6 className="text-primary mb-3">
-              Masters of Arts Degree(Leadership Concentration)
-            </h6>
-            <p className="px-xl-3">
-              <i className="fas fa-quote-left pe-2"></i>I am grateful for your
-              wonderful course! Your tutors are the best, and I am completely
-              satisfied with the level of professional teaching.
-            </p>
+          <div class="grid mb-8 lg:mb-12 lg:grid-cols-3">
+            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
+              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
+                <p class="my-4">
+                  "I recommend these courses to everyone, and wish you, guys,
+                  luck with the new studies!
+                </p>
+              </blockquote>
+              <figcaption class="flex justify-center items-center space-x-3">
+                <img
+                  class="w-9 h-9 rounded-full"
+                  src={ernest}
+                  alt="profile picture"
+                />
+                <div class="space-y-0.5 font-medium  text-left">
+                  <div>ERNEST IDABU</div>
+                  <div class="text-sm font-light text-gray-500 ">
+                    Masters of Arts Degree in Biblical Studies
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 ">
+              <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500">
+                <p class="my-4">
+                  "I am grateful for your wonderful course! Your tutors are the
+                  best, and I am completely satisfied with the level of
+                  professional teaching."
+                </p>
+              </blockquote>
+              <figcaption class="flex justify-center items-center space-x-3">
+                <img
+                  class="w-9 h-9 rounded-full"
+                  src={fred}
+                  alt="profile picture"
+                />
+                <div class="space-y-0.5 font-medium text-left">
+                  <div>FRED MSUNGU</div>
+                  <div class="text-sm font-light text-gray-500 ">
+                    Masters of Arts Degree(Leadership Concentration)
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r ">
+              <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500 ">
+                <p class="my-4">
+                  "I recommend these courses to everyone, and wish you, guys,
+                  luck with the new studies!."
+                </p>
+              </blockquote>
+              <figcaption class="flex justify-center items-center space-x-3">
+                <img
+                  class="w-9 h-9 rounded-full"
+                  src={ngonyani}
+                  alt="profile picture"
+                />
+                <div class="space-y-0.5 font-medium  text-left">
+                  <div>AURELIAN NGONYANI</div>
+                  <div class="text-sm font-light text-gray-500 ">
+                    Masters of Divinity Degree(Ministerial Track)
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
           </div>
-          <div className=" mb-0">
-            <div className="d-flex justify-center mb-4">
-              <Avatar
-                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-                className="rounded-3xl shadow-1 h-24 w-24"
-                size="30"
-              />
-            </div>
-            <h5 className="mb-3">AURELIAN NGONYANI</h5>
-            <h6 className="text-primary mb-3">
-              Masters of Divinity Degree(Ministerial Track)
-            </h6>
-            <p className="px-xl-3">
-              <i className="fas fa-quote-left pe-2"></i>I recommend these
-              courses to everyone, and wish you, guys, luck with the new
-              studies!
-            </p>
           </div>
-        </div>
+        </section>
       </section>
     </div>
   );
