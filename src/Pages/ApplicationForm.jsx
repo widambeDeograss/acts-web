@@ -36,7 +36,7 @@ const ApplicationForm = () => {
 
   return (
     <div className="m-3">
-      <Card className="w-4/5 border-black border-t-2  h-auto m-auto">
+      <Card className=" border-black border-t-2  h-auto m-auto sm:w-full lg:w-4/5 md:w-4/5">
         <img src={logo} alt="logo-ct" className="w-16 h-16 mx-auto py-2" />
         <hr />
         <Typography className="font-bold mt-5 p-3 text-lg ">APPLICATION FORM</Typography>

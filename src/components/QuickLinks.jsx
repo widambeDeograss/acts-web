@@ -35,7 +35,7 @@ function QuickLinks() {
             <hr />
 
             <a
-              href="https://www.pathseminary.org/apply"
+              href="https://www.trinitybiblecollege.edu/ph-d-application"
               style={{ textDecoration: "none", color: "white" }}
             >
               Application Form for Doctrate students{" "}

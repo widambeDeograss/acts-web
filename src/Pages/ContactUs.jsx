@@ -21,7 +21,7 @@ const ContactUs = () => {
                                 </div>
                             </div> */}
                                 <div class="ml-1 grow">
-                                    <p class="mb-2 font-bold text-xs ">
+                                    <p class="mb-2 font-bold text-xs  ">
                                         GIVE US A CALL
                                     </p>
                        
@@ -33,7 +33,7 @@ const ContactUs = () => {
                                         />
                                         <Typography as="li" variant="small" className="p-1 font-body">
                                             <a href="#" className="flex items-center text-xs">
-                                                +255 2264 565 52625
+                                            +255 000 000 000
                                             </a>
                                         </Typography>
                                     </div>
@@ -59,7 +59,7 @@ const ContactUs = () => {
                                         Box 70 Dodoma, Tanzania
                                     </p>
                                     <p class="text-neutral-500 dark:text-neutral-200">
-                                        +1 234-567-89
+                                    +255 000 000 000
                                     </p>
                                 </div>
                             </div>

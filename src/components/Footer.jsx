@@ -62,7 +62,7 @@ export default function Footer() {
               color="whitw"
               className="font-normal transition-colors text-left mt-3"
             >
-              Antioch center for Theological Seminary is a  Theological wing of Christ Gospel church and Ministries
+              AFRICA’S CONTINENTAL THEOLOGICAL SEMINARY (ACTS)
             </Typography>
       </div>
       <hr className="my-8 border-blue-gray-50" />

@@ -1,13 +1,15 @@
 import React from 'react'
 import colors from '../constants/colors'
-import { Typography } from '@material-tailwind/react'
+import { Typography } from '@material-tailwind/react';
+import pe9 from "../assets/img/DJI_0981-min.JPG";
+import pe8 from "../assets/img/DJI_0974.jpeg";
 
 const PageHeroSection = (props) => {
   return (
     <div>
        <div
                  style={{
-                    backgroundImage: `url(https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80)`,
+                    backgroundImage: `url(${pe8})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundColor: "rgba(76, 175, 80, 0.3)",
                     backgroundSize: 'cover',

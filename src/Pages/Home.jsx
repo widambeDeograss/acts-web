@@ -113,15 +113,14 @@ const Home = () => {
       >
         <div className="relative h-full w-full">
           <img src={pe9} alt="image 1" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 top-52 grid h-32  lg:w-[60%]  sm:w-[90%] mx-auto place-items-center bg-black/75">
+          <div className="absolute inset-0 top-52 grid h-auto  pb-2 lg:w-[60%]  sm:w-[90%] mx-auto place-items-center bg-black/75">
             <div className="w-full text-center p-5 ">
               <Typography
                 variant="lead"
                 color="white"
                 className="mb-1 opacity-80 text-base lg:text-base md:text-sm sm:text-sm"
               >
-                It is not so much for its beauty that the forest makes a claim
-                upon men&apos;s hearts `Acts exists to develop God’s ministers
+              `Acts exists to develop God’s ministers
                 who are capable of pioneering indigenous churches with the
                 potential to grow spiritually, numerically, and geographically
                 in the power of the Holy Spirit, thus fulfilling the Great
@@ -235,9 +234,9 @@ const Home = () => {
       </div>
       <section>
         <section class="bg-white ">
-          <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+          <div class=" px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
           <div class="mx-auto max-w-screen-sm">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+            <h2 class=" text-xl tracking-tight font-extrabold text-gray-900">
               Testimonials
             </h2>
             <p class="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">

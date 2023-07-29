@@ -118,7 +118,7 @@ function CampusGallery() {
       <Typography variant="h2" className=""></Typography>
       <Typography
         variant="lead"
-        className=" mx-auto text-center w-2/3  mt-2 font-light mb-6"
+        className=" mx-auto text-center w-2/3  mt-2 font-light mb-6 leading-snug"
       >
         Acts exists to develop God’s ministers who are capable of pioneering
         indigenous churches with the potential to grow spiritually, numerically,

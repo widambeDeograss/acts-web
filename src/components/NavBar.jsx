@@ -208,7 +208,7 @@ export default function NavBar() {
             />
             <Typography as="li" variant="small" className="p-1 font-body">
               <a href="#" className="flex items-center text-xs">
-                +255 2264 565 52625
+                +255 000 000 000
               </a>
             </Typography>
           </div>
