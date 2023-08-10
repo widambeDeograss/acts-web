@@ -26,8 +26,8 @@ import Avatar from "./Avatar";
 
 const links = [
   { icon: HiHome, label: "Home", to: "/AdminHome" },
-  { icon: HiUsers, label: "Members", to: "/admin/blo" },
-  { icon: HiPencilAlt, label: "Blogs", to: "allBlogs" },
+  { icon: HiUsers, label: "Applications", to: "/admin/blo" },
+  { icon: HiPencilAlt, label: "Events", to: "events" },
   { icon:HiUsers , label: "Validators", to: "Validators" },
   // { icon:HiUsers , label: "Validators", to: "Validators" },
 ];
@@ -46,7 +46,7 @@ export default function AdminLayout(props) {
             <Avatar bg="primary" className="mr-3">
               <Logo size={24} />
             </Avatar>{" "}
-            Admin
+            Acts Admin
           </div>
         }
       >
@@ -75,7 +75,9 @@ export default function AdminLayout(props) {
             </IconButton>
           </header>
         )}
+           <div className="lg:-ml-28 md:-ml-20">
            <Outlet />
+           </div>
       </main>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Select, Radio } from "@material-tailwind/react";
 import { data } from "autoprefixer";
 
-function ApplicantReferenceForm() {
+function ApplicantReferenceForm(props) {
   const [isPastor, setisPastor] = useState(true);
   const [PasstorsList, setPasstorsList] = useState([]);
   const [EducatorsList, setEducatorsList] = useState([]);
@@ -15,7 +15,7 @@ function ApplicantReferenceForm() {
         name:name,
         address:address,
         phone:phone
-      }
+      };
 
       if (isPastor) {
         PasstorsList.push(dataobj);
@@ -23,11 +23,14 @@ function ApplicantReferenceForm() {
         setname("")
         setphone("")
       }else{
+        props.onAddReferences({employer_references:dataobj})
         EducatorsList.push(dataobj);
         setaddress("")
         setname("")
         setphone("")
       }
+      localStorage.setItem('referee_pastors_list', JSON.stringify(PasstorsList));
+      localStorage.setItem('referee_employers_list', JSON.stringify(EducatorsList));
   }
 
   return (

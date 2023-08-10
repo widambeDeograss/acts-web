@@ -7,16 +7,18 @@ import Page from "../../components/adminComponents/Page";
 import PageBody from "../../components/adminComponents/PageBody";
 import PageHeader from "../../components/adminComponents/PageHeader";
 import Typography from "../../components/adminComponents/Typography";
-import BlogDescription from "components/BlogDescription";
 import { useNavigate } from "react-router-dom";
-import ProductModal from "./BlogModal";
+import { UserUrls } from "../../utils/apis";
+import { useDataFetch } from "../../hooks/DataHook";
+import { baseUrl } from "../../utils/BaseUrl";
+// import ProductModal from "./BlogModal";
 
 function BlogCards({ blog }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [CurrentBlog, setCurrentBlog] = useState();
-  const [showMore, setShowMore] = useState(false)
-  const [deleteMessage, setDeleteMessage] = useState('');
-
+  const [showMore, setShowMore] = useState(false);
+  const [deleteMessage, setDeleteMessage] = useState("");
+  const fetcher = useDataFetch()
   function closeProductModal() {
     setModalOpen(false);
   }
@@ -29,127 +31,111 @@ function BlogCards({ blog }) {
     console.log("open modal");
     setModalOpen(true);
   }
-  const handle_delete =() => {
+
+  const handle_delete =async (id) => {
+    alert("Are you sure you want to delete!")
+    const response = await fetcher.fetch({ url: UserUrls.EventsActions + id });
+    console.log(response);
+    if (response.delete) {
+      window.location.reload()
+    }
     //delete
-
   };
-  if(data){
-    window.location.pathname = 'AdminHome/allBlogs'
 
-  }
-  if(error){
-    console.log(error)
-  }
   return (
-    <div className="grid gap-12 lg:grid-cols-3">
-    
-        <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl"
-        key={blog.id}
+    <div class="lg:flex">
+      <img
+        class="object-cover w-full h-56 rounded-lg lg:w-64"
+        src={baseUrl+blog?.image}
+        alt=""
+      />
+
+      <div class="flex flex-col justify-between py-6 lg:mx-6">
+        <a
+          href="#"
+          class="text-xl font-semibold text-gray-800 hover:underline dark:text-white "
         >
-          <img
-            src={'http://139.162.249.220:9292/'+blog.img}
-            alt="art cover"
-            loading="lazy"
-            width="100"
-            height="100"
-            class="h-20 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"
-          />
-          <div class="sm:w-7/12 pl-0 p-5">
-            <div class="space-y-2">
-              <div class="space-y-4">
-                <h4 class="text-lg font-semibold text-cyan-900">
-                  {blog.title}
-                </h4>
-                <BlogDescription content={blog.content}/>
-              </div>
-              <div className="flex flex-row gap-4 mt-3">
-                <button
-                  class="block btn btn-warning w-max text-cyan-600"
-                  onClick={() => {
-                    setCurrentBlog(blog);
-                    openProductModal();
-                  }}
-                >
-                  Edit
-                </button>
-                <button
-                  class="block btn btn-danger w-max text-cyan-600"
-                  onClick={() => {
-                    handle_delete();
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-          <ProductModal
-            onClose={closeProductModal}
-            open={modalOpen}
-            blog={CurrentBlog}
-          />
+          {blog?.title}
+        </a>
+        <span class="text-sm text-gray-500 dark:text-gray-300">
+          On: {blog?.date}-{blog?.time}
+        </span>
+        <div>
+          <Button color="warning">edit</Button>
+          <Button color="error" onClick={()=>handle_delete(blog.id)}>Delete</Button>
         </div>
+      </div>
     </div>
   );
 }
 
 export default function Blogs() {
   //user
+  const fetcher = useDataFetch();
   const [blogs, setBlogs] = useState();
   const navigate = useNavigate();
+  const [isLoading, setisLoading] = useState(false);
+
+  const loadData = async () => {
+    setisLoading(true);
+    const response = await fetcher.fetch({ url: UserUrls.Events });
+    console.log(response);
+    if (response) {
+      setBlogs(response);
+      setisLoading(false);
+    }
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
+
   //fetch blogs
-
-  //obtained data
-    useEffect(
-    ()=>{
-      if(data){
-        setBlogs(data.data)
-      }
-      if(error){
-        console.log(error)
-      }
-
-    }, [data, error]
-
-  )
-  if (isLoading)
-  return <h1>Loading.....</h1>;
+  if (isLoading) return <h1>Loading.....</h1>;
   if (!blogs || !blogs.length) {
     return (
-      <div  className="'flex justify-center items-center'">
+      <div className="'flex justify-center items-center'">
         <Empty message="You don't have any Blogs yet." />
         <Button
-            color='primary'
-            onClick={() => {
-              navigate('/AdminHome/createBlog')
-            }}
-            className="ml-[45%]"
-          >
-            Create Blog
-          </Button>
-      
+          color="primary"
+          onClick={() => {
+            navigate("/acts/admin/create_events");
+          }}
+          className=""
+        >
+          Create Event
+        </Button>
       </div>
-    )
+    );
   }
   return (
     <Page>
       <PageHeader
         extra={
           <Button
-            color='primary'
+            color="primary"
             onClick={() => {
-              navigate('/AdminHome/createBlog')
+              navigate("/acts/admin/create_events");
             }}
           >
-            Create Blog
+            Create event
           </Button>
         }
       >
-        <Typography variant='h1'>Blogs</Typography>
+        <Typography variant="h1">Events</Typography>
       </PageHeader>
       <PageBody>
-        {blogs && blogs.map((blog) => <BlogCards blog={blog} />)}
+        <section class="bg-white dark:bg-gray-900">
+          <div class="container px-6 py-10 mx-auto">
+            <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
+              All acts events
+            </h1>
+
+            <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+              {blogs && blogs.reverse().map((blog) => <BlogCards blog={blog} />)}
+            </div>
+          </div>
+        </section>
       </PageBody>
     </Page>
-  )
+  );
 }

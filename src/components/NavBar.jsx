@@ -79,9 +79,9 @@ export default function NavBar() {
                 <ListItem
                  onClick={()=> navigate("acts/about_us")}
                 >Historical Background</ListItem>
-                <ListItem
+                {/* <ListItem
                  onClick={()=> navigate("acts/contact_us")}
-                >Staff</ListItem>
+                >Staff</ListItem> */}
                 <ListItem
                 onClick={()=> navigate("acts/contact_us")}
                 >Contact Us</ListItem>
@@ -208,7 +208,7 @@ export default function NavBar() {
             />
             <Typography as="li" variant="small" className="p-1 font-body">
               <a href="#" className="flex items-center text-xs">
-                +255 000 000 000
+                +255 787 023747
               </a>
             </Typography>
           </div>

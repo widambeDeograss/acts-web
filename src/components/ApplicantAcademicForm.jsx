@@ -155,6 +155,10 @@ function ApplicantAcademicForm() {
               />
             </div>
           </div>
+
+          <div>
+            
+          </div>
      
         <button
           onClick={() => handleSubmit()}

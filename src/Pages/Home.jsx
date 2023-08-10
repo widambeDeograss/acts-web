@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Carousel,
   IconButton,
@@ -30,6 +30,9 @@ import pl8 from "../assets/img/_MG_9770.jpg";
 import fred from "../assets/img/msuguFred.jpg";
 import ngonyani from "../assets/img/ngonyaniStu.jpg";
 import ernest from "../assets/img/ereneststu.jpg";
+import { useNavigate } from "react-router-dom";
+import { useDataFetch } from "../hooks/DataHook";
+import { UserUrls } from "../utils/apis";
 
 const tabData = [
   {
@@ -62,8 +65,63 @@ const tabData = [
   },
 ];
 
+export const EventData = ({event}) => {
+   return(
+    <div >
+          <List>
+            <ListItem style={{ display: "block" }}>
+              <div className="flex flex-row">
+                <CalendarIcon height={32} />
+                <Typography variant="body2">
+                  {" "}
+                  <span>{event?.date}</span>
+                </Typography>
+              </div>
+              <Typography variant="h6">
+                {" "}
+                <strong>
+                  <a
+                    color="inherit"
+                    href="#"
+                    style={{ textDecoration: "none" }}
+                  >
+                   {event?.title}
+                  </a>
+                </strong>
+              </Typography>
+              <div className="flex flex-row">
+                <ClockIcon height={25} />
+                <Typography variant="body4"> {event?.time}</Typography>
+                <MapPinIcon height={25} />
+                <Typography variant="body4"> acts dodoma</Typography>
+              </div>
+            </ListItem>
+            <hr />
+          </List>
+  
+        </div>
+   )
+}
+
 const Home = () => {
   const [currentTab, setcurrentTab] = useState(tabData[0]);
+  const fetcher = useDataFetch();
+  const [blogs, setBlogs] = useState();
+  const navigate = useNavigate();
+  const [isLoading, setisLoading] = useState(false);
+
+  const loadData = async () => {
+    setisLoading(true);
+    const response = await fetcher.fetch({ url: UserUrls.Events });
+    console.log(response);
+    if (response) {
+      setBlogs(response);
+      setisLoading(false);
+    }
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const imagetab = (value) => {
     const currentT = tabData.find((tab) => tab.value === value);
@@ -143,41 +201,15 @@ const Home = () => {
         </div>
 
         <div className="shadow-md p-5 lg:w-1/3 md:w-1/2 sm:w-full">
-          <Typography variant="h6">
+        <Typography variant="h6">
             {" "}
             <strong>Recent Events News&upadets </strong>
           </Typography>
-          <List>
-            <ListItem style={{ display: "block" }}>
-              <div className="flex flex-row">
-                <CalendarIcon height={32} />
-                <Typography variant="body2">
-                  {" "}
-                  <span>Novemver 1 2022</span>
-                </Typography>
-              </div>
-              <Typography variant="h6">
-                {" "}
-                <strong>
-                  <a
-                    color="inherit"
-                    href="#"
-                    style={{ textDecoration: "none" }}
-                  >
-                    New students orientation
-                  </a>
-                </strong>
-              </Typography>
-              <div className="flex flex-row">
-                <ClockIcon height={25} />
-                <Typography variant="body4"> 9:25pm</Typography>
-                <MapPinIcon height={25} />
-                <Typography variant="body4"> acts dodoma</Typography>
-              </div>
-            </ListItem>
-            <hr />
-          </List>
-          <div className="flex fle-row gap-1 font-bold cursor-pointer">
+        {blogs && blogs.map((blog) => <EventData event={blog} />)}
+          
+          <div className="flex fle-row gap-1 font-bold cursor-pointer"
+          onClick={() => navigate("/acts/allEvents")}
+          >
             <Typography as="h6" className="font-bold">
               View All
             </Typography>

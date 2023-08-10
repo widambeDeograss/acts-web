@@ -22,46 +22,18 @@ export default function ProductModal({
   const description = target.description.value;
   let img;
   
-    
-  if(target.img.files[0]){
-    formData.append('newImage',target.img.files[0])
-    img = formData;
-  }
-
-  else if(!target.img.files[0]){
-    const image = new File([requestedImage.data], 'image.jpg', {type:'image/jpeg'})
-    formData.append('newImage', image);
-    img = formData;
-
-  }
-
   if(title) editedData.title= title;
   if(description) editedData.description = description;
   else if(!description) editedData.description = blog.content;
   if(img) editedData.img = img.get('newImage');
-
   }
 };
 const [message, setMessage] = React.useState(null);
-useEffect(()=>{
-if(error){
-setMessage({message:'Something went wrong!!!', color:'danger'})
-}
-if(data){
-  setMessage({message:'Successful edit!!!', color:'success'})
-}}, [data, error])
+
+
   return (
     <Modal closeModal={onClose} open={open}>
       <div>
-        {/* {message && (
-          <Information
-            msg={message.message}
-            temp={true}
-            color={message.color}
-            clearState={'REMOVE_REDIRECT_MESSAGE'}
-            clear={setMessage}
-          />
-        )} */}
       </div>
       <form onSubmit={handleEdit} ref={formRef}>
         <ModalHeader>Edit Article</ModalHeader>

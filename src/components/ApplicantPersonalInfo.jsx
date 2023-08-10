@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Collapse,
   Button,
@@ -11,27 +11,57 @@ import {
 const ApplicantPersonalInfo = () => {
   const [open, setOpen] = useState(false);
   const [openMinsterial, setOpenMinisterial] = useState(false);
+  const formRef = useRef(null);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(formRef.current);
+    const errors = {};
+
+    // formData.forEach((value, name) => {
+    //   if (!value) {
+    //     errors[name] = `${name} is required`;
+    //   }
+    // });
+   
+    let applicant_personal_details = {};
+
+    if (Object.keys(errors).length > 0) {
+      // Handle errors here or set them in your state, depending on your design
+      console.log(errors);
+    } else {
+      // Handle form submission
+      for (let [name, value] of formData.entries()) {
+        console.log(`${name}: ${value}`);
+        applicant_personal_details[`${name}`] = value;
+      }
+
+      console.log(applicant_personal_details);
+      localStorage.setItem('applicant_personal_details', JSON.stringify(applicant_personal_details))
+    }
+  };
+ 
   return (
     <div class="  ">
       <Typography className="font-bold text-left mt-28 sm:mt-1">
         PERSONAL INFORMATION{" "}
       </Typography>
-      <form>
+      <form onSubmit={handleSubmit} ref={formRef} >
         <div className="flex flex-row mt-3">
           <Typography className="font-semibold text-left mt-3">
             Previous studies with Global University:{" "}
           </Typography>
           <div className="flex gap-3">
             <Radio
-              id="ripple-on"
-              name="type"
+              id="ripple"
+              // name="ripple"
               label="Yes"
               onClick={() => setOpen(true)}
             />
             <Radio
-              id="ripple-off"
-              name="type"
+              id="ripple"
+              // name="ripple"
               label="No"
               onClick={() => setOpen(false)}
             />
@@ -51,7 +81,8 @@ const ApplicantPersonalInfo = () => {
                 id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
-                required
+                name="global_university_student_no"
+                required = {open}
               />
             </CardBody>
           </Card>
@@ -66,9 +97,10 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="text"
-              id="first_name"
+              id="last_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
+              name="last_name"
               required
             />
           </div>
@@ -81,10 +113,11 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="text"
-              id="last_name"
+              id="maiden_name"
+              name="maiden_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
-              required
+              
             />
           </div>
           <div>
@@ -96,9 +129,10 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="text"
-              id="company"
+              id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
+              name="first_name"
               required
             />
           </div>
@@ -111,9 +145,10 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="text"
-              id="phone"
+              id="middle_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
+              name="middle_name"
               required
             />
           </div>
@@ -126,7 +161,8 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="date"
-              id="website"
+              id="date_of_birth"
+              name="date_of_birth"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="flowbite.com"
               required
@@ -141,7 +177,8 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="file"
-              id="visitors"
+              id="passprt"
+              name="passprt"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               required
@@ -154,29 +191,33 @@ const ApplicantPersonalInfo = () => {
               Title:{" "}
             </Typography>
             <div className="flex flex-wrap gap-1">
-              <Radio id="ripple-on" name="type" label="Mr" onClick={() => {}} />
+              <Radio id="Mr" name="Title" value="Mr" label="Mr"  onClick={() => {}} />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Ms"
+                name="Title"
                 label="Ms"
+                value="Ms" 
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Mrs"
+                name="Title"
                 label="Mrs"
+                value="Mrs" 
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Rev"
+                name="Title"
                 label="Rev"
+                value="Rev" 
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Dr"
+                name="Title"
                 label="Dr"
+                value="Dr" 
                 onClick={() => {}}
               />
             </div>
@@ -187,15 +228,17 @@ const ApplicantPersonalInfo = () => {
             </Typography>
             <div className="flex gap-3">
               <Radio
-                id="ripple-on"
-                name="type"
+                id="Male-on"
+                name="gender"
+                value="Male" 
                 label="Male"
                 ripple={true}
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Female"
+                name="gender"
+                value="Female" 
                 label="Female"
                 onClick={() => {}}
                 ripple={false}
@@ -210,26 +253,30 @@ const ApplicantPersonalInfo = () => {
             </Typography>
             <div className="flex flex-wrap gap-3">
               <Radio
-                id="ripple-on"
-                name="type"
+                id="Single"
+                name="marital_status"
+                value="Single"
                 label="Single"
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Married"
+                name="marital_status"
+                value="Married" 
                 label="Married"
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Widowed"
+                name="marital_status"
+                value="Widowed" 
                 label="Widowed"
                 onClick={() => {}}
               />
               <Radio
-                id="ripple-off"
-                name="type"
+                id="Divorced"
+                name="marital_status"
+                value="Divorced" 
                 label="Divorced"
                 onClick={() => {}}
               />
@@ -246,7 +293,8 @@ const ApplicantPersonalInfo = () => {
             </label>
             <input
               type="text"
-              id="first_name"
+              id="home_address"
+              name="home_address"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               required
@@ -254,14 +302,15 @@ const ApplicantPersonalInfo = () => {
           </div>
           <div>
             <label
-              for="last_name"
+              for="contry_of_residence"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Country of Residence
             </label>
             <input
               type="text"
-              id="last_name"
+              id="contry_of_residence"
+              name="contry_of_residence"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Tanzania"
               required
@@ -269,14 +318,15 @@ const ApplicantPersonalInfo = () => {
           </div>
           <div>
             <label
-              for="company"
+              for="email"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Email Address
             </label>
             <input
-              type="text"
-              id="company"
+              type="email"
+              id="email"
+              name="email"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="example@gmail.com"
               required
@@ -284,14 +334,15 @@ const ApplicantPersonalInfo = () => {
           </div>
           <div>
             <label
-              for="phone"
+              for="contry_of_citizenship"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Conutry of Citizenship
             </label>
             <input
               type="text"
-              id="phone"
+              id="contry_of_citizenship"
+              name="contry_of_citizenship"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Tanzania"
               //   pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
@@ -300,14 +351,15 @@ const ApplicantPersonalInfo = () => {
           </div>
           <div>
             <label
-              for="website"
+              for="primary_language"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Primary Language
             </label>
             <input
               type="text"
-              id="website"
+              id="primary_language"
+              name="primary_language"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="English"
               required
@@ -315,17 +367,18 @@ const ApplicantPersonalInfo = () => {
           </div>
           <div>
             <label
-              for="visitors"
+              for="primary_phone"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Primary phone
             </label>
             <input
               type="tel"
-              id="visitors"
+              id="primary_phone"
+              name="primary_phone"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="255 765 453 565"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              placeholder="0xxx xxx xxx"
+              pattern="[0-9]{4} [0-9]{3} [0-9]{3}"
               required
             />
           </div>
@@ -333,14 +386,15 @@ const ApplicantPersonalInfo = () => {
         <div class="grid gap-6 mb-6 lg:grid-cols-2 w-full">
           <div>
             <label
-              for="visitors"
+              for="present_occcupation"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Present Occupation
             </label>
             <input
               type="text"
-              id="visitors"
+              id="present_occcupation"
+              name="present_occcupation"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               required
@@ -348,17 +402,18 @@ const ApplicantPersonalInfo = () => {
           </div>
           <div>
             <label
-              for="visitors"
+              for="other_phone"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Other Phone
             </label>
             <input
               type="tel"
-              id="visitors"
+              id="other_phone"
+              name="other_phone"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="255 765 453 565"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              placeholder="0xxx xxx xxx"
+              pattern="[0-9]{4} [0-9]{3} [0-9]{3}"
               required
             />
           </div>
@@ -370,7 +425,8 @@ const ApplicantPersonalInfo = () => {
           <div className="flex flex-col gap-2">
             <Radio
               id="terms-html"
-              name="terms"
+              name="primary_rerigious_affiliation"
+              value="Assemblies of God"
               label={
                 <Typography color="blue-gray" className="font-medium flex">
                   Assemblies of God
@@ -379,7 +435,8 @@ const ApplicantPersonalInfo = () => {
             />
             <Radio
               id="terms-react"
-              name="terms"
+              name="primary_rerigious_affiliation"
+              value="Other Pentecostal"
               label={
                 <Typography color="blue-gray" className="font-medium flex">
                   Other Pentecostal
@@ -388,7 +445,8 @@ const ApplicantPersonalInfo = () => {
             />
             <Radio
               id="terms-react"
-              name="terms"
+              name="primary_rerigious_affiliation"
+              value="Other Protestant"
               label={
                 <Typography color="blue-gray" className="font-medium flex">
                   Other Protestant
@@ -397,7 +455,8 @@ const ApplicantPersonalInfo = () => {
             />
             <Radio
               id="terms-react"
-              name="terms"
+              name="primary_rerigious_affiliation"
+              value="Roman Catholic"
               label={
                 <Typography color="blue-gray" className="font-medium flex">
                   Roman Catholic
@@ -407,7 +466,8 @@ const ApplicantPersonalInfo = () => {
             <div className="flex flex-wrap">
               <Radio
                 id="terms-react"
-                name="terms"
+                name="primary_rerigious_affiliation"
+                value="Other"
                 label={
                   <Typography
                     color="blue-gray"
@@ -422,7 +482,7 @@ const ApplicantPersonalInfo = () => {
                 id="password"
                 class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                required
+                name="other_primary_rerigious_affiliation"
               />
             </div>
           </div>
@@ -462,7 +522,8 @@ const ApplicantPersonalInfo = () => {
                 id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
-                required
+                name="ministerial_organization"
+                required={openMinsterial}
               />
           </div>
           <div className="mb-3">
@@ -477,7 +538,8 @@ const ApplicantPersonalInfo = () => {
                 id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
-                required
+                name="ministerial_country"
+                required={openMinsterial}
               />
           </div>
           <div className="mb-3">
@@ -492,7 +554,8 @@ const ApplicantPersonalInfo = () => {
                 id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
-                required
+                name="ministerial_district"
+                required={openMinsterial}
               />
           </div>
           <div className="mb-3">
@@ -507,7 +570,8 @@ const ApplicantPersonalInfo = () => {
                 id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
-                required
+                name="ministerial_credential_level"
+                required={openMinsterial}
               />
           </div>
           <div className="mb-3">
@@ -522,7 +586,8 @@ const ApplicantPersonalInfo = () => {
                 id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
-                required
+                name="ministerial_date_obtained"
+                required={openMinsterial}
               />
           </div>
             </CardBody>
@@ -545,7 +610,8 @@ const ApplicantPersonalInfo = () => {
             />
             <Radio
               id="terms-react"
-              name="terms"
+              name="how_hear_about_us"
+              value="Friend"
               label={
                 <Typography color="blue-gray" className="font-medium flex">
                   Friend
@@ -555,7 +621,8 @@ const ApplicantPersonalInfo = () => {
             <div className="flex flex-wrap">
               <Radio
                 id="terms-react"
-                name="terms"
+                name="how_hear_about_us"
+                value="Internet"
                 label={
                   <Typography
                     color="blue-gray"
@@ -570,13 +637,14 @@ const ApplicantPersonalInfo = () => {
                 id="password"
                 class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                required
+                name="how_hear_about_us_internet"
               />
             </div>
             <div className="flex flex-wrap">
               <Radio
                 id="terms-react"
-                name="terms"
+                name="how_hear_about_us"
+                value="Magazine"
                 label={
                   <Typography
                     color="blue-gray"
@@ -591,13 +659,14 @@ const ApplicantPersonalInfo = () => {
                 id="password"
                 class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                required
+                name="how_hear_about_us_magazine"
               />
             </div>
             <div className="flex flex-wrap">
               <Radio
                 id="terms-react"
-                name="terms"
+                name="how_hear_about_us"
+                value="other"
                 label={
                   <Typography
                     color="blue-gray"
@@ -612,7 +681,7 @@ const ApplicantPersonalInfo = () => {
                 id="password"
                 class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                required
+                name="how_hear_about_us_other"
               />
             </div>
           </div>
@@ -622,6 +691,7 @@ const ApplicantPersonalInfo = () => {
             <input
               id="remember"
               type="checkbox"
+
               value=""
               class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
               required

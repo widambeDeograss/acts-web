@@ -84,40 +84,41 @@ const MastersPrograms = () => {
   return (
     <div>
     <PageHeroSection title="Masters Programs"/>
-    <div className="mt-3 flex flex-wrap gap-2 justify-between p-10">
+    <div className="mt-3 mb-5 flex flex-wrap  justify-around p-1">
       <div className="lg:w-1/2 md:w-3/4 sm:w-full">
         <Button onClick={toogleOpenPrograms} color={openPrograms? "blue":"gray"} className="w-full mb-3">
           Masters Programs
         </Button>
         <Collapse open={openPrograms}>
-          <Card className="my-4 mx-auto lg:w-ful md:w-3/4 sm:w-full">
+          <Card className="my-4 mx-auto lg:w-ful md:w-full sm:w-full">
             <CardBody>
               <Typography className="font-bold">
                 We offer the following Masters programs
               </Typography>
-              <ol className="mt-2">
-                <li className="flex font-semibold">
-                  <AcademicCapIcon height={20} className="mt-1" /> Masters of
+              <ol className="mt-2 text-sm font-bold">
+                <li className="flex ">
+                  <AcademicCapIcon height={20} className="" /> Masters of
                   Divinity in Biblical Studies
                 </li>
-                <li className="flex font-semibold">
-                  <AcademicCapIcon height={20} className="mt-1" /> Masters of
+                <li className="flex ">
+                  <AcademicCapIcon height={20} className="" /> Masters of
                   Divinity in Ministerial Studies
                 </li>
-                <li className="flex font-semibold">
-                  <AcademicCapIcon height={20} className="mt-1" /> Masters of
+                <li className="flex ">
+                  <AcademicCapIcon height={20} className="" /> Masters of
                   Arts in Leadership
                 </li>
-                <li className="flex font-semibold">
-                  <AcademicCapIcon height={20} className="mt-1" /> Masters of
-                  Arts in Interlectual Studies (Missions)
+                <li className="flex ">
+                  <AcademicCapIcon height={20} className=" " /> 
+                  Masters of
+                  Arts in Interlectual Studies(Mission)
                 </li>
-                <li className="flex font-semibold">
-                  <AcademicCapIcon height={20} className="mt-1" /> Masters of
+                <li className="flex ">
+                  <AcademicCapIcon height={20} className="" /> Masters of
                   Arts in Education
                 </li>
-                <li className="flex font-semibold">
-                  <AcademicCapIcon height={20} className="mt-1" /> Masters of
+                <li className="flex ">
+                  <AcademicCapIcon height={20} className="" /> Masters of
                   Arts in Biblical Studies
                 </li>
               </ol>
@@ -131,10 +132,10 @@ const MastersPrograms = () => {
           <Card className="my-4 mx-auto lg:w-full md:w-3/4 sm:w-full">
             <CardBody>
               <Typography className="font-bold">
-                For Residential Students
+                Residential Students
               </Typography>
               <Typography className="font-normal text-left">
-                They have three terms per year
+                Three terms per year
               </Typography>
               <ol className="mt-2">
                 <li className="flex font-semibold">
@@ -154,7 +155,7 @@ const MastersPrograms = () => {
                 Non-Residential Students
               </Typography>
               <Typography className="font-normal text-left">
-                They have two terms per year
+                Two terms per year
               </Typography>
               <ol className="mt-2">
                 <li className="flex font-semibold">
@@ -171,14 +172,14 @@ const MastersPrograms = () => {
             </CardBody>
           </Card>
         </Collapse>
-        <Button onClick={toggleOpen} color={open? "blue":"gray"} className="w-full mt-3">
+        <Button onClick={toggleOpen} color={open? "blue":"gray"} className="w-full mt-3 mb-4">
           Cost per term
         </Button>
         <Collapse open={open}>
           <Card className="my-4 mx-auto  lg:w-full md:w-3/4 sm:w-full">
             <CardBody>
               <Typography className="font-bold">
-                For Residential Students
+               Residential Students
               </Typography>
               <Typography className="font-body text-left">
                 There is a sponsorship to all residential students. This

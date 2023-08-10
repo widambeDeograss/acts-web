@@ -2,81 +2,59 @@ import React, { useRef } from "react";
 import Page from "../../components/adminComponents/Page";
 import PageBody from "../../components/adminComponents/PageBody";
 import PageHeader from "../../components/adminComponents/PageHeader";
-import TextArea from "components/adminComponents/TextArea";
-import Button from "components/adminComponents/Button";
-import Typography from "components/adminComponents/Typography";
+import TextArea from "../../components/adminComponents/TextArea";
+import Button from "../../components/adminComponents/Button";
+import Typography from "../../components/adminComponents/Typography";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "context";
-import useFetch from "hooks";
-import { Information } from "components";
+import { useFormPost } from "../../hooks/FormDataHoook";
+import { UserUrls } from "../../utils/apis";
 
 function CreateBlog() {
   const formRef = useRef();
   const navigate = useNavigate();
-  const {user_details} = useGlobalContext()
-  const {error, data, obtainData, loading} = useFetch();
-  const handleSubmit = (event) => {
+  const formPost = useFormPost();
+
+  const handleSubmit =async (event) => {
     event.preventDefault()
     //for image submission
-    if (user_details?.token) {
-      const formData = new FormData()
-      const editedData = {  }
-      const target = event.target
-      const title = target.title.value
-      const description = target.description.value
-      let img
-      if (target.img) {
-        formData.append('newImage', target.img.files[0])
-        img = formData
+    if (true) {
+      const formData = new FormData(formRef.current);
+      console.log(formData);
+      try {
+        const response = await formPost.post({
+          url:UserUrls.Events,
+          data:formData
+        });
+        if (response.save == true) {
+          console.log(response);
+          navigate("/acts/admin/events")
+        }
+       
+      } catch (error) {
+        
       }
-
-      if (title && img && description) {
-        editedData.title = title
-        editedData.description = description
-        editedData.img = img.get('newImage')
-      }
-      else
-      return ;
-
-      let url, method, body, options
-      obtainData(
-        (url = 'blog/article_data'),
-        (method = 'post'),
-        (body = editedData),
-        (options = {
-          headers: {
-            token: user_details.token,
-            'Content-Type': 'multipart/form-data',
-          },
-        })
-      )
+   
     }
   }
   const [message, setMessage] = React.useState(null)
-  React.useEffect(() => {
-    if (error) {
-      setMessage({ message: 'Something went wrong!!!', color: 'danger' })
-    }
-    if (data) {
-      setMessage({ message: 'Successful post!!!', color: 'success' })
-    }
-  }, [data, error])
+
   return (
     <Page>
       <PageHeader
         extra={
           <Button
             color="primary"
+            className="mb-5"
             onClick={() => {
-              navigate("/AdminHome/allBlogs");
+              navigate("/acts/admin/events");
             }}
           >
-            All Blogs
+            All Events
           </Button>
         }
       >
         <Typography variant="h1" className="ml-2">
-          Create Blogs
+          Create Event
         </Typography>
       </PageHeader>
       <PageBody>
@@ -89,14 +67,13 @@ function CreateBlog() {
                     i
                   </div>
                   <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
-                    <h2 className="leading-relaxed">Create a Blog</h2>
+                    <h2 className="leading-relaxed">Create an event</h2>
                     <p className="text-sm text-gray-500 font-normal leading-relaxed">
-                      Enter the required Blog details to create or publish the blog 
+                      Enter the required event details to create or publish the event 
                     </p>
                   </div>
                 </div>
                 <div>
-                  {message && <Information msg={message.message} color={message.color} clear={setMessage} temp={true}/>}
                 </div>
                 <form
                   enctype="multipart/form-data"
@@ -107,28 +84,49 @@ function CreateBlog() {
                   <div className="divide-y divide-gray-200">
                     <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                       <div className="flex flex-col">
-                        <label className="leading-loose">Blog Title</label>
+                        <label className="leading-loose">Event title</label>
                         <input
                           type="text"
                           required
+                          maxLength={50}
                           className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-                          placeholder="Event title"
+                          placeholder="Event title hint:50 words "
                           name="title"
                         />
                       </div>
                       <div className="flex flex-col">
-                        <label className="leading-loose">Blog image</label>
+                        <label className="leading-loose">Event time</label>
+                        <input
+                          type="time"
+                          required
+                          className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+                          placeholder="Event title"
+                          name="time"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="leading-loose">Event date</label>
+                        <input
+                          type="date"
+                          required
+                          className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+                          placeholder="Event title"
+                          name="date"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="leading-loose">Event image</label>
                         <input
                           class="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-xs font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                           id="formFileSm"
                           type="file"
-                          name="img"
+                          name="image"
                         />
                       </div>
 
                       <div className="flex flex-col">
                         <label className="leading-loose">
-                          Blog Description
+                        Event description
                         </label>
                         <TextArea type="text" name="description" />
                       </div>
@@ -141,7 +139,7 @@ function CreateBlog() {
                         className="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
                         type="submit"
                       >
-                        publish
+                        publish event
                       </button>
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   Stepper,
   Step,
@@ -19,12 +19,9 @@ import ApplicantReferenceForm from "../components/ApplicantReferenceForm";
 import ApplicantAcademicForm from "../components/ApplicantAcademicForm";
 
 const ApplicationForm = () => {
-  const [steps, setSteps] = useState([
-    { id: 1, title: "PERSONAL INFORMATION", active: true },
-    { id: 2, title: "REFEREES", active: false },
-    { id: 3, title: "ACADEMIC INFORMATION", active: false },
-    { id: 4, title: "SUMMARY", active: false },
-  ]);
+  const [references, setreferences] = useState(
+    { pastors_reference:[], employer_references:[] }
+  );
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLastStep, setIsLastStep] = React.useState(false);
   const [isFirstStep, setIsFirstStep] = React.useState(false);
@@ -33,6 +30,29 @@ const ApplicationForm = () => {
   const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
   const handleDisplaySummary = () => setdisplaySummary(true);
+
+   
+  const handleReferences = (reference_data) => {
+  console.log(reference_data);
+
+    setreferences(prevState => {
+      if (reference_data.pastors_reference) {
+       const data = references.pastors_reference.concat(reference_data.pastors_reference)
+        return {
+          ...prevState,
+          pastors_reference:data
+        }
+      }else{
+        const data = references.employer_references.concat(reference_data.employer_references)
+        return {
+          ...prevState,
+          employer_references:data
+        }
+      }
+      // return new Map(prevState).set(name, checked);
+    });
+  };
+
 
   return (
     <div className="m-3">
@@ -104,6 +124,7 @@ const ApplicationForm = () => {
                     )) ||
                       (activeStep === 1 && (
                         <ApplicantReferenceForm
+                        onAddReferences={handleReferences}
                         // onChangeYourInfo={changeYourInfo}
                         // yourInfo={yourInfo}
                         // currentStep={stepNumber}
@@ -112,10 +133,7 @@ const ApplicationForm = () => {
                       )) ||
                       (activeStep === 2 && (
                         <ApplicantAcademicForm
-                        // onChangeYourInfo={changeYourInfo}
-                        // yourInfo={yourInfo}
-                        // currentStep={stepNumber}
-                        // isEmpty={isEmpty}
+                        
                         />
                       ))
                     //    ||
