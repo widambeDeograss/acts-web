@@ -3,6 +3,7 @@ import { Card, Typography } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { useFormPost } from "../hooks/FormDataHoook";
 import { UserUrls } from "../utils/apis";
+import swal from "sweetalert";
 
 const ContactUs = () => {
   const [name, setname] = useState('');
@@ -27,7 +28,12 @@ const ContactUs = () => {
       })
       console.log(responce);
       if (responce) {
-          alert("Your message was sent succesfully")
+        swal({  
+          title: "",  
+          text: "Your message was sent succesfully!",  
+          icon: "success",  
+          button: "OK",  
+        });
           setemail(' ');
           setname(' ');
           setmessage(' ');

@@ -21,6 +21,8 @@ import { useSelector } from "react-redux";
 import { selectCurrentToken } from "./App/AuthSlice";
 import SingleEvent from "./Pages/SingleEvent";
 import AllEvents from "./Pages/AllEvents";
+import Applications from "./Pages/ADMINPAGES/Applications";
+import UserContacts from "./Pages/ADMINPAGES/UserFeeds";
 
 export default function Routeer() {
   const token = useSelector(selectCurrentToken);
@@ -50,7 +52,7 @@ export default function Routeer() {
         { path: "acts/about_us", element: <AboutUs /> },
         { path: "acts/campus_gallery", element: <CampusGallery /> },
         { path: "acts/contact_us", element: <ContactUs /> },
-        { path: "acts/events", element: <SingleEvent /> },
+        { path: "acts/events/:id", element: <SingleEvent /> },
         { path: "acts/allEvents", element: <AllEvents /> },
       ],
     },
@@ -61,14 +63,16 @@ export default function Routeer() {
     {
       path: "/acts/admin/*",
       element: (
-        //  token?  
+        token?  
          <AdminLayout />
-        //  : <Navigate to="/actsAdimin/login"  />
+         : <Navigate to="/actsAdimin/login"  />
       ),
       children: [
-        { element: <Navigate to="/acts/admin/create_events" />, index: true },
+        { element: <Navigate to="/acts/admin/AdminHome" />, index: true },
         { path: "AdminHome", element: <AdminHomePage /> },
         { path: "events", element: <Blogs /> },
+        { path: "Applications", element: <Applications /> },
+        { path: "contacts", element: <UserContacts /> },
         { path: "create_events", element: <CreateBlog /> },
       ],
     },

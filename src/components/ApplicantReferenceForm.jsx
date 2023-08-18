@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Typography, Select, Radio } from "@material-tailwind/react";
 import { data } from "autoprefixer";
+import swal from "sweetalert";
 
 function ApplicantReferenceForm(props) {
   const [isPastor, setisPastor] = useState(true);
@@ -31,6 +32,13 @@ function ApplicantReferenceForm(props) {
       }
       localStorage.setItem('referee_pastors_list', JSON.stringify(PasstorsList));
       localStorage.setItem('referee_employers_list', JSON.stringify(EducatorsList));
+      swal({  
+        title: "",  
+        text: "Reference details added succesfully proceed NEXT!",  
+        icon: "success",  
+        button: "OK",  
+      });
+      // window.location.reload()
   }
 
   return (

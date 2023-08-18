@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="w-full p-8 text-white bg-white" 
+    <footer className="w-full p-8 text-white" 
     style={{
         backgroundColor: colors.primary,
       }}
@@ -67,7 +67,7 @@ export default function Footer() {
       </div>
       <hr className="my-8 border-blue-gray-50" />
       <Typography color="white" className="text-center font-normal">
-        &copy; 2023 Acts 
+        &copy; {new Date().getFullYear()} Acts 
       </Typography>
     </footer>
   );

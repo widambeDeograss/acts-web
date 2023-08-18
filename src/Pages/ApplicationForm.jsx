@@ -17,6 +17,7 @@ import ApplicationSummary from "./ApplicationSummary";
 import ApplicantPersonalInfo from "../components/ApplicantPersonalInfo";
 import ApplicantReferenceForm from "../components/ApplicantReferenceForm";
 import ApplicantAcademicForm from "../components/ApplicantAcademicForm";
+import swal from 'sweetalert';  
 
 const ApplicationForm = () => {
   const [references, setreferences] = useState(
@@ -27,9 +28,56 @@ const ApplicationForm = () => {
   const [isFirstStep, setIsFirstStep] = React.useState(false);
   const [displaySummary, setdisplaySummary] = useState(false);
 
-  const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
+  const handleNext = () => {
+    if (activeStep  === 0  && localStorage.getItem("applicant_personal_details") === null) {
+     setActiveStep(0);
+     swal({  
+      title: "",  
+      text: "Complete personal detail form first!",  
+      icon: "warning",  
+      button: "OK",  
+    });
+     
+    }
+    else if (activeStep  === 1  && localStorage.getItem("referee_employers_list")  === null  && localStorage.getItem("referee_pastors_list")  === null){
+      setActiveStep(1)
+      swal({  
+        title: "",  
+        text: "Complete References form first!",  
+        icon: "warning",  
+        button: "OK",  
+      });
+    } 
+    else if(activeStep  === 2  && localStorage.getItem("applicant_education_data")=== null ){
+       setActiveStep(2)
+       swal({  
+        title: "",  
+        text: "Complete Education form first!",  
+        icon: "warning",  
+        button: "OK",  
+      });
+    }
+    else {
+      !isLastStep && setActiveStep((cur) => cur + 1)
+    }
+    
+  };
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
-  const handleDisplaySummary = () => setdisplaySummary(true);
+  const handleDisplaySummary = () => {
+    if (localStorage.getItem("applicant_education_data")=== null ) {
+      console.log('reached');
+      setdisplaySummary(false)
+      swal({  
+        title: "",  
+        text: "Complete Education form first!",  
+        icon: "warning",  
+        button: "OK",  
+      });
+    } else {
+      setdisplaySummary(true)
+    }
+    
+  };
 
    
   const handleReferences = (reference_data) => {
@@ -67,7 +115,7 @@ const ApplicationForm = () => {
               isLastStep={(value) => setIsLastStep(value)}
               isFirstStep={(value) => setIsFirstStep(value)}
             >
-              <Step onClick={() => setActiveStep(0)}>
+              <Step>
                 <UserIcon className="h-5 w-5" />
                 <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden">
                   <Typography
@@ -78,7 +126,7 @@ const ApplicationForm = () => {
                   </Typography>
                 </div>
               </Step>
-              <Step onClick={() => setActiveStep(1)}>
+              <Step >
                 <CogIcon className="h-5 w-5" />
                 <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden ">
                   <Typography
@@ -89,7 +137,7 @@ const ApplicationForm = () => {
                   </Typography>
                 </div>
               </Step>
-              <Step onClick={() => setActiveStep(2)}>
+              <Step>
                 <BuildingLibraryIcon className="h-5 w-5" />
                 <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden">
                   <Typography
@@ -163,7 +211,9 @@ const ApplicationForm = () => {
               // </div>
             )}
           </div>
-          <div className="mt-32 flex justify-between">
+          {!displaySummary &&
+          (
+            <div className="mt-32 flex justify-between">
             <Button onClick={handlePrev} disabled={isFirstStep}>
               Prev
             </Button>
@@ -175,6 +225,8 @@ const ApplicationForm = () => {
               </Button>
             )}
           </div>
+          )
+          }
         </div>
       </Card>
     </div>

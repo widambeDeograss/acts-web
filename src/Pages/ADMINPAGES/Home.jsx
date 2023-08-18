@@ -1,156 +1,90 @@
 import { HiUser } from "react-icons/hi";
-import React from "react";
-import Avatar from "../../components/adminComponents/Avatar";
-import Badge, { BadgeColor } from "../../components/adminComponents/Badge";
-import Card from "../../components/adminComponents/Card";
-import CardBody from "../../components/adminComponents/CardBody";
-import CardHeader from "../../components/adminComponents/CardHeader";
-import List from "../../components/adminComponents/List";
-import ListItem from "../../components/adminComponents/ListItem";
+import React,{useState, useEffect} from "react";
 import Page from "../../components/adminComponents/Page";
-import PageBody from "../../components/adminComponents/PageBody";
 import PageHeader from "../../components/adminComponents/PageHeader";
-import ProgressBar from "../../components/adminComponents/ProgressBar";
-// import ProgressCircle from "../../components/adminComponents/ProgressCircle";
-import Table from "../../components/adminComponents/Table";
-import TableBody from "../../components/adminComponents/TableBody";
-import TableCell from "../../components/adminComponents/TableCell";
-import TableHead from "../../components/adminComponents/TableHead";
-import TableRow from "../../components/adminComponents/TableRow";
+import { useDataFetch } from "../../hooks/DataHook";
+import { UserUrls } from "../../utils/apis";
 import Typography from "../../components/adminComponents/Typography";
-import { useEffect } from "react";
 
-const created_overviews = [
-  {
-    name: "Users",
-    value: "12 500"
-  },
-  {
-    name: "No Of Blogs",
-    value: "12 500"
-  },
-  {
-    name: "Products",
-    value: "12 500"
-  },
-  {
-    name: "Visits",
-    value: "12 500"
-  }
-];
- 
-const users = [
-  {
-    firstName: "John",
-    lastName: "Smith",
-    job: "Web developer"
-  },
-  {
-    firstName: "Jane",
-    lastName: "John",
-    job: "Designer"
-  }
-];
-
-
-const targets = [
-  {
-    name: "Visits",
-    value: 90
-  },
-  {
-    name: "Income",
-    value: 75
-  },
-  {
-    name: "Orders",
-    value: 50
-  }
-];
 
 export default function AdminHomePage() {
   console.log('dfajfpoiafeafda')
   const[optimizationData, setOptimizationData] = React.useState(null);
-  const [overviews, setOverviews] = React.useState(created_overviews)
+  const fetcher = useDataFetch();
+  const [data, setdata] = useState();
+  const [isLoading, setisLoading] = useState(false);
+
+  const loadData = async () => {
+    setisLoading(true);
+    const response = await fetcher.fetch({ url: UserUrls.Dashboard });
+    console.log(response);
+    if (response) {
+      setdata(response);
+      setisLoading(false);
+    }
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
-    <Page>
+    <Page className="w-full h-[100%] bg-white">
       <PageHeader>
         <Typography variant='h1'>Home</Typography>
       </PageHeader>
-      <PageBody className='grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4'>
-        {(optimizationData && overviews) &&
-          overviews.map((overview) => {
-            if(overview.name === 'Users')
-            return (
-            <Card className='md:col-span-3' key={overview.name}>
-              <CardBody>
-                <Typography className='mb-2' bold>
-                  {optimizationData.total_users}
-                </Typography>
-                <Typography muted smaller>
-                  {overview.name}
-                </Typography>
-              </CardBody>
-            </Card>
-          );
-          return (
-            <Card className='md:col-span-3' key={overview.name}>
-              <CardBody>
-                <Typography className='mb-2' bold>
-                  {overview.value}
-                </Typography>
-                <Typography muted smaller>
-                  {overview.name}
-                </Typography>
-              </CardBody>
-            </Card>
-          )
-          })}
-        <Card className='md:col-span-4'>
-          <CardHeader title='Top Users'></CardHeader>
-          <CardBody>
-            <List>
-              {users.map((user, index) => (
-                <ListItem
-                  avatar={
-                    <Avatar>
-                      <HiUser />
-                    </Avatar>
-                  }
-                  key={index}
-                  subTitle={user.job}
-                  title={`${user.firstName} ${user.lastName}`}
-                />
-              ))}
-            </List>
-          </CardBody>
-        </Card>
-        <Card className='md:col-span-4'>
-          <CardHeader title='Targets'></CardHeader>
-          <CardBody>
-            {targets.map((target) => (
-              <div key={target.name}>
-                <div className='flex justify-between items-center mb-1'>
-                  <Typography bold muted small>
-                    {target.name}
-                  </Typography>
-                  <Typography bold small>{`${target.value}%`}</Typography>
-                </div>
-                <ProgressBar value={target.value} />
-              </div>
-            ))}
-          </CardBody>
-        </Card>
-        <Card className='md:col-span-4'>
-          <CardHeader title='Progress'></CardHeader>
-          <CardBody>
-          {/* {
-            optimizationData && <RolesPerPeople labels={optimizationData.user_per_role_chart[0]} series={optimizationData.user_per_role_chart[1]}/> 
-          } */}
-           
-          </CardBody>
-        </Card>
-      </PageBody>
+  
+       
+      <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-4 justify-center p-3  ">
+  <div class="container mx-auto pr-4">
+    <div class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+      <div class="h-20 bg-red-400 flex items-center justify-between">
+        <p class="mr-0 text-white text-lg pl-5">NO OF APPLICATIONS</p>
+      </div>
+      <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
+        <p>TOTAL</p>
+      </div>
+      <p class="py-4 text-3xl ml-5">{data?.number_applications}</p>
+    </div>
+  </div>
+     
+  <div class="container mx-auto pr-4">
+    <div class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+      <div class="h-20 bg-blue-500 flex items-center justify-between">
+        <p class="mr-0 text-white text-lg pl-5">NO OF USERS FEEDBACKS</p>
+      </div>
+      <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
+        <p>TOTAL</p>
+      </div>
+      <p class="py-4 text-3xl ml-5">{data?.number_contacts}</p>
+    </div>
+  </div>
+    
+  <div class="container mx-auto pr-4">
+    <div class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+      <div class="h-20 bg-purple-400 flex items-center justify-between">
+        <p class="mr-0 text-white text-lg pl-5">NO OF EVENTS</p>
+      </div>
+      <div class="flex justify-between pt-6 px-5 mb-2 text-sm text-gray-600">
+        <p>TOTAL</p>
+      </div>
+      <p class="py-4 text-3xl ml-5">{data?.number_events}</p>
+    </div>
+  </div>
+{/*  
+  <div class="container mx-auto">
+    <div class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+      <div class="h-20 bg-purple-900 flex items-center justify-between">
+        <p class="mr-0 text-white text-lg pl-5">BT TODAY'S SUBSCRIPTION</p>
+      </div>
+      <div class="flex justify-between pt-6 px-5 mb-2 text-sm text-gray-600">
+        <p>TOTAL</p>
+      </div>
+      <p class="py-4 text-3xl ml-5">0</p>
+    </div>
+  </div> */}
+</div>
+        
+      
+
     </Page>
   )
 }

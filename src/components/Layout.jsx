@@ -10,7 +10,9 @@ function Layout(props) {
       <div>
         <Outlet />
       </div>
-      <Footer></Footer>
+      <div className="">
+      <Footer /> 
+      </div>
     </div>
   );
 }

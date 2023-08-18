@@ -1,17 +1,42 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import QuickLinks from "../components/QuickLinks";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { Typography } from "@material-tailwind/react";
 import { HiArrowRight } from "react-icons/hi";
+import { UserUrls } from "../utils/apis";
+import { useDataFetch } from "../hooks/DataHook";
+import { baseUrl } from "../utils/BaseUrl";
 
 const SingleEvent = () => {
+  const fetcher = useDataFetch();
+  const [blogs, setBlogs] = useState();
   const navigate = useNavigate();
+  const {state} =useLocation()
+  const event_id = state
+  const [isLoading, setisLoading] = useState(false);
+  const params = useParams();
+
+  console.log(params);
+
+  console.log(state);
+  const loadData = async () => {
+    setisLoading(true);
+    const response = await fetcher.fetch({ url: UserUrls.SingleEvent + params.id });
+    console.log(response);
+    if (response) {
+      setBlogs(response);
+      setisLoading(false);
+    }
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
     <div>
       <section class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-10 mx-auto">
           <h1 class="text-xl text-left font-semibold text-gray-800 capitalize lg:text-4xl  hover:underline  dark:text-white">
-            From the blog
+            {blogs?.title}
           </h1>
 
           <div class="grid grid-cols-1 gap-8 mt-2 md:mt-16 md:grid-cols-2">
@@ -21,22 +46,22 @@ const SingleEvent = () => {
                   href="#"
                   class="text-xl font-semibold text-gray-800 "
                 >
-                  How to use sticky note for problem solving
+                  {blogs?.description}
                 </a>
 
-                <span class="text-sm text-gray-500 dark:text-gray-300">
-                  On: 20 October 2019
+                <span class="text-lg mt-3 text-gray-500 dark:text-gray-300">
+                  On: {blogs?.date} time {blogs?.time}
                 </span>
              
               </div>
               <img
-                class="object-cover w-full h-64 rounded-lg lg:w-80"
-                src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                class="object-cover w-full h-64 rounded-lg lg:w-"
+                src={baseUrl + blogs?.image}
                 alt=""
               />
 
               <div
-                className="flex fle-row gap-1 font-bold cursor-pointer mt-6"
+                className="flex fle-row gap-1 font-bold cursor-pointer mt-10"
                 onClick={() => navigate("/acts/allEvents")}
               >
                 <Typography as="h6" className="font-bold">

@@ -1,20 +1,19 @@
 import format from "date-fns/format";
 import { HiDotsVertical } from "react-icons/hi";
-import Badge from "../components/Badge";
-import Card from "../components/Card";
-import CardBody from "../components/CardBody";
-import IconButton from "../components/IconButton";
-import Page from "../components/Page";
-import PageBody from "../components/PageBody";
-import PageHeader from "../components/PageHeader";
-import Table from "../components/Table";
-import TableBody from "../components/TableBody";
-import TableCell from "../components/TableCell";
-import TableHead from "../components/TableHead";
-import TableRow from "../components/TableRow";
-import Typography from "../components/Typography";
-import { useOrders } from "../hooks/useOrders";
-import { Order } from "../types/order";
+import Badge from "../../components/adminComponents/Badge";
+import Card from "../../components/adminComponents/Card";
+import CardBody from "../../components/adminComponents/CardBody";
+import IconButton from "../../components/adminComponents/IconButton";
+import Page from "../../components/adminComponents/Page";
+import PageBody from "../../components/adminComponents/PageBody";
+import PageHeader from "../../components/adminComponents/PageHeader";
+import Table from "../../components/adminComponents/Table";
+import TableBody from "../../components/adminComponents/TableBody";
+import TableCell from "../../components/adminComponents/TableCell";
+import TableHead from "../../components/adminComponents/TableHead";
+import TableRow from "../../components/adminComponents/TableRow";
+import Typography from "../../components/adminComponents/Typography";
+
 
 
 

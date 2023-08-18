@@ -7,6 +7,7 @@ import {
   CardBody,
   Radio,
 } from "@material-tailwind/react";
+import swal from "sweetalert";
 
 const ApplicantPersonalInfo = () => {
   const [open, setOpen] = useState(false);
@@ -39,6 +40,14 @@ const ApplicantPersonalInfo = () => {
 
       console.log(applicant_personal_details);
       localStorage.setItem('applicant_personal_details', JSON.stringify(applicant_personal_details))
+      swal({  
+        title: "",  
+        text: "Application details added succesfully proceed NEXT!",  
+        icon: "success",  
+        button: "OK",  
+      });
+      window.location.reload()
+    
     }
   };
  
@@ -55,13 +64,13 @@ const ApplicantPersonalInfo = () => {
           <div className="flex gap-3">
             <Radio
               id="ripple"
-              // name="ripple"
+              name="ripple"
               label="Yes"
               onClick={() => setOpen(true)}
             />
             <Radio
               id="ripple"
-              // name="ripple"
+              name="ripple"
               label="No"
               onClick={() => setOpen(false)}
             />
@@ -181,6 +190,7 @@ const ApplicantPersonalInfo = () => {
               name="passprt"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
+              accept="image/png, image/gif, image/jpeg"
               required
             />
           </div>

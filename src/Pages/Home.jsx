@@ -66,10 +66,19 @@ const tabData = [
 ];
 
 export const EventData = ({event}) => {
+  const navigate = useNavigate()
+
+
    return(
     <div >
           <List>
-            <ListItem style={{ display: "block" }}>
+            <ListItem style={{ display: "block" }}
+            onClick={() => {
+              navigate(`/acts/events/${event?.id}`, {state:{
+                event:event?.id
+              }})
+            }}
+            >
               <div className="flex flex-row">
                 <CalendarIcon height={32} />
                 <Typography variant="body2">

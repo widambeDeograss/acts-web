@@ -8,6 +8,7 @@ import Typography from "../../components/adminComponents/Typography";
 import { useNavigate } from "react-router-dom";
 import { useFormPost } from "../../hooks/FormDataHoook";
 import { UserUrls } from "../../utils/apis";
+import swal from "sweetalert";
 
 function CreateBlog() {
   const formRef = useRef();
@@ -27,11 +28,22 @@ function CreateBlog() {
         });
         if (response.save == true) {
           console.log(response);
+          swal({  
+            title: "",  
+            text: "Event created successfully!",  
+            icon: "success",  
+            button: "OK",  
+          });
           navigate("/acts/admin/events")
         }
        
       } catch (error) {
-        
+        swal({  
+          title: "",  
+          text: "Something went wrong try again!",  
+          icon: "error",  
+          button: "OK",  
+        });
       }
    
     }
@@ -121,6 +133,7 @@ function CreateBlog() {
                           id="formFileSm"
                           type="file"
                           name="image"
+                          accept="image/png, image/gif, image/jpeg"
                         />
                       </div>
 

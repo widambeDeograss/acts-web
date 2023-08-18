@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
+import swal from "sweetalert";
 // import ProductModal from "./BlogModal";
 
 function BlogCards({ blog }) {
@@ -33,7 +34,12 @@ function BlogCards({ blog }) {
   }
 
   const handle_delete =async (id) => {
-    alert("Are you sure you want to delete!")
+     swal({  
+    title: "",  
+    text: "Are you sure you want to delete this event!",  
+    icon: "warning",  
+    button: "OK",  
+  });
     const response = await fetcher.fetch({ url: UserUrls.EventsActions + id });
     console.log(response);
     if (response.delete) {
@@ -61,7 +67,7 @@ function BlogCards({ blog }) {
           On: {blog?.date}-{blog?.time}
         </span>
         <div>
-          <Button color="warning">edit</Button>
+          {/* <Button color="warning">edit</Button> */}
           <Button color="error" onClick={()=>handle_delete(blog.id)}>Delete</Button>
         </div>
       </div>

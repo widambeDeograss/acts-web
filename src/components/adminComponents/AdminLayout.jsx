@@ -25,10 +25,10 @@ import Avatar from "./Avatar";
 // import ProfileMenu from "./ProfileMenu";
 
 const links = [
-  { icon: HiHome, label: "Home", to: "/AdminHome" },
-  { icon: HiUsers, label: "Applications", to: "/admin/blo" },
+  { icon: HiHome, label: "Home", to: "AdminHome" },
+  { icon: HiUsers, label: "Applications", to: "Applications" },
   { icon: HiPencilAlt, label: "Events", to: "events" },
-  { icon:HiUsers , label: "Validators", to: "Validators" },
+  { icon:HiUsers , label: "User Contacts", to: "contacts" },
   // { icon:HiUsers , label: "Validators", to: "Validators" },
 ];
 
@@ -75,7 +75,7 @@ export default function AdminLayout(props) {
             </IconButton>
           </header>
         )}
-           <div className="lg:-ml-28 md:-ml-20">
+           <div className="lg:-ml-24 md:-ml-20">
            <Outlet />
            </div>
       </main>
