@@ -12,6 +12,8 @@ import {
   CogIcon,
   UserIcon,
   BuildingLibraryIcon,
+  UserPlusIcon,
+  AcademicCapIcon
 } from "@heroicons/react/24/outline";
 import ApplicationSummary from "./ApplicationSummary";
 import ApplicantPersonalInfo from "../components/ApplicantPersonalInfo";
@@ -127,7 +129,7 @@ const ApplicationForm = () => {
                 </div>
               </Step>
               <Step >
-                <CogIcon className="h-5 w-5" />
+                <UserPlusIcon className="h-5 w-5" />
                 <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden ">
                   <Typography
                     variant="h7"
@@ -138,7 +140,7 @@ const ApplicationForm = () => {
                 </div>
               </Step>
               <Step>
-                <BuildingLibraryIcon className="h-5 w-5" />
+                <AcademicCapIcon className="h-5 w-5" />
                 <div className="absolute -bottom-[4.5rem] w-max text-center hidden lg:block md:block sm:hidden">
                   <Typography
                     variant="h7"

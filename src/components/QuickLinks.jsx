@@ -13,7 +13,8 @@ function QuickLinks() {
           style={{
             backgroundColor: colors.primary,
             color: "white",
-            padding: "30px",
+            padding: "60px",
+            width:"100%"
           }}
         >
           <div className="flex flex-row text-centre justify-center ">
@@ -25,14 +26,14 @@ function QuickLinks() {
           </div>
 
           <div className="flex flex-col gap-5 text-left">
-            <a
+            {/* <a
               href="https://www.pathseminary.org/admission"
               className="mt-5"
               style={{ textDecoration: "none", color: "white" }}
             >
               New students information conserning Tution Fees{" "}
             </a>
-            <hr />
+            <hr /> */}
 
             <a
               href="https://www.trinitybiblecollege.edu/ph-d-application"

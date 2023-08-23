@@ -35,6 +35,16 @@ const ApplicantPersonalInfo = () => {
       // Handle form submission
       for (let [name, value] of formData.entries()) {
         console.log(`${name}: ${value}`);
+        if (name === 'passprt') {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const base64Image = reader.result;
+    
+            // Save Base64 image data to Local Storage
+            applicant_personal_details[`passprt`] = base64Image;
+          };
+          reader.readAsDataURL(value);
+        }
         applicant_personal_details[`${name}`] = value;
       }
 

@@ -34,19 +34,31 @@ function BlogCards({ blog }) {
   }
 
   const handle_delete =async (id) => {
-     swal({  
-    title: "",  
+    swal({  
+      title: "",  
     text: "Are you sure you want to delete this event!",  
     icon: "warning",  
-    button: "OK",  
-  });
-    const response = await fetcher.fetch({ url: UserUrls.EventsActions + id });
-    console.log(response);
-    if (response.delete) {
-      window.location.reload()
+    buttons: ["no!", "yes!"],   
+      showCancelButton: true,  
+      confirmButtonClass: "danger",  
+      confirmButtonText: " Confirm, remove it!",  
+      closeOnConfirm: false  
     }
+    ).then( async (willdelete) => {
+      if (willdelete) {
+        const response = await fetcher.fetch({ url: UserUrls.EventsActions + id });
+        console.log(response);
+        if (response.delete) {
+          window.location.reload()
+        }
+      } else {
+        return
+      }
+    
+  
     //delete
-  };
+  })
+}
 
   return (
     <div class="lg:flex">

@@ -8,6 +8,7 @@ import {
   View,
 } from "@react-pdf/renderer";
 import { Font } from "@react-pdf/renderer";
+import logo from "../assets/logo.png";
 
 const styles = StyleSheet.create({
   table: {
@@ -23,7 +24,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   tableCol: {
-    width: "25%",
+    width: "33.3%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderLeftWidth: 1,
+    borderTopWidth: 1,
+  },
+  tableColl: {
+    width: "20%",
     borderStyle: "solid",
     borderWidth: 1,
     borderLeftWidth: 1,
@@ -42,9 +50,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     textAlign: "center",
+    fontWeight: "extrabold",
   },
   text: {
-    margin: 12,
+    margin: 5,
     fontSize: 14,
     textAlign: "justify",
   },
@@ -91,212 +100,198 @@ const ApplicationPdf = () => {
   return (
     <Document>
       <Page style={styles.body}>
-        <Text style={styles.title}>
-          APPLICATION DETAILS: Personal Information
-        </Text>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Previous study with Global university:
+        <View style={{ alignItems: "center", marginBottom:20, borderBottom:1   }}>
+          <Text style={{ fontWeight: "extrabold", marginTop:20 }}>
+            AFRICA’S CONTINENTAL THEOLOGICAL SEMINARY (ACTS)
+          </Text>
+          <Image src={logo} style={{ height: 60, width: 60 }} />
+        </View>
+        <View>
+          <Text
+            style={[
+              styles.title,
+              { alignItems: "flex-start", fontWeight: "demibold", marginBottom:20},
+            ]}
+          >
+            APPLICATION DETAILS: Personal Information
+          </Text>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <View>
+              <Text style={styles.text}>
+                Previous study with Global university :
                 {applicant_personal_details.global_university_student_no
-                ? "Yes"
-                : "No"}
+                  ? "Yes"
+                  : "No"}
+              </Text>
+              <Text style={styles.text}>
+                Global university studies student No :{" "}
+                <Text style={styles.title}>
+                  {applicant_personal_details.global_university_student_no}
+                </Text>
+              </Text>
+              <Text style={styles.text}>
+                Applicant Family/last name : {"  "}
+                <Text style={styles.title}>
+                  {applicant_personal_details.last_name}{" "}
+                </Text>
+              </Text>
+              <Text style={styles.text}>
+                Maiden name :
+                <Text style={styles.title}>
+                  {applicant_personal_details.maiden_name}{" "}
+                </Text>
+              </Text>
+
+              <Text style={styles.text}>
+                First name :{" "}
+                <Text style={styles.title}>
+                  {applicant_personal_details.first_name}{" "}
+                </Text>
+              </Text>
+              <Text style={styles.text}>
+                Middle name :{" "}
+                <Text style={styles.title}>
+                  {applicant_personal_details.maiden_name}{" "}
+                </Text>
               </Text>
             </View>
-            <View style={styles.tableCol}> 
-            <Text style={styles.tableCell}></Text> 
-          </View> 
-          <View style={styles.tableCol}> 
-            <Text style={styles.tableCell}></Text> 
-          </View> 
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Profile Picture</Text>
+            <View>
+              <Text style={styles.text}>Applicant Picture</Text>
+              <Image src={applicant_personal_details.passprt} style={{ height: 50, width: 50 }} />
             </View>
           </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Global university studies student no:{" "}
-                {applicant_personal_details.global_university_student_no}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}></Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}></Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}> PIC</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Applicant Family/last name:{"  "}
-                {applicant_personal_details.last_name}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Maiden name: {applicant_personal_details.maiden_name}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                First name: {applicant_personal_details.first_name}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Middle name: {applicant_personal_details.maiden_name}{" "}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Date of Birth: {applicant_personal_details.date_of_birth}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Tittle: {applicant_personal_details.Title}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Marital status: {applicant_personal_details.marital_status}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Gender: {applicant_personal_details.gender}{" "}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Home address: {applicant_personal_details.home_address}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Country of residence:{" "}
-                {applicant_personal_details.contry_of_residence}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-              Country of citizenship:{" "}
-                {applicant_personal_details.contry_of_citizenship}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Email address: {applicant_personal_details.email}{" "}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Primary Language spoken:{" "}
-                {applicant_personal_details.primary_language}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Primary Phone: {applicant_personal_details.primary_phone}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Present Occupation:{" "}
-                {applicant_personal_details.present_occcupation}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Other Phone: {applicant_personal_details.other_phone}{" "}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                How did you hear about us:{" "}
-                {applicant_personal_details.how_hear_about_us}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Internet:{" "}
-                {applicant_personal_details.how_hear_about_us_internet}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Magazine:{" "}
-                {applicant_personal_details.how_hear_about_us_magazine}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Other: {applicant_personal_details.how_hear_about_us_other}{" "}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Primary Religious Affiliation:{" "}
-                {applicant_personal_details.primary_rerigious_affiliation}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Other Primary Religious Affiliation:{" "}
-                {applicant_personal_details.other_primary_rerigious_affiliation}{" "}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Ministerial cridentials Organization:{" "}
-                {applicant_personal_details.ministerial_organization}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                District: {applicant_personal_details.ministerial_organization}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Cridential level:{" "}
-                {applicant_personal_details.how_hear_about_us_magazine}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Date obtained:{" "}
-                {applicant_personal_details.how_hear_about_us_other}{" "}
-              </Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>
-                Country: {applicant_personal_details.how_hear_about_us_other}{" "}
-              </Text>
-            </View>
-          </View>
+          <Text style={styles.text}>
+            Date of Birth :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.date_of_birth}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Tittle :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.Title}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Marital status :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.marital_status}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Gender :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.gender}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Home address :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.home_address}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Country of citizenship:{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.contry_of_citizenship}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Email address :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.email}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Primary Phone :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.primary_phone}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Other Phone :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.other_phone}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Primary Language spoken :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.primary_language}{" "}
+            </Text>
+          </Text>
+          <Text style={styles.text}>
+            Present Occupation :{" "}
+            <Text style={styles.title}>
+              {applicant_personal_details.present_occcupation}{" "}
+            </Text>
+          </Text>
+          
         </View>
       </Page>
+
       <Page style={styles.body}>
-        <Text style={styles.title}> APPLICATION DETAILS: References</Text>
+      <View style={{ fontSize: 13,marginBottom:20 }}>
+            <Text style={styles.text}>
+              How did you hear about us :{" "}
+              <Text style={styles.title}>
+                {applicant_personal_details.how_hear_about_us}
+              </Text>
+            </Text>
+
+            <Text style={styles.text}>
+              Internet : {applicant_personal_details.how_hear_about_us_internet}
+            </Text>
+            <Text style={styles.text}>
+              Magazine : {applicant_personal_details.how_hear_about_us_magazine}
+            </Text>
+            <Text style={styles.text}>
+              Other : {applicant_personal_details.how_hear_about_us_other}
+            </Text>
+            <Text style={styles.text}>
+              Primary Religious Affiliation :{" "}
+              {applicant_personal_details.primary_rerigious_affiliation}
+            </Text>
+            <Text style={styles.text}>
+              Other Primary Religious Affiliation:{" "}
+              {applicant_personal_details.other_primary_rerigious_affiliation}
+            </Text>
+          </View>
+        <View style={{ alignItems: "flex-start", marginBottom: 12 }}>
+          <Text style={[styles.title]}>
+            Ministerial cridentials :{" "}
+            {applicant_personal_details.ministerial_organization ? "Yes" : "No"}
+          </Text>
+          {applicant_personal_details.ministerial_organization && (
+            <View>
+              <Text style={styles.text}>
+                Organization:{" "}
+                {applicant_personal_details.ministerial_organization}
+              </Text>
+              <Text style={styles.text}>
+                District: {applicant_personal_details.ministerial_organization}
+              </Text>
+              <Text style={styles.text}>
+                Cridential level:{" "}
+                {applicant_personal_details.how_hear_about_us_magazine}
+              </Text>
+              <Text style={styles.text}>
+                Other Primary Date obtained:{" "}
+                {applicant_personal_details.how_hear_about_us_other}
+              </Text>
+              <Text style={styles.text}>
+                Other Primary Country:{" "}
+                {applicant_personal_details.how_hear_about_us_other}
+              </Text>
+            </View>
+          )}
+        </View>
+        <Text style={[styles.title, { marginBottom: 5 }]}>
+          {" "}
+          APPLICATION DETAILS: References
+        </Text>
         <View style={styles.table}>
           <View style={styles.tableRow}>
             <View style={styles.tableCol}>
@@ -361,54 +356,60 @@ const ApplicationPdf = () => {
             );
           })}
         </View>
-        <Text style={styles.title}>
+        <Text style={[styles.title, { marginTop: 20 }]}>
           {" "}
           APPLICATION DETAILS: Academic Information
         </Text>
-
+        <View style={styles.table}>
         <View style={styles.tableRow}>
-          <View style={styles.tableCol}>
+          <View style={styles.tableColl}>
             <Text style={styles.tableCell}>School Name </Text>
           </View>
 
-          <View style={styles.tableCol}>
+          <View style={styles.tableColl}>
             <Text style={styles.tableCell}>City/state/country </Text>
           </View>
-          <View style={styles.tableCol}>
+          <View style={styles.tableColl}>
             <Text style={styles.tableCell}>Dates attended </Text>
           </View>
-          <View style={styles.tableCol}>
-            <Text style={styles.tableCell}>Major-Degrees </Text>
+          <View style={styles.tableColl}>
+            <Text style={styles.tableCell}>Major </Text>
           </View>
-         
-          {applicant_education_data.educatorsList?.map(
-            ({ name, city, dates, major, Degrees }, key) => {
-              return (
-                <View key={name}>
-                  <View style={styles.tableRow}>
-                    <View style={styles.tableCol}>
-                      <Text style={styles.tableCell}>{name} </Text>
-                    </View>
-
-                    <View style={styles.tableCol}>
-                      <Text style={styles.tableCell}>{city} </Text>
-                    </View>
-                    <View style={styles.tableCol}>
-                      <Text style={styles.tableCell}>{dates} </Text>
-                    </View>
-                    <View style={styles.tableCol}>
-                      <Text style={styles.tableCell}>{major}-{Degrees} </Text>
-                    </View>
-                
-                  </View>
-                </View>
-              );
-            }
-          )}
+          <View style={styles.tableColl}>
+            <Text style={styles.tableCell}>Degrees </Text>
+          </View>
         </View>
+        {applicant_education_data.educatorsList?.map(
+          ({ name, city, dates, major, Degrees }, key) => {
+            return (
+              <View style={styles.tableRow} key={name}>
+                <View style={styles.tableColl}>
+                  <Text style={styles.tableCell}>{name} </Text>
+                </View>
 
+                <View style={styles.tableColl}>
+                  <Text style={styles.tableCell}>{city} </Text>
+                </View>
+                <View style={styles.tableColl}>
+                  <Text style={styles.tableCell}>{dates} </Text>
+                </View>
+                <View style={styles.tableColl}>
+                  <Text style={styles.tableCell}>
+                    {major}
+                  </Text>
+                </View>
+                <View style={styles.tableColl}>
+                  <Text style={styles.tableCell}>
+                    {Degrees}{" "}
+                  </Text>
+                </View>
+              </View>
+            );
+          }
+        )}
+       </View>
         <View>
-          <Text style={styles.title}>
+          <Text style={[styles.title, {marginTop:20}]}>
             APPLICATION DETAILS: Program of study
           </Text>
           <Text style={styles.text}>

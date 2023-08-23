@@ -54,20 +54,24 @@ const UserContacts = () => {
   const handle_delete =async (id) => {
     swal({  
       title: "",  
-    text: "Are you sure you want to delete this event!",  
+    text: "Are you sure you want to delete this message!",  
     icon: "warning",  
-    button: "Yes",  
+    buttons: ["no!", "yes!"],    
       showCancelButton: true,  
       confirmButtonClass: "danger",  
       confirmButtonText: " Confirm, remove it!",  
       closeOnConfirm: false  
     }
     ).then( async (willdelete) => {
-      const response = await fetcher.fetch({ url: UserUrls.DeleteEvent + id });
-   console.log(response);
-   if (response.delete) {
-     window.location.reload()
-   }
+      if (willdelete) {
+        const response = await fetcher.fetch({ url: UserUrls.DeleteEvent + id });
+        console.log(response);
+        if (response.delete) {
+          window.location.reload()
+        }
+      } else {
+        return
+      }
     });   
    
    //delete
@@ -81,7 +85,7 @@ const UserContacts = () => {
   if (!applications || !applications.length) {
     return (
       <div className="'flex justify-center items-center'">
-        <Empty message="There are no applications at the moment." />
+        <Empty message="There are no messages at the moment." />
 
       </div>
     );

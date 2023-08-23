@@ -6,7 +6,7 @@ import PageHeroSection from "../components/PageHeroSection";
 import { EventData } from './Home';
 import QuickLinks from '../components/QuickLinks';
 import { Typography } from "@material-tailwind/react";
-import { HiArrowRight } from "react-icons/hi";
+import Empty from '../components/adminComponents/Empty';
 
 const AllEvents = () => {
     const fetcher = useDataFetch();
@@ -27,6 +27,8 @@ const AllEvents = () => {
       loadData();
     }, []);
 
+   
+    
   return (
     <div>
     <PageHeroSection title="Acts all events"/>
@@ -36,6 +38,12 @@ const AllEvents = () => {
             {" "}
             <strong>All Events News&upadets </strong>
           </Typography>
+          {!blogs || !blogs.length && (
+        <div className="'flex justify-center items-center'">
+          <Empty message="There are no events at the moment." />
+  
+        </div>
+      )}
         {blogs && blogs.map((blog) => <EventData event={blog} />)}
           
       

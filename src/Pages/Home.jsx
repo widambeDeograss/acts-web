@@ -209,13 +209,13 @@ const Home = () => {
           <QuickLinks />
         </div>
 
-        <div className="shadow-md p-5 lg:w-1/3 md:w-1/2 sm:w-full">
+        <div className="shadow-md p-10 lg:w-1/3 md:w-1/2 sm:w-full">
         <Typography variant="h6">
             {" "}
             <strong>Recent Events News&upadets </strong>
           </Typography>
         {blogs && blogs.map((blog) => <EventData event={blog} />)}
-          
+          <hr />
           <div className="flex fle-row gap-1 font-bold cursor-pointer"
           onClick={() => navigate("/acts/allEvents")}
           >

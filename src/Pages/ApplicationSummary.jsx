@@ -8,6 +8,7 @@ import swal from 'sweetalert';
 import { useNavigate } from "react-router-dom";
 
 const ApplicationSummary = () => {
+  // const [loading, setloading] = useState(false);
   const formPost = useFormPost()
   const navigate = useNavigate()
   const applicant_personal_details = JSON.parse(
@@ -21,9 +22,6 @@ const ApplicationSummary = () => {
 
   const handleSubmitApplication =async (doc) => {
     
-    console.log('====================================');
-    console.log(doc);
-    console.log('====================================');
     const formData = new FormData();
     formData.append("document", doc, "document.pdf");
     formData.append("first_name", applicant_personal_details.first_name);
