@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Button, Typography } from "@material-tailwind/react";
 import ApplicationPdf from "../components/ApplicationPdf";
@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 import { useNavigate } from "react-router-dom";
 
 const ApplicationSummary = () => {
-  // const [loading, setloading] = useState(false);
+  const [isloading, setisloading] = useState(false);
   const formPost = useFormPost()
   const navigate = useNavigate()
   const applicant_personal_details = JSON.parse(
@@ -21,12 +21,14 @@ const ApplicationSummary = () => {
   ));
 
   const handleSubmitApplication =async (doc) => {
-    
+    setisloading(true)
     const formData = new FormData();
     formData.append("document", doc, "document.pdf");
     formData.append("first_name", applicant_personal_details.first_name);
     formData.append("last_name", applicant_personal_details.last_name);
     formData.append("email", applicant_personal_details.email);
+    formData.append("program", applicant_education_data.take_masters? "Masters Program": "Phd Program");
+    formData.append("course", applicant_education_data.take_masters? applicant_education_data.marsters_course: "Phd Program" );
     formData.append("phone", applicant_personal_details.primary_phone);
 
     console.log(formData);
@@ -38,18 +40,20 @@ const ApplicationSummary = () => {
       })
       console.log(responce);
       if (responce.save == true) {
-          localStorage.clear()
+          // localStorage.clear()
           swal({  
             title: "Success",  
             text: "Conglaturations your Application was sent succesfully!",  
             icon: "success",  
             button: "OK",  
           });
-          navigate("/")
+          window.location.reload()
+          // navigate("/admission/acts_online_application")
       }
     } catch (error) {
         alert("some issues found try again later")
     }
+    setisloading(false)
   }
 
 
@@ -404,7 +408,9 @@ const ApplicationSummary = () => {
             ) : (
               <Button
                onClick={() => handleSubmitApplication(blob)}
-              >Download and send Application </Button>
+              >
+                {isloading? "Sending application...": "Download and send Application"}
+                 </Button>
             )
           }
         </PDFDownloadLink>

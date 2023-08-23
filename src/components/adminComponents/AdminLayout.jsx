@@ -7,7 +7,8 @@ import {
   HiPencilAlt,
   HiTruck,
   HiUsers,
-  HiAdjustments
+  HiAdjustments,
+  HiLogout
 } from "react-icons/hi";
 import IconButton from "./IconButton";
 import { Outlet } from "react-router-dom";
@@ -22,6 +23,8 @@ import NavLink from "./NavLink";
 import Sidebar from "./Sidebar";
 import Logo from "./Logo";
 import Avatar from "./Avatar";
+import Button from "./Button";
+import Typography from "./Typography";
 // import ProfileMenu from "./ProfileMenu";
 
 const links = [
@@ -61,10 +64,18 @@ export default function AdminLayout(props) {
         <span className="flex-grow" />
         <div className="flex items-center">
           {/* <Notifications /> */}
-          <IconButton className="-mr-2">
-            <HiMoon />
-          </IconButton>
+         <Button className="flex items-center"
+         onClick={() => {
+          localStorage.clear()
+          window.location.reload()
+         }}
+         >
+       
+            <HiLogout />
+          <Typography>Logout</Typography>  
+         </Button>
         </div>
+      
         {/* <ProfileMenu /> */}
       </Sidebar>
       <main className="flex-grow">

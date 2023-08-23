@@ -218,13 +218,13 @@ export default function NavBar() {
             Follow Us:
           </Typography>
           <Breadcrumbs className="-mt-1 h-8 ">
-            <a href="#" className="opacity-60 -mt-1">
+            <a href="https://www.instagram.com/p/Cvm4Z5aNZTu/?igshid=OGY3MTU3OGY1Mw==" className="opacity-60 -mt-1">
               instagram
             </a>
-            <a href="#" className="opacity-60 -mt-1">
+            <a href="https://www.facebook.com/profile.php?id=100065764118362" className="opacity-60 -mt-1">
               facebook
             </a>
-            <a href="#">twitter</a>
+            <a href="https://youtube.com/@jcctag-mbeyabusokelo3754">youtube</a>
           </Breadcrumbs>
         </div>
       </div>

@@ -159,7 +159,11 @@ const ApplicationPdf = () => {
             </View>
             <View>
               <Text style={styles.text}>Applicant Picture</Text>
-              <Image src={applicant_personal_details.passprt} style={{ height: 50, width: 50 }} />
+              <View style={{ height: 100, width: 130, borderWidth:1 }}>
+              <Text style={[styles.text, {fontSize:5, justifyContent:"center", textAlign:"center", marginTop:50}]}>Your Passport here</Text>
+               
+              </View>
+              {/* <Image src={applicant_personal_details.passprt}  /> */}
             </View>
           </View>
           <Text style={styles.text}>
