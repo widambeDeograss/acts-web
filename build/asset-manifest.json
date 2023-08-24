@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8bd5b0b5.css",
+    "main.js": "/static/js/main.847ce8a9.js",
+    "static/media/acts_tours.mp4": "/static/media/acts_tours.472f293c97d8e23034e2.mp4",
+    "static/media/DJI_0981-min.JPG": "/static/media/DJI_0981-min.7f78cb9e54ae1e4f9584.JPG",
+    "static/media/DJI_0965.jpeg": "/static/media/DJI_0965.969f6e7ac4cfbd833806.jpeg",
+    "static/media/DJI_0964.jpeg": "/static/media/DJI_0964.499f480cc67cd728e678.jpeg",
+    "static/media/DJI_0963.jpeg": "/static/media/DJI_0963.d32b4214d437e6e29711.jpeg",
+    "static/media/topActs.jpeg": "/static/media/topActs.143e8beea2fa29c7379b.jpeg",
+    "static/media/_MG_9779.jpg": "/static/media/_MG_9779.4e8a0befa935c59f76ed.jpg",
+    "static/media/_MG_9710.jpg": "/static/media/_MG_9710.b9eb0adbcba7a7f87ed4.jpg",
+    "static/media/_MG_9770.jpg": "/static/media/_MG_9770.f0f96afd6a7dadc4db22.jpg",
+    "static/media/_MG_9709.jpg": "/static/media/_MG_9709.908c4db47a4162ad7475.jpg",
+    "static/media/DJI_0973.jpeg": "/static/media/DJI_0973.d717c175e75b769f7d4d.jpeg",
+    "static/media/_MG_9704.jpg": "/static/media/_MG_9704.b0f20e44acc34b24310a.jpg",
+    "static/media/_MG_9791.jpg": "/static/media/_MG_9791.f7c0594d2d2ba36b4249.jpg",
+    "static/media/_MG_9787.jpg": "/static/media/_MG_9787.a5643afa098664dd7890.jpg",
+    "static/media/_MG_9706.jpg": "/static/media/_MG_9706.904e5de4bc6f5433c5c5.jpg",
+    "static/media/DJI_0974.jpeg": "/static/media/DJI_0974.f60d4793fcc49635f0b9.jpeg",
+    "static/media/logo.png": "/static/media/logo.b03cbff79c5fc3abe0ac.png",
+    "static/media/majembe faculty.png": "/static/media/majembe faculty.1c1fa11290f6a2f6cb1f.png",
+    "static/media/majule faculty.png": "/static/media/majule faculty.f756b099b38ce91260e4.png",
+    "static/media/nhigula faculty.png": "/static/media/nhigula faculty.550428840fdee229ac22.png",
+    "static/media/nyanda faculty.png": "/static/media/nyanda faculty.489132428d12c1e24105.png",
+    "static/media/Kibga faculty.jpg": "/static/media/Kibga faculty.1825d1affce261018e1e.jpg",
+    "static/media/msuguFred.jpg": "/static/media/msuguFred.19c223250540e8822cdb.jpg",
+    "static/media/ereneststu.jpg": "/static/media/ereneststu.02773b7dc2369786c0d5.jpg",
+    "static/media/ngonyaniStu.jpg": "/static/media/ngonyaniStu.1615970d2b3159bc34c2.jpg",
+    "static/media/vicePresident.jpg": "/static/media/vicePresident.57a7aadd0c62fa74ac6a.jpg",
+    "index.html": "/index.html",
+    "static/media/index.cjs": "/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.8bd5b0b5.css.map": "/static/css/main.8bd5b0b5.css.map",
+    "main.847ce8a9.js.map": "/static/js/main.847ce8a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8bd5b0b5.css",
+    "static/js/main.847ce8a9.js"
+  ]
+}
