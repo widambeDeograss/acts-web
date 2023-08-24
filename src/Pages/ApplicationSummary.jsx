@@ -40,7 +40,7 @@ const ApplicationSummary = () => {
       })
       console.log(responce);
       if (responce.save == true) {
-          // localStorage.clear()
+          localStorage.clear()
           swal({  
             title: "Success",  
             text: "Conglaturations your Application was sent succesfully!",  

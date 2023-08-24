@@ -24,7 +24,8 @@ export const useDataFetch = () => {
         // let response;
         const requestHeader = {
             headers: {
-                Authorization: "Token "  + token,
+                // Authorization: "Token "  + token,
+                Authorization: "JWT "  + token,
               }
         }
 

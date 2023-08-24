@@ -34,7 +34,8 @@ export const useFormPost = () => {
 
         const requestHeader = {
             headers: {
-                Authorization: "Token "  + token,
+                Authorization: "JWT "  + token,
+                // Authorization: "Token "  + token,
               }
             
         }
@@ -75,7 +76,8 @@ export const useFormPost = () => {
 
         const requestHeader = {
             headers: {
-                Authorization: "Token "  + token,
+                Authorization: "JWT "  + token,
+                // Authorization: "Token "  + token,
               }
             
         }
@@ -104,7 +106,8 @@ export const useFormPost = () => {
 
         const requestHeader = {
             headers: {
-                Authorization: "Token "  + token,
+                Authorization: "JWT "  + token,
+                // Authorization: "Token "  + token,
               }
             
         }

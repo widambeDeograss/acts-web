@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Page from "../../components/adminComponents/Page";
 import PageBody from "../../components/adminComponents/PageBody";
 import PageHeader from "../../components/adminComponents/PageHeader";
@@ -14,8 +14,10 @@ function CreateBlog() {
   const formRef = useRef();
   const navigate = useNavigate();
   const formPost = useFormPost();
+  const [isLoading, setisLoading] = useState(false)
 
   const handleSubmit =async (event) => {
+    setisLoading(true)
     event.preventDefault()
     //for image submission
     if (true) {
@@ -45,7 +47,7 @@ function CreateBlog() {
           button: "OK",  
         });
       }
-   
+    setisLoading(false)
     }
   }
   const [message, setMessage] = React.useState(null)
@@ -152,7 +154,7 @@ function CreateBlog() {
                         className="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
                         type="submit"
                       >
-                        publish event
+                        {isLoading?"publishing event.....": "publish event"}
                       </button>
                     </div>
                   </div>
