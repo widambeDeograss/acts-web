@@ -23,6 +23,7 @@ import SingleEvent from "./Pages/SingleEvent";
 import AllEvents from "./Pages/AllEvents";
 import Applications from "./Pages/ADMINPAGES/Applications";
 import UserContacts from "./Pages/ADMINPAGES/UserFeeds";
+import { ChangePassword } from "./Pages/ADMINPAGES/ChangePassword";
 
 export default function Routeer() {
   const token = useSelector(selectCurrentToken);
@@ -74,6 +75,7 @@ export default function Routeer() {
         { path: "Applications", element: <Applications /> },
         { path: "contacts", element: <UserContacts /> },
         { path: "create_events", element: <CreateBlog /> },
+        { path: "change_password", element: <ChangePassword /> },
       ],
     },
     {

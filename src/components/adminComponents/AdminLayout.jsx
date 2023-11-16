@@ -8,7 +8,8 @@ import {
   HiTruck,
   HiUsers,
   HiAdjustments,
-  HiLogout
+  HiLogout,
+  HiLockClosed
 } from "react-icons/hi";
 import IconButton from "./IconButton";
 import { Outlet } from "react-router-dom";
@@ -32,7 +33,7 @@ const links = [
   { icon: HiUsers, label: "Applications", to: "Applications" },
   { icon: HiPencilAlt, label: "Events", to: "events" },
   { icon:HiUsers , label: "User Contacts", to: "contacts" },
-  // { icon:HiUsers , label: "Validators", to: "Validators" },
+  { icon:HiLockClosed , label: "Change Password", to: "change_password" },
 ];
 
 export default function AdminLayout(props) {
@@ -64,18 +65,18 @@ export default function AdminLayout(props) {
         <span className="flex-grow" />
         <div className="flex items-center">
           {/* <Notifications /> */}
-         <Button className="flex items-center"
+         <Button className="flex items-center lg:mb-3"
          onClick={() => {
           localStorage.clear()
           window.location.reload()
          }}
          >
-       
+
             <HiLogout />
-          <Typography>Logout</Typography>  
+          <Typography>Logout</Typography>
          </Button>
         </div>
-      
+
         {/* <ProfileMenu /> */}
       </Sidebar>
       <main className="flex-grow">

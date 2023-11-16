@@ -29,17 +29,17 @@ export const useFormManager =  (initialState) => {
 export const useFormPost = () => {
     const dispatch = useDispatch();
     const token = useSelector(selectCurrentToken);
-   
+
     const post = async ({url, response, data, login=false}) => {
 
         const requestHeader = {
             headers: {
-                Authorization: "JWT "  + token,
+                Authorization: "Bearer "  + token,
                 // Authorization: "Token "  + token,
               }
-            
+
         }
-        
+
         const requestBody = {
 
             data: data,
@@ -68,7 +68,7 @@ export const useFormPost = () => {
             // throw error.message;
         }
 
-      
+
         return response;
     }
 
@@ -79,7 +79,7 @@ export const useFormPost = () => {
                 Authorization: "JWT "  + token,
                 // Authorization: "Token "  + token,
               }
-            
+
         }
 
         try {
@@ -88,7 +88,7 @@ export const useFormPost = () => {
                 console.log(res);
                 if(res.status === 200){
                     response = res.data;
-                
+
                 }
             })
             .catch((error) => {
@@ -98,7 +98,7 @@ export const useFormPost = () => {
             throw error.message;
         }
 
-    
+
         return response;
     }
 
@@ -109,10 +109,10 @@ export const useFormPost = () => {
                 Authorization: "JWT "  + token,
                 // Authorization: "Token "  + token,
               }
-            
+
         }
         console.log(requestHeader);
-    
+
         let message = "";
         let severity = "info";
 
@@ -136,5 +136,5 @@ export const useFormPost = () => {
         return response;
     }
 
-    return { post, put , deleteRequest} 
+    return { post, put , deleteRequest}
  }

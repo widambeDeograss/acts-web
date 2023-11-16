@@ -10,4 +10,5 @@ export const UserUrls = {
     Application: baseUrl +  "/manager/application",
     Dashboard: baseUrl +  "/manager/dashboard",
     DeleteEvent: baseUrl +  "/manager/delete-contact/",
+    changePassword: baseUrl + "/auth/change-password"
 }

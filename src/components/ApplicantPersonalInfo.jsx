@@ -397,8 +397,8 @@ const ApplicantPersonalInfo = () => {
               id="primary_phone"
               name="primary_phone"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="0xxx xxx xxx"
-              pattern="[0-9]{4} [0-9]{3} [0-9]{3}"
+              placeholder="+..."
+              pattern="^\+(?:[0-9]){6,14}[0-9]$"
               required
             />
           </div>
@@ -432,8 +432,8 @@ const ApplicantPersonalInfo = () => {
               id="other_phone"
               name="other_phone"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="0xxx xxx xxx"
-              pattern="[0-9]{4} [0-9]{3} [0-9]{3}"
+              placeholder="+..."
+              pattern="^\+(?:[0-9]){6,14}[0-9]$"
               required
             />
           </div>
