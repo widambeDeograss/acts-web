@@ -107,7 +107,7 @@ export const EventData = ({event}) => {
             </ListItem>
             <hr />
           </List>
-  
+
         </div>
    )
 }
@@ -214,7 +214,7 @@ const Home = () => {
             {" "}
             <strong>Recent Events News&upadets </strong>
           </Typography>
-        {blogs && blogs.map((blog) => <EventData event={blog} />)}
+        {blogs && blogs?.map((blog) => <EventData event={blog} />)}
           <hr />
           <div className="flex fle-row gap-1 font-bold cursor-pointer"
           onClick={() => navigate("/acts/allEvents")}
