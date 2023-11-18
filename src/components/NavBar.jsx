@@ -95,11 +95,10 @@ export default function NavBar() {
       >
         <div class="relative ">
           <a
-            href="#"
             className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
           >
             Campus
-      
+
           </a>
         </div>
       </Typography>
@@ -145,7 +144,6 @@ export default function NavBar() {
       <Typography as="li" variant="small" className="p-1 font-normal">
         <div class="relative hover-trigger">
           <a
-            href="#"
             className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
           >
              Admission
@@ -179,7 +177,7 @@ export default function NavBar() {
           </div>
         </div>
       </Typography>
-     
+
     </ul>
   );
 

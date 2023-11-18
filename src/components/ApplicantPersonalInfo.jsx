@@ -25,7 +25,7 @@ const ApplicantPersonalInfo = () => {
     //     errors[name] = `${name} is required`;
     //   }
     // });
-   
+
     let applicant_personal_details = {};
 
     if (Object.keys(errors).length > 0) {
@@ -39,7 +39,7 @@ const ApplicantPersonalInfo = () => {
         //   const reader = new FileReader();
         //   reader.onload = () => {
         //     const base64Image = reader.result;
-    
+
         //     // Save Base64 image data to Local Storage
         //     applicant_personal_details[`passprt`] = base64Image;
         //   };
@@ -50,17 +50,17 @@ const ApplicantPersonalInfo = () => {
 
       console.log(applicant_personal_details);
       localStorage.setItem('applicant_personal_details', JSON.stringify(applicant_personal_details))
-      swal({  
-        title: "",  
-        text: "Application details added succesfully proceed NEXT!",  
-        icon: "success",  
-        button: "OK",  
+      swal({
+        title: "",
+        text: "Application details added succesfully click NEXT! to proceed.",
+        icon: "success",
+        button: "OK",
       });
       window.location.reload()
-    
+
     }
   };
- 
+
   return (
     <div class="  ">
       <Typography className="font-bold text-left mt-28 sm:mt-1">
@@ -136,7 +136,7 @@ const ApplicantPersonalInfo = () => {
               name="maiden_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
-              
+
             />
           </div>
           <div>
@@ -216,28 +216,28 @@ const ApplicantPersonalInfo = () => {
                 id="Ms"
                 name="Title"
                 label="Ms"
-                value="Ms" 
+                value="Ms"
                 onClick={() => {}}
               />
               <Radio
                 id="Mrs"
                 name="Title"
                 label="Mrs"
-                value="Mrs" 
+                value="Mrs"
                 onClick={() => {}}
               />
               <Radio
                 id="Rev"
                 name="Title"
                 label="Rev"
-                value="Rev" 
+                value="Rev"
                 onClick={() => {}}
               />
               <Radio
                 id="Dr"
                 name="Title"
                 label="Dr"
-                value="Dr" 
+                value="Dr"
                 onClick={() => {}}
               />
             </div>
@@ -250,7 +250,7 @@ const ApplicantPersonalInfo = () => {
               <Radio
                 id="Male-on"
                 name="gender"
-                value="Male" 
+                value="Male"
                 label="Male"
                 ripple={true}
                 onClick={() => {}}
@@ -258,7 +258,7 @@ const ApplicantPersonalInfo = () => {
               <Radio
                 id="Female"
                 name="gender"
-                value="Female" 
+                value="Female"
                 label="Female"
                 onClick={() => {}}
                 ripple={false}
@@ -282,21 +282,21 @@ const ApplicantPersonalInfo = () => {
               <Radio
                 id="Married"
                 name="marital_status"
-                value="Married" 
+                value="Married"
                 label="Married"
                 onClick={() => {}}
               />
               <Radio
                 id="Widowed"
                 name="marital_status"
-                value="Widowed" 
+                value="Widowed"
                 label="Widowed"
                 onClick={() => {}}
               />
               <Radio
                 id="Divorced"
                 name="marital_status"
-                value="Divorced" 
+                value="Divorced"
                 label="Divorced"
                 onClick={() => {}}
               />
