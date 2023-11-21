@@ -227,12 +227,12 @@ const Home = () => {
         </div>
 
         <div className="bg-gray-400 h-auto mt-10 w-full">
-          <div className="flex flex-row p-10 ">
-            <div className="w-1/4 rounded-lg overflow-hidden mr-2">
+          <div className="flex flex-row p-10  max-w-7xl mx-auto">
+            <div className="w-1/4 rounded-lg overflow-hidden mr-1">
               <img
                 src={currentTab?.image}
                 alt={currentTab?.value}
-                className="h-full w-full object-cover  hidden lg:block sm:hidden"
+                className="h-full w-full object-cover  hidden md:block lg:block sm:hidden rounded-lg"
               />
             </div>
             <div className="lg:w-3/4 sm:w-full">
@@ -259,7 +259,7 @@ const Home = () => {
                 >
                   {tabData.map(({ value, desc, title }) => (
                     <>
-                      <TabPanel key={value} value={value}>
+                      <TabPanel key={value} value={value} className=" mx-auto sm:w-full lg:w-3/4">
                         <h2>
                           <strong>{title}</strong>
                         </h2>

@@ -66,6 +66,9 @@ const ContactUs = () => {
               <p class="text-base leading-8 text-gray-600">
                 Box 70 Dodoma, Tanzania
               </p>
+              <p class="text-base leading-8 text-gray-600 underline cursor-pointer mb-5">
+              info@actseminary.education
+              </p>
             </div>
           </div>
         </Card>

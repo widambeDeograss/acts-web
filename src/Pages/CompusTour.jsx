@@ -8,7 +8,7 @@ function CampusTour() {
        <div>
       <PageHeroSection title="Campus Tour" />
       <Typography variant="h2" className="mt-5 font-semibold">
-        Join Acts Today
+        Join ACTS Today
       </Typography>
       <Typography variant="h2" className=""></Typography>
       <Typography

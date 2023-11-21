@@ -11,30 +11,42 @@ function ApplicantReferenceForm(props) {
   const [phone, setphone] = useState("");
   const [address, setaddress] = useState("");
 
-  const handleSubmit = (e) => {
-      const dataobj = {
-        name:name,
-        address:address,
-        phone:phone
-      };
+  const AddReference = () => {
+    const dataobj = {
+      name:name,
+      address:address,
+      phone:phone
+    };
 
-      if (isPastor) {
-        PasstorsList.push(dataobj);
-        setaddress("")
-        setname("")
-        setphone("")
-      }else{
-        props.onAddReferences({employer_references:dataobj})
-        EducatorsList.push(dataobj);
-        setaddress("")
-        setname("")
-        setphone("")
+    if (isPastor) {
+      PasstorsList.push(dataobj);
+      setaddress("")
+      setname("")
+      setphone("")
+    }else{
+      props.onAddReferences({employer_references:dataobj})
+      EducatorsList.push(dataobj);
+      setaddress("")
+      setname("")
+      setphone("")
+    }
+  }
+
+  const handleSubmit = (e) => {
+     
+      if (PasstorsList.length === 0 && EducatorsList.length === 0 ) {
+        swal({  
+          title: "",  
+          text: "Please! fill the Reference information first",  
+          icon: "warning",  
+          button: "OK",  
+        });
       }
       localStorage.setItem('referee_pastors_list', JSON.stringify(PasstorsList));
       localStorage.setItem('referee_employers_list', JSON.stringify(EducatorsList));
       swal({  
         title: "",  
-        text: "Reference details added succesfully proceed NEXT!",  
+        text: "Reference details added succesfully to proceed. Click NEXT!",  
         icon: "success",  
         button: "OK",  
       });
@@ -122,7 +134,7 @@ function ApplicantReferenceForm(props) {
                 id="first_name"
                 name="phone"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
-                placeholder="+255"
+                placeholder="+..."
                 value={phone}
                 onChange={(e) => setphone(e.target.value) }
                 required
@@ -187,11 +199,11 @@ function ApplicantReferenceForm(props) {
             </div>
           </div>
         )}
-        <button
-          onClick={() => handleSubmit()}
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+         <button
+          onClick={() => AddReference()}
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-5 "
         >
-          Submit
+          Add Reference Information
         </button>
       </form>
       <table className="w-full  overflow-x-scroll table-auto mt-8">
@@ -301,6 +313,13 @@ function ApplicantReferenceForm(props) {
           })}
         </tbody>
       </table>
+
+      <button
+          onClick={() => handleSubmit()}
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-20"
+        >
+          Submit Reference Information
+        </button>
     </div>
   );
 }

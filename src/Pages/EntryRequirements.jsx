@@ -45,24 +45,30 @@ const EntryRequirements = () => {
                 <Typography className="font-bold">
                   Entry requirements for Masters programs
                 </Typography>
-                <ol className="mt-2 font-bold text-sm">
-                  <li className="flex ">
-                    <CursorArrowRaysIcon height={20} className="mt-1" /> Born
+                <ol className="mt-2 font-bold text-sm text-left">
+                  <li className="flex justify-items-start   mt-1">
+                    <CursorArrowRaysIcon height={20} className="" /> Born
                     again member of a church
                   </li>
-                  <li className="flex ">
-                    <CursorArrowRaysIcon height={20} className="mt-1" /> Filled
+                  <li className="flex justify-items-start   mt-2">
+                    <CursorArrowRaysIcon height={20} className="" /> Filled
                     by the Holy Spirit according to Acts 2:4
                   </li>
-                  <li className="flex ">
-                    <CursorArrowRaysIcon height={20} className="mt-1" /> Call of
+                  <li className="flex justify-items-start  mt-2">
+                    <CursorArrowRaysIcon height={20} className="" /> Call of
                     God and Commitment to Ministry
                   </li>
-
-                  <li className="flex">
-                    <CursorArrowRaysIcon height={25} className="mt-1" />
+                  <li className="flex justify-items-start mt-2">
+                    <CursorArrowRaysIcon height={20} className="" />
+                    <span className="">
                     Bachelor Degree in Biblical, Theological, Ministerial or
-                    other studies from a recognized institution with a minimum
+                    other studies from a recognized institution 
+                    </span>
+                  </li>
+               
+                  <li className="flex justify-items-start   mt-2">
+                    <CursorArrowRaysIcon height={20} className="" /> A
+                    minimum
                     GPA of 3.2
                   </li>
                 </ol>
@@ -82,24 +88,24 @@ const EntryRequirements = () => {
                 <Typography className="font-bold">
                   Entry requirements for Phd programs
                 </Typography>
-                <ol className="mt-2 text-sm">
-                  <li className="flex font-semibold">
+                <ol className="mt-2 text-sm font-bold text-left">
+                  <li className="flex justify-items-start   mt-2">
                     <CursorArrowRaysIcon height={20} className="mt-1" /> A
                     born-again Christian
                   </li>
-                  <li className="flex font-semibold">
+                  <li className="flex justify-items-start  mt-2">
                     <CursorArrowRaysIcon height={20} className="mt-1" /> Filled
                     by the Holy Spirit according to Acts 2:4
                   </li>
-                  <li className="flex font-semibold">
+                  <li className="flex justify-items-start   mt-2">
                     <CursorArrowRaysIcon height={20} className="mt-1" /> Call of
                     God and committed to full-time ministry
                   </li>
-                  <li className="flex font-semibold">
+                  <li className="flex justify-items-start   mt-2">
                     <CursorArrowRaysIcon height={20} className="mt-1" />{" "}
                     Master’s Degree (MA or MDiv)
                   </li>
-                  <li className="flex font-semibold">
+                  <li className="flex justify-items-start   mt-2">
                     <CursorArrowRaysIcon height={20} className="mt-1" /> A
                     minimum GPA of 2.5
                   </li>
@@ -127,10 +133,10 @@ const EntryRequirements = () => {
           <QuickLinks />
           <div>
             <Button
-              className="flex text-base"
+              className="flex text-sm bg-gray-500"
               onClick={() => navigate("/admission/acts_online_application")}
             >
-              Apply now <ArrowRightIcon height={30} className="-mt-1 ml-2 " />
+              Apply now <ArrowRightIcon height={20} className="-mt-[0.5px] ml-2 " />
             </Button>
           </div>
         </div>

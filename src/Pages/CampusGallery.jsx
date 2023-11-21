@@ -113,7 +113,7 @@ function CampusGallery() {
     <div>
       <PageHeroSection title="Campus Tour" />
       <Typography variant="h2" className="mt-5 font-semibold">
-        Join Acts Today
+        Join ACTS Today
       </Typography>
       <Typography variant="h2" className=""></Typography>
       <Typography
@@ -131,7 +131,7 @@ function CampusGallery() {
           </div>
       
       <div className="mx-auto mb-8 w-11/12">
-        <Typography variant="h4" className="mb-1 font-semibold text-left">Acts Tour </Typography>
+        <Typography variant="h5" className="mb-1 font-semibold text-left ">ACTS Tour </Typography>
       <video className="h-full w-full rounded-lg" controls autoPlay muted>
       <source src={acts_tour} type="video/mp4" />
       Your browser does not support the video tag.

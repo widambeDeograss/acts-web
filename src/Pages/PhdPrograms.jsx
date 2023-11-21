@@ -143,13 +143,13 @@ const PhdPrograms = () => {
                   starts now up to August 2023. (In two weeks Application
                   package will be available)
                 </li> */}
-                <Typography className="font-bold mt-3 text-left">
+                {/* <Typography className="font-bold mt-3 text-left">
                 Note: On 1st
                   September 2023, prospectus candidates will be meeting with
                   Professors briefly for proposal preparations.
                   Session/
                   Seminar 1, starts on October 2023
-              </Typography>
+              </Typography> */}
               
               </ol>
             </CardBody>
@@ -274,10 +274,10 @@ const PhdPrograms = () => {
       <div className="flex flex-col gap-2 ">
         <QuickLinks />
         <div>
-          <Button className="flex text-base"
+          <Button className="flex text-sm bg-gray-500"
           onClick={() => navigate("/admission/acts_online_application")}
           >
-            Apply now <ArrowRightIcon height={30} className="-mt-1 ml-2 " />
+            Apply now <ArrowRightIcon height={20} className="-mt-[0.5px] ml-2 " />
           </Button>
         </div>
       </div>

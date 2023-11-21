@@ -45,13 +45,29 @@ const ApplicationSummary = () => {
             title: "Success",  
             text: "Conglaturations your Application was sent succesfully!",  
             icon: "success",  
-            button: "OK",  
-          });
-          window.location.reload()
+            button: "OK", 
+            confirmButtonClass: "danger",  
+            confirmButtonText: "Confirm, remove it!",  
+            closeOnConfirm: false  
+          }
+          ).then( async (ok) => {
+            if (ok) {
+              window.location.reload()
+            } else {
+              return
+            }
+     
+        })
+          
           // navigate("/admission/acts_online_application")
       }
     } catch (error) {
-        alert("some issues found try again later")
+      swal({  
+        title: "Warning",  
+        text: "some issues found when sending your application. Check your internet connection and try again! We have stored the state of your application you wont have to fill the form again!",  
+        icon: "warning",  
+        button: "OK",  
+      });
     }
     setisloading(false)
   }

@@ -56,7 +56,7 @@ function ApplicantAcademicForm() {
     localStorage.setItem("applicant_education_data", JSON.stringify(dataobj));
     swal({  
       title: "",  
-      text: "Education details added succesfully view your application summary and send!",  
+      text: "Education details added succesfully. View your application summary and send your Application!",  
       icon: "success",  
       button: "OK",  
     });

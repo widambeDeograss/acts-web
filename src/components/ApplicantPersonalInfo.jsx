@@ -50,14 +50,25 @@ const ApplicantPersonalInfo = () => {
 
       console.log(applicant_personal_details);
       localStorage.setItem('applicant_personal_details', JSON.stringify(applicant_personal_details))
-      swal({
+      swal({  
         title: "",
-        text: "Application details added succesfully click NEXT! to proceed.",
+        text: "Application details added succesfully to proceed. Click NEXT! ",
         icon: "success",
-        button: "OK",
-      });
-      window.location.reload()
-
+        button: "OK",  
+        confirmButtonClass: "danger",  
+        confirmButtonText: "Confirm, remove it!",  
+        closeOnConfirm: false  
+      }
+      ).then( async (ok) => {
+        if (ok) {
+          window.location.reload()
+        } else {
+          return
+        }
+ 
+    })
+      
+ 
     }
   };
 
@@ -621,7 +632,8 @@ const ApplicantPersonalInfo = () => {
           <div className="flex flex-col gap-2">
             <Radio
               id="terms-html"
-              name="terms"
+              name="how_hear_about_us"
+              value="Pastor or Church"
               label={
                 <Typography color="blue-gray" className="font-medium flex">
                   Church/Pastor

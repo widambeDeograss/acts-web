@@ -1,13 +1,15 @@
 import React from 'react';
 import { Typography } from '@material-tailwind/react';
 import {
-  
+
     LinkIcon,
-    
+
   } from "@heroicons/react/24/outline";
   import colors from '../constants/colors';
+import {useNavigate} from "react-router-dom";
 
 function QuickLinks() {
+    const navigate = useNavigate()
   return (
     <div
           style={{
@@ -25,15 +27,7 @@ function QuickLinks() {
             </Typography>
           </div>
 
-          <div className="flex flex-col gap-5 text-left">
-            {/* <a
-              href="https://www.pathseminary.org/admission"
-              className="mt-5"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              New students information conserning Tution Fees{" "}
-            </a>
-            <hr /> */}
+          <div className="flex flex-col gap-5 text-left mt-3">
 
             <a
               href="https://www.trinitybiblecollege.edu/ph-d-application"
@@ -50,6 +44,14 @@ function QuickLinks() {
             >
               Masters students Portal{" "}
             </a>
+              <hr/>
+              <a
+                  href="/acts/contact_us"
+                  style={{ textDecoration: "none", color: "white" }}
+
+              >
+                  Contact us
+              </a>
           </div>
         </div>
 
