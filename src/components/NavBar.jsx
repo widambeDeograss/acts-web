@@ -41,9 +41,11 @@ export default function NavBar() {
         color: colors.primary,
       }}
     >
-      <Typography as="li" variant="small" className="p-1 font-normal">
+      <Typography as="li" variant="small" className="p-1 font-normal cursor-pointer"
+      onClick={() => navigate("/acts")}
+      >
         <a
-          href="/"
+          
           className="flex items-center hover:border-b-2 hover:border-b-purple-900"
         >
           Home
@@ -53,7 +55,7 @@ export default function NavBar() {
       <Typography as="li" variant="small" className="p-1 font-normal">
         <div class="relative hover-trigger">
           <a
-            href="#"
+            
             className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
           >
             AboutUs
@@ -228,7 +230,7 @@ export default function NavBar() {
       </div>
       <Navbar className="sticky top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <img src={logo} className="h-10 w-12" />
+          <img src={logo} className="h-10 w-12 cursor-pointer"  onClick={() => navigate("/acts")}/>
           {/* <Typography
             as="a"
             href="#"
