@@ -81,9 +81,10 @@ export default function NavBar() {
                 <ListItem
                  onClick={()=> navigate("acts/about_us")}
                 >Historical Background</ListItem>
-                {/* <ListItem
-                 onClick={()=> navigate("acts/contact_us")}
-                >Staff</ListItem> */}
+                <ListItem
+                 onClick={()=> navigate("acts/our_staff")}
+                >Our Staff</ListItem>
+                
                 <ListItem
                 onClick={()=> navigate("acts/contact_us")}
                 >Contact Us</ListItem>

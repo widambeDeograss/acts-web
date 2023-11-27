@@ -338,13 +338,15 @@ const Home = () => {
               <figcaption class="flex justify-center items-center space-x-3">
                 <img
                   class="w-9 h-9 rounded-full"
-                  src={ngonyani}
+                  src={`${require("../assets/img/Lawrence.png")}`}
                   alt="profile picture"
                 />
                 <div class="space-y-0.5 font-medium  text-left">
-                  <div>AURELIAN NGONYANI</div>
+                  <div className="uppercase">Lawrence Memruti
+Laizer</div>
                   <div class="text-sm font-light text-gray-500 ">
-                    Masters of Divinity Degree(Ministerial Track)
+                  LEAD PASTOR TAG NEW SINAI
+CHRISTIAN CENTER
                   </div>
                 </div>
               </figcaption>

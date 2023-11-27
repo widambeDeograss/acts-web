@@ -3,45 +3,7 @@ import { Typography } from "@material-tailwind/react";
 import pe7 from "../assets/img/DJI_0973.jpeg";
 import pe8 from "../assets/img/DJI_0974.jpeg";
 import pe9 from "../assets/img/DJI_0981-min.JPG";
-import majule from "../assets/img/majule faculty.png";
-import majembe from "../assets/img/majembe faculty.png";
-import nyanda from "../assets/img/nyanda faculty.png";
-import Kibga from "../assets/img/Kibga faculty.jpg";
-import nhigula from "../assets/img/nhigula faculty.png";
-import vicePresident from "../assets/img/vicePresident.jpg";
 
-const staffData = [
-    {
-      img: nhigula,
-      title: 'Dr. Immaculate Nhigula',
-      author: 'Presdent',
-    },
-    {
-      img: vicePresident,
-      title: 'REV. DR. JOSEPH KIMEME',
-      author: 'Vice President',
-    },
-    {
-      img: majule,
-      title: 'REV. DR. GEOFREY P. MAJULE',
-      author: 'Dip, BA, M.Div & D.Min',
-    },
-    {
-      img: majembe,
-      title: 'REV. DR. PASTORY MAJEMBE',
-      author: 'Dip, BA, M.Div, Th. M ',
-    },
-    {
-      img: nyanda,
-      title: 'REV. DR. JACKSON NYANDA',
-      author: 'Academic Dean & Registar',
-    },
-    {
-      img: Kibga,
-      title: 'DR. ELIA Y. KIBGA',
-      author: 'Staff',
-    },
-  ];
 
 function AboutUs() {
     return (
@@ -71,7 +33,7 @@ function AboutUs() {
                 </div>
             </div>
 
-            <div className="flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-row  mt-10 w-10/12 gap-1 mx-auto">
+            <div className="flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-row  mt-10  mb-10 w-10/12 gap-1 mx-auto">
                 <div className=" lg:mr-16 sm:w-full md:w-full lg:w-1/2 sm:mr-0">
                     <Typography variant="h4" className="mb-1 font-semibold text-left">
                         ACTS' HISTORY
@@ -118,39 +80,6 @@ function AboutUs() {
                 </div>
             </div>
 
-            <div className="mt-10 w-10/12 gap-1 mx-auto">
-                <Typography variant="h4" className="mb-3 font-semibold text-left">
-                    OUR STAFF
-                </Typography>
-
-                <div class="grid  sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-2  gap-4 mb-6">
-                    {staffData.map(staff => {
-                        return(
-                            <figure className="relative h-72 w-full" key={staff.author}>
-                            <img
-                              className="h-full w-full rounded-xl object-cover object-center"
-                              src={staff.img}
-                              alt="nature image"
-                            />
-                            <figcaption className="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
-                              <div>
-                                <Typography variant="h5" color="blue-gray" className="capitalize text-base text-left">
-                                  {staff.author}
-                                </Typography>
-                                <Typography color="gray" className="mt-2 font-normal uppercase text-sm">
-                                  {staff.title}
-                                </Typography>
-                              </div>
-                              {/* <Typography variant="h5" color="blue-gray">
-                                Growth
-                              </Typography> */}
-                            </figcaption>
-                          </figure>
-                        )
-                    })}
-
-                </div>
-            </div>
         </div>
     );
 }
