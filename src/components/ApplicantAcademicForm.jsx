@@ -16,6 +16,7 @@ function ApplicantAcademicForm() {
   const [isPastor, setisPastor] = useState(true);
   const [EducatorsList, setEducatorsList] = useState([]);
   const [open, setOpen] = useState(false);
+  const [openPhd, setopenPhd] = useState(false);
   const [name, setname] = useState("");
   const [city, setcity] = useState("");
   const [major, setmajor] = useState("");
@@ -32,7 +33,7 @@ function ApplicantAcademicForm() {
       dates: `${Sdate} - ${Edate}`,
       major: major,
       Degrees: Degrees,
-      
+
       // non_residetial_student:Residential,
     };
     EducatorsList.push(dataobj);
@@ -47,22 +48,19 @@ function ApplicantAcademicForm() {
 
   const handleSubmitAcademicInfo = () => {
     const dataobj = {
-      educatorsList:EducatorsList,
+      educatorsList: EducatorsList,
       take_masters: open,
       marsters_course: selectedCourse,
       residetial_student: Residential,
-
-    }
+    };
     localStorage.setItem("applicant_education_data", JSON.stringify(dataobj));
-    swal({  
-      title: "",  
-      text: "Education details added succesfully. View your application summary and send your Application!",  
-      icon: "success",  
-      button: "OK",  
+    swal({
+      title: "",
+      text: "Education details added succesfully. View your application summary and send your Application!",
+      icon: "success",
+      button: "OK",
     });
-    
-    
-  }
+  };
 
   return (
     <div>
@@ -206,15 +204,31 @@ function ApplicantAcademicForm() {
               id="masters"
               name="program"
               label="Masters Programs"
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                setopenPhd(false);
+                setOpen(true);
+              }}
             />
             <Radio
               id="phd"
               name="program"
               label=" PhD Program"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                setopenPhd(true);
+              }}
             />
           </div>
+
+          {openPhd && (
+            <div className="mt-10 mb-10">
+              <Typography className="font-semibold text-left mb-2">
+                ACTS in collaboration with TRINITY BIBLE COLLEGE AND GRADUATE
+                SCHOOL - North Dakota, USA, presents to you a 4-year program for
+                a Ph.D. in Practical Theology (research-based).
+              </Typography>
+            </div>
+          )}
 
           {open && (
             <div className="mt-10 mb-10">
@@ -259,7 +273,6 @@ function ApplicantAcademicForm() {
             </div>
           )}
         </div>
-       
       </form>
 
       <table className="w-full  overflow-x-scroll table-auto mt-8">
@@ -337,13 +350,13 @@ function ApplicantAcademicForm() {
           })}
         </tbody>
       </table>
-      
+
       <button
-          onClick={() => handleSubmitAcademicInfo()}
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 float-left mt-10 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
-        >
-          Submit information
-        </button>
+        onClick={() => handleSubmitAcademicInfo()}
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 float-left mt-10 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+      >
+        Submit information
+      </button>
     </div>
   );
 }

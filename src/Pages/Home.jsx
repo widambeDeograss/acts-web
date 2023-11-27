@@ -36,11 +36,11 @@ import { UserUrls } from "../utils/apis";
 
 const tabData = [
   {
-    label: "Message from the principal",
+    label: "Message from the President",
     title: "Dr. Immaculate Nhigula",
     value: "message",
     image: nhigula,
-    desc: `Acts exists to develop God’s ministers
+    desc: `ACTS exists to develop God’s ministers
     who are capable of pioneering
     indigenous churches with the
     potential to grow spiritually,
@@ -187,7 +187,7 @@ const Home = () => {
                 color="white"
                 className="mb-1 opacity-80 text-base lg:text-base md:text-sm sm:text-sm"
               >
-              `Acts exists to develop God’s ministers
+              `ACTS exists to develop God’s ministers
                 who are capable of pioneering indigenous churches with the
                 potential to grow spiritually, numerically, and geographically
                 in the power of the Holy Spirit, thus fulfilling the Great
@@ -288,7 +288,7 @@ const Home = () => {
             <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
               <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
                 <p class="my-4">
-                  "I recommend these courses to everyone, and wish you, guys,
+                  "I recommend these courses to everyone, and wish you,
                   luck with the new studies!
                 </p>
               </blockquote>
@@ -331,7 +331,7 @@ const Home = () => {
             <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r ">
               <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500 ">
                 <p class="my-4">
-                  "I recommend these courses to everyone, and wish you, guys,
+                  "I recommend these courses to everyone, and wish you,
                   luck with the new studies!."
                 </p>
               </blockquote>

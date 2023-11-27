@@ -386,7 +386,7 @@ const ApplicationPdf = () => {
         {applicant_education_data.educatorsList?.map(
           ({ name, city, dates, major, Degrees }, key) => {
             return (
-              <View style={styles.tableRow} key={name}>
+              <View style={[styles.tableRow, {marginTop:10}]} key={name}>
                 <View style={styles.tableColl}>
                   <Text style={styles.tableCell}>{name} </Text>
                 </View>
@@ -424,11 +424,18 @@ const ApplicationPdf = () => {
           </Text>
           <Text style={styles.text}>
             Masters Program:{" "}
-            {applicant_education_data.take_masters && (
+            {applicant_education_data.take_masters ? (
               <Text style={styles.title}>
                 {applicant_education_data.marsters_course}
               </Text>
-            )}
+            ):
+            <Text style={styles.title}>
+            
+                4-year program for
+                a Ph.D. in Practical Theology (research-based).
+             
+          </Text>
+            }
           </Text>
           <Text style={styles.title}>
             Mode of study you want to use:{" "}
