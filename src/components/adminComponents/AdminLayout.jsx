@@ -16,11 +16,6 @@ import { Outlet } from "react-router-dom";
 // import Members from "../pages/Members";
 import Nav from "./Nav";
 import NavLink from "./NavLink";
-// import Notifications from "./Notifications";
-// import Orders from "../pages/Orders";
-// import Products from "../pages/Products";
-// import Profile from "../pages/Profile";
-// import QueryWrapper from "./QueryWrapper";
 import Sidebar from "./Sidebar";
 import Logo from "./Logo";
 import Avatar from "./Avatar";
@@ -50,7 +45,7 @@ export default function AdminLayout(props) {
             <Avatar bg="primary" className="mr-3">
               <Logo size={24} />
             </Avatar>{" "}
-            Acts Admin
+            ACTS Admin
           </div>
         }
       >

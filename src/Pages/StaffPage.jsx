@@ -59,7 +59,7 @@ const StaffPage = () => {
       <PageHeroSection title="Our staff" />
 
       <div className="mt-10 w-10/12 gap-1 mx-auto">
-        <Typography variant="h4" className="mb-3 font-semibold text-left">
+        <Typography variant="h6" className="mb-3 font-semibold text-left">
           SEMINARY ADMINISTRATION
         </Typography>
 
@@ -99,7 +99,7 @@ const StaffPage = () => {
       </div>
 
       <div className="mt-10 w-10/12 gap-1 mx-auto">
-        <Typography variant="h4" className="mb-3 font-semibold text-left">
+        <Typography variant="h6" className="mb-3 font-semibold text-left">
           SEMINARY FACULTY
         </Typography>
 
@@ -110,14 +110,14 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               MCH. DR. IMMACULATE NHIGULA
             </Typography>
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               President
             </Typography>
@@ -140,7 +140,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 Diploma in Education,
                 <br />
@@ -156,14 +156,14 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               REV. PROF. JOSEPH KIMEME
             </Typography>
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left   text-light-blue-500 w-32"
             >
               Vice President
             </Typography>
@@ -186,7 +186,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 Bsc. Eng (UDSM),
                 <br />
@@ -204,14 +204,14 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               REV. DR. JACKSON NYANDA
             </Typography>
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               Academic Dean
             </Typography>
@@ -234,7 +234,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 Dip Ed - UD,
                 <br />
@@ -255,14 +255,14 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               MCH. WILLIMINA MUIMBULA
             </Typography>
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               BM & Registrar
             </Typography>
@@ -285,7 +285,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 FTC in Civil Engineering
                 - Arusha Tech,
@@ -306,7 +306,7 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               REV. PROF. GEOFREY
               MAJULE
@@ -314,7 +314,7 @@ const StaffPage = () => {
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               Staff
             </Typography>
@@ -337,7 +337,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 Diploma in Bible &
                 Theology - CBC Dodoma,
@@ -359,7 +359,7 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               REV. PROF. PASTORY
               MAJEMBE
@@ -367,7 +367,7 @@ const StaffPage = () => {
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               Staff
             </Typography>
@@ -390,7 +390,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 Diploma in Bible
                 &Theology,
@@ -412,14 +412,14 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               DR. ELIA KIBGA
             </Typography>
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               Staff
             </Typography>
@@ -442,7 +442,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 PhD Ed (Curriculum Studies),
                 <br />
@@ -468,14 +468,14 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               REV. DR. JOEL HAMULI
             </Typography>
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               Staff
             </Typography>
@@ -498,7 +498,7 @@ const StaffPage = () => {
               </figure>
               <Typography
                 color="gray"
-                className="mt-2  text-base text-left  font-bold"
+                className="mt-2  text-xs text-left  font-bold"
               >
                 BA. Economy (UDSM),
                 <br />
@@ -517,7 +517,7 @@ const StaffPage = () => {
           >
             <Typography
               color="gray"
-              className="mt-2  uppercase text-base text-left  font-bold"
+              className="mt-2  uppercase text-sm text-left  font-bold"
             >
               REV. DR. GERALD OLE -
 NGUYAINE
@@ -525,7 +525,7 @@ NGUYAINE
             <Typography
               variant="h5"
               color="blue-gray"
-              className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-32"
+              className="capitalize text-sm text-left  text-light-blue-500 w-32"
             >
               Staff
             </Typography>

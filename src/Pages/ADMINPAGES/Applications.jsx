@@ -70,7 +70,7 @@ const Applications = () => {
     const response = await fetcher.fetch({ url: UserUrls.Application });
     console.log(response);
     if (response) {
-      setapplications(response);
+      setapplications(response?.reverse());
       setisLoading(false);
     }
   };

@@ -30,16 +30,14 @@ const ApplicationSummary = () => {
     formData.append("program", applicant_education_data.take_masters? "Masters Program": "Phd Program");
     formData.append("course", applicant_education_data.take_masters? applicant_education_data.marsters_course: "Phd Program" );
     formData.append("phone", applicant_personal_details.primary_phone);
-
-    console.log(formData);
+    console.log(applicant_personal_details);
     try {
       const responce =await formPost.post({
         url:UserUrls.Application,
         data:formData
-      
       })
       console.log(responce);
-      if (responce.save == true) {
+      if (responce.save === true) {
           localStorage.clear()
           swal({  
             title: "Success",  
@@ -86,65 +84,65 @@ const ApplicationSummary = () => {
           <div className="text-left text-sm">
             <Typography className=" ">
               Previous study with Global university:{" "}
-              {applicant_personal_details.global_university_student_no
+              {applicant_personal_details?.global_university_student_no
                 ? "Yes"
                 : "No"}
             </Typography>
             <Typography className=" ">
               student No. (Former Global university students):{" "}
-              {applicant_personal_details.global_university_student_no}
+              {applicant_personal_details?.global_university_student_no}
             </Typography>
             <Typography className=" ">
-              Applicant Family/last name: {applicant_personal_details.last_name}
+              Applicant Family/last name: {applicant_personal_details?.last_name}
             </Typography>
             <Typography className=" ">
-              Maiden name: {applicant_personal_details.maiden_name}
+              Maiden name: {applicant_personal_details?.maiden_name}
             </Typography>
             <Typography className=" ">
-              First name: {applicant_personal_details.first_name}
+              First name: {applicant_personal_details?.first_name}
             </Typography>
             <Typography className=" ">
-              Middle name: {applicant_personal_details.maiden_name}
+              Middle name: {applicant_personal_details?.maiden_name}
             </Typography>
             <Typography className=" ">
-              Date of Birth: {applicant_personal_details.date_of_birth}
+              Date of Birth: {applicant_personal_details?.date_of_birth}
             </Typography>
             <Typography className=" ">
-              Tittle: {applicant_personal_details.Title}
+              Tittle: {applicant_personal_details?.Title}
             </Typography>
             <Typography className=" ">
-              Marital status: {applicant_personal_details.marital_status}
+              Marital status: {applicant_personal_details?.marital_status}
             </Typography>
             <Typography className=" ">
-              Gender: {applicant_personal_details.gender}
+              Gender: {applicant_personal_details?.gender}
             </Typography>
             <Typography className=" ">
-              Home address: {applicant_personal_details.home_address}
+              Home address: {applicant_personal_details?.home_address}
             </Typography>
             <Typography className=" ">
               Country of residence:{" "}
-              {applicant_personal_details.contry_of_residence}
+              {applicant_personal_details?.contry_of_residence}
             </Typography>
             <Typography className=" ">
               Country of citizenship:{" "}
-              {applicant_personal_details.contry_of_citizenship}
+              {applicant_personal_details?.contry_of_citizenship}
             </Typography>
             <Typography className=" ">
-              Email address: {applicant_personal_details.email}
+              Email address: {applicant_personal_details?.email}
             </Typography>
             <Typography className=" ">
               Primary Language spoken:{" "}
-              {applicant_personal_details.primary_language}
+              {applicant_personal_details?.primary_language}
             </Typography>
             <Typography className=" ">
-              Primary Phone: {applicant_personal_details.primary_phone}
+              Primary Phone: {applicant_personal_details?.primary_phone}
             </Typography>
             <Typography className=" ">
               Present Occupation:{" "}
-              {applicant_personal_details.present_occcupation}
+              {applicant_personal_details?.present_occcupation}
             </Typography>
             <Typography className=" ">
-              Other Phone: {applicant_personal_details.other_phone}
+              Other Phone: {applicant_personal_details?.other_phone}
             </Typography>
           </div>
         </div>
@@ -152,52 +150,52 @@ const ApplicationSummary = () => {
         <div className="text-sm mt-4 ">
           <Typography>
             How did you hear about us:{" "}
-            {applicant_personal_details.how_hear_about_us}
+            {applicant_personal_details?.how_hear_about_us}
           </Typography>
           <Typography>
-            Internet: {applicant_personal_details.how_hear_about_us_internet}
+            Internet: {applicant_personal_details?.how_hear_about_us_internet}
           </Typography>
           <Typography>
-            Magazine: {applicant_personal_details.how_hear_about_us_magazine}
+            Magazine: {applicant_personal_details?.how_hear_about_us_magazine}
           </Typography>
           <Typography>
-            Other: {applicant_personal_details.how_hear_about_us_other}
+            Other: {applicant_personal_details?.how_hear_about_us_other}
           </Typography>
           <Typography className="mt-4">
             Primary Religious Affiliation:{" "}
-            {applicant_personal_details.primary_rerigious_affiliation}
+            {applicant_personal_details?.primary_rerigious_affiliation}
           </Typography>
           <Typography className="">
             Other Primary Religious Affiliation:{" "}
-            {applicant_personal_details.other_primary_rerigious_affiliation}
+            {applicant_personal_details?.other_primary_rerigious_affiliation}
           </Typography>
         </div>
 
         <div className="mt-4 text-sm">
           <Typography className="font-bold">
             Ministerial cridentials :{" "}
-            {applicant_personal_details.ministerial_organization ? "Yes" : "No"}
+            {applicant_personal_details?.ministerial_organization ? "Yes" : "No"}
           </Typography>
-          {applicant_personal_details.ministerial_organization && (
+          {applicant_personal_details?.ministerial_organization && (
             <div>
               <Typography className="mt-1">
                 Organization:{" "}
-                {applicant_personal_details.ministerial_organization}
+                {applicant_personal_details?.ministerial_organization}
               </Typography>
               <Typography>
-                District: {applicant_personal_details.ministerial_organization}
+                District: {applicant_personal_details?.ministerial_district}
               </Typography>
               <Typography>
                 Cridential level:{" "}
-                {applicant_personal_details.how_hear_about_us_magazine}
+                {applicant_personal_details?.ministerial_credential_level}
               </Typography>
               <Typography>
-                Other Primary Date obtained:{" "}
-                {applicant_personal_details.how_hear_about_us_other}
+                 Date obtained:{" "}
+                {applicant_personal_details?.ministerial_date_obtained}
               </Typography>
               <Typography>
-                Other Primary Country:{" "}
-                {applicant_personal_details.how_hear_about_us_other}
+               Country:{" "}
+                {applicant_personal_details?.ministerial_country}
               </Typography>
             </div>
           )}
@@ -225,7 +223,7 @@ const ApplicationSummary = () => {
               </tr>
             </thead>
             <tbody>
-              {referee_pastors_list.map(({ name, address, phone }, key) => {
+              {referee_pastors_list?.map(({ name, address, phone }, key) => {
                 const className = `py-3  ${key === referee_pastors_list.length - 1
                   ? ""
                   : "border-b border-blue-gray-50"
@@ -277,8 +275,8 @@ const ApplicationSummary = () => {
               </tr>
             </thead>
             <tbody>
-              {referee_employers_list.map(({ name, address, phone }, key) => {
-                const className = `py-3  ${key === referee_employers_list.length - 1
+              {referee_employers_list?.map(({ name, address, phone }, key) => {
+                const className = `py-3  ${key === referee_employers_list?.length - 1
                   ? ""
                   : "border-b border-blue-gray-50"
                   }`;
@@ -342,7 +340,7 @@ const ApplicationSummary = () => {
                 ))}
               </tr>
             </thead>
-            <tbody>{applicant_education_data.educatorsList?.map(({ name, city, dates, major, Degrees }, key) => {
+            <tbody>{applicant_education_data?.educatorsList?.map(({ name, city, dates, major, Degrees }, key) => {
               
                 const className = `py-3  ${key === applicant_education_data.educatorsList?.length - 1
                     ? ""
@@ -401,17 +399,17 @@ const ApplicationSummary = () => {
             APPLICATION DETAILS: Program of study
           </Typography>
           <Typography className="">
-           Program of study:{applicant_education_data.take_masters? "Masters Program": "Phd Program"}
+           Program of study:{applicant_education_data?.take_masters? "Masters Program": "Phd Program"}
           </Typography>
           <Typography className="font-bold mb-4">
-           Masters Program: {applicant_education_data.take_masters && (
+           Masters Program: {applicant_education_data?.take_masters && (
             <div>
-              {applicant_education_data.marsters_course}
+              {applicant_education_data?.marsters_course}
             </div>
            )}
           </Typography>
           <Typography className="">
-          Mode of study you want to use: {applicant_education_data.residetial_student? "Residential": "Non Residential"}
+          Mode of study you want to use: {applicant_education_data?.residetial_student? "Residential": "Non Residential"}
           </Typography>
          
           </div>

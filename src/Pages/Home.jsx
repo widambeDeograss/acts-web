@@ -65,52 +65,49 @@ const tabData = [
   },
 ];
 
-export const EventData = ({event}) => {
-  const navigate = useNavigate()
+export const EventData = ({ event }) => {
+  const navigate = useNavigate();
 
-
-   return(
-    <div >
-          <List>
-            <ListItem style={{ display: "block" }}
-            onClick={() => {
-              navigate(`/acts/events/${event?.id}`, {state:{
-                event:event?.id
-              }})
-            }}
-            >
-              <div className="flex flex-row">
-                <CalendarIcon height={32} />
-                <Typography variant="body2">
-                  {" "}
-                  <span>{event?.date}</span>
-                </Typography>
-              </div>
-              <Typography variant="h6">
-                {" "}
-                <strong>
-                  <a
-                    color="inherit"
-                    href="#"
-                    style={{ textDecoration: "none" }}
-                  >
-                   {event?.title}
-                  </a>
-                </strong>
-              </Typography>
-              <div className="flex flex-row">
-                <ClockIcon height={25} />
-                <Typography variant="body4"> {event?.time}</Typography>
-                <MapPinIcon height={25} />
-                <Typography variant="body4"> acts dodoma</Typography>
-              </div>
-            </ListItem>
-            <hr />
-          </List>
-
-        </div>
-   )
-}
+  return (
+    <div>
+      <List>
+        <ListItem
+          style={{ display: "block" }}
+          onClick={() => {
+            navigate(`/acts/events/${event?.id}`, {
+              state: {
+                event: event?.id,
+              },
+            });
+          }}
+        >
+          <div className="flex flex-row">
+            <CalendarIcon height={32} />
+            <Typography variant="body2">
+              {" "}
+              <span>{event?.date}</span>
+            </Typography>
+          </div>
+          <Typography variant="h6">
+            {" "}
+            <strong>
+              <a color="inherit" href="#" style={{ textDecoration: "none" }}>
+                {event?.title}
+              </a>
+            </strong>
+          </Typography>
+          <div className="flex flex-row">
+            <ClockIcon height={25} />
+            <Typography variant="body4"> {event?.time}</Typography>
+            <MapPinIcon height={25} />
+            <Typography variant="body4"> acts dodoma</Typography>
+          </div>
+        </ListItem>
+        <hr />
+      </List>
+    </div>
+  );
+};
 
 const Home = () => {
   const [currentTab, setcurrentTab] = useState(tabData[0]);
@@ -124,7 +121,7 @@ const Home = () => {
     const response = await fetcher.fetch({ url: UserUrls.Events });
     console.log(response);
     if (response) {
-      setBlogs(response);
+      setBlogs(response?.reverse());
       setisLoading(false);
     }
   };
@@ -187,11 +184,10 @@ const Home = () => {
                 color="white"
                 className="mb-1 opacity-80 text-base lg:text-base md:text-sm sm:text-sm"
               >
-              `ACTS exists to develop God’s ministers
-                who are capable of pioneering indigenous churches with the
-                potential to grow spiritually, numerically, and geographically
-                in the power of the Holy Spirit, thus fulfilling the Great
-                commission`,,
+                `ACTS exists to develop God’s ministers who are capable of
+                pioneering indigenous churches with the potential to grow
+                spiritually, numerically, and geographically in the power of the
+                Holy Spirit, thus fulfilling the Great commission`,,
               </Typography>
             </div>
           </div>
@@ -204,20 +200,23 @@ const Home = () => {
         />
       </Carousel>
 
-      <div className="flex flex-wrap justify-around mt-16 shadow-sm ">
-        <div>
-          <QuickLinks />
-        </div>
+      <div className="grid grid-cols-1 gap-4  md:grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 justify-around mt-16 shadow-sm px-5 lg:px-16">
+        <QuickLinks />
 
-        <div className="shadow-md p-10 lg:w-1/3 md:w-1/2 sm:w-full">
-        <Typography variant="h6">
+        <div className="shadow-md p-10  sm:w-full">
+          <Typography variant="h6">
             {" "}
             <strong>Recent Events News&upadets </strong>
           </Typography>
-        {blogs && blogs?.map((blog) => <EventData event={blog} />)}
+          {blogs &&
+            blogs
+              ?.slice(0, 3)
+             
+              .map((blog) => <EventData event={blog} />)}
           <hr />
-          <div className="flex fle-row gap-1 font-bold cursor-pointer"
-          onClick={() => navigate("/acts/allEvents")}
+          <div
+            className="flex fle-row gap-1 font-bold cursor-pointer"
+            onClick={() => navigate("/acts/allEvents")}
           >
             <Typography as="h6" className="font-bold">
               View All
@@ -225,133 +224,134 @@ const Home = () => {
             <ArrowRightIcon height={20} width={30} className="mt-1" />
           </div>
         </div>
-
-        <div className="bg-gray-400 h-auto mt-10 w-full">
-          <div className="flex flex-row p-10  max-w-7xl mx-auto">
-            <div className="w-1/4 rounded-lg overflow-hidden mr-1">
-              <img
-                src={currentTab?.image}
-                alt={currentTab?.value}
-                className="h-full w-full object-cover  hidden md:block lg:block sm:hidden rounded-lg"
-              />
-            </div>
-            <div className="lg:w-3/4 sm:w-full">
-              <Tabs id="custom-animation" value="message">
-                <TabsHeader>
-                  {tabData.map(({ label, value }) => (
-                    <Tab
+      </div>
+      <div className="bg-gray-400 h-auto mt-10 w-full">
+        <div className="flex flex-row p-10  max-w-7xl mx-auto">
+          <div className="w-1/4 rounded-lg overflow-hidden mr-1">
+            <img
+              src={currentTab?.image}
+              alt={currentTab?.value}
+              className="h-full w-full object-cover  hidden md:block lg:block sm:hidden rounded-lg"
+            />
+          </div>
+          <div className="lg:w-3/4 sm:w-full">
+            <Tabs id="custom-animation" value="message">
+              <TabsHeader>
+                {tabData.map(({ label, value }) => (
+                  <Tab
+                    key={value}
+                    value={value}
+                    onClick={() => {
+                      imagetab(value);
+                    }}
+                  >
+                    {label}
+                  </Tab>
+                ))}
+              </TabsHeader>
+              <TabsBody
+                animate={{
+                  initial: { y: 250 },
+                  mount: { y: 0 },
+                  unmount: { y: 250 },
+                }}
+              >
+                {tabData.map(({ value, desc, title }) => (
+                  <>
+                    <TabPanel
                       key={value}
                       value={value}
-                      onClick={() => {
-                        imagetab(value);
-                      }}
+                      className=" mx-auto sm:w-full lg:w-3/4"
                     >
-                      {label}
-                    </Tab>
-                  ))}
-                </TabsHeader>
-                <TabsBody
-                  animate={{
-                    initial: { y: 250 },
-                    mount: { y: 0 },
-                    unmount: { y: 250 },
-                  }}
-                >
-                  {tabData.map(({ value, desc, title }) => (
-                    <>
-                      <TabPanel key={value} value={value} className=" mx-auto sm:w-full lg:w-3/4">
-                        <h2>
-                          <strong>{title}</strong>
-                        </h2>
-                        {desc}
-                      </TabPanel>
-                    </>
-                  ))}
-                </TabsBody>
-              </Tabs>
-            </div>
+                      <h2>
+                        <strong>{title}</strong>
+                      </h2>
+                      {desc}
+                    </TabPanel>
+                  </>
+                ))}
+              </TabsBody>
+            </Tabs>
           </div>
         </div>
       </div>
       <section>
         <section class="bg-white ">
           <div class=" px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-          <div class="mx-auto max-w-screen-sm">
-            <h2 class=" text-xl tracking-tight font-extrabold text-gray-900">
-              Testimonials
-            </h2>
-            <p class="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-              What our students say about us
-            </p>
-          </div>
-          <div class="grid mb-8 lg:mb-12 lg:grid-cols-3">
-            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
-              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
-                <p class="my-4">
-                  "I recommend these courses to everyone, and wish you,
-                  luck with the new studies!
-                </p>
-              </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                <img
-                  class="w-9 h-9 rounded-full"
-                  src={ernest}
-                  alt="profile picture"
-                />
-                <div class="space-y-0.5 font-medium  text-left">
-                  <div>ERNEST IDABU</div>
-                  <div class="text-sm font-light text-gray-500 ">
-                    Masters of Arts Degree in Biblical Studies
+            <div class="mx-auto max-w-screen-sm">
+              <h2 class=" text-xl tracking-tight font-extrabold text-gray-900">
+                Testimonials
+              </h2>
+              <p class="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
+                What our students say about us
+              </p>
+            </div>
+            <div class="grid mb-8 lg:mb-12 lg:grid-cols-3">
+              <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
+                <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <p class="my-4">
+                    "I recommend these courses to everyone, and wish you, luck
+                    with the new studies!
+                  </p>
+                </blockquote>
+                <figcaption class="flex justify-center items-center space-x-3">
+                  <img
+                    class="w-9 h-9 rounded-full"
+                    src={ernest}
+                    alt="profile picture"
+                  />
+                  <div class="space-y-0.5 font-medium  text-left">
+                    <div>ERNEST IDABU</div>
+                    <div class="text-sm font-light text-gray-500 ">
+                      Masters of Arts Degree in Biblical Studies
+                    </div>
                   </div>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 ">
-              <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500">
-                <p class="my-4">
-                  "I am grateful for your wonderful course! Your tutors are the
-                  best, and I am completely satisfied with the level of
-                  professional teaching."
-                </p>
-              </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                <img
-                  class="w-9 h-9 rounded-full"
-                  src={fred}
-                  alt="profile picture"
-                />
-                <div class="space-y-0.5 font-medium text-left">
-                  <div>FRED MSUNGU</div>
-                  <div class="text-sm font-light text-gray-500 ">
-                    Masters of Arts Degree(Leadership Concentration)
+                </figcaption>
+              </figure>
+              <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 ">
+                <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500">
+                  <p class="my-4">
+                    "I am grateful for your wonderful course! Your tutors are
+                    the best, and I am completely satisfied with the level of
+                    professional teaching."
+                  </p>
+                </blockquote>
+                <figcaption class="flex justify-center items-center space-x-3">
+                  <img
+                    class="w-9 h-9 rounded-full"
+                    src={fred}
+                    alt="profile picture"
+                  />
+                  <div class="space-y-0.5 font-medium text-left">
+                    <div>FRED MSUNGU</div>
+                    <div class="text-sm font-light text-gray-500 ">
+                      Masters of Arts Degree(Leadership Concentration)
+                    </div>
                   </div>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r ">
-              <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500 ">
-                <p class="my-4">
-                  "I recommend these courses to everyone, and wish you,
-                  luck with the new studies!."
-                </p>
-              </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                <img
-                  class="w-9 h-9 rounded-full"
-                  src={`${require("../assets/img/Lawrence.png")}`}
-                  alt="profile picture"
-                />
-                <div class="space-y-0.5 font-medium  text-left">
-                  <div className="uppercase">Lawrence Memruti
-Laizer</div>
-                  <div class="text-sm font-light text-gray-500 ">
-                  LEAD PASTOR TAG NEW SINAI
-CHRISTIAN CENTER
+                </figcaption>
+              </figure>
+              <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r ">
+                <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500 ">
+                  <p class="my-4">
+                    "I recommend these courses to everyone, and wish you, luck
+                    with the new studies!."
+                  </p>
+                </blockquote>
+                <figcaption class="flex justify-center items-center space-x-3">
+                  <img
+                    class="w-9 h-9 rounded-full"
+                    src={`${require("../assets/img/Lawrence.png")}`}
+                    alt="profile picture"
+                  />
+                  <div class="space-y-0.5 font-medium  text-left">
+                    <div className="uppercase">Lawrence Memruti Laizer</div>
+                    <div class="text-sm font-light text-gray-500 ">
+                      LEAD PASTOR TAG NEW SINAI CHRISTIAN CENTER
+                    </div>
                   </div>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </section>
       </section>

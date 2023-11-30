@@ -53,7 +53,7 @@ export const useFormPost = () => {
         let severity = "info";
 
         try {
-            await axios.post(url, data, !login ? requestHeader : {})
+            await axios.post(url, data)
             .then((res) => {
                 if(res.status === 200){
                     response = res.data;

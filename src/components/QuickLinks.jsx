@@ -27,7 +27,7 @@ function QuickLinks() {
             </Typography>
           </div>
 
-          <div className="flex flex-col gap-5 text-left mt-3">
+          <div className="flex flex-col gap-5 text-left mt-10">
 
             <a
               href="https://www.trinitybiblecollege.edu/ph-d-application"
@@ -39,7 +39,7 @@ function QuickLinks() {
             <hr />
 
             <a
-              href="https://my.globaluniversity.edu/?"
+             
               style={{ textDecoration: "none", color: "white" }}
             >
               Masters students Portal{" "}
@@ -51,6 +51,15 @@ function QuickLinks() {
 
               >
                   Contact us
+              </a>
+           
+              <hr/>
+              <a
+                  href="/admission/acts_online_application"
+                  style={{ textDecoration: "none", color: "white" }}
+
+              >
+                  Apply online
               </a>
           </div>
         </div>
