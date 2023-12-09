@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Collapse,
   Button,
@@ -17,16 +17,36 @@ import {
 import QuickLinks from "../components/QuickLinks";
 import { useNavigate } from "react-router-dom";
 import PageHeroSection from "../components/PageHeroSection";
+import { useDataFetch } from "../hooks/DataHook";
+import { UserUrls } from "../utils/apis";
+import { baseUrl } from "../utils/BaseUrl";
 
 const MastersPrograms = () => {
   const [open, setOpen] = useState(false);
   const [openModeofStudy, setopenModeofStudy] = useState(false);
   const [openPrograms, setopenPrograms] = useState(false);
   const navigate = useNavigate();
+  const [isLoading, setisLoading] = useState(false);
+  const [programs, setprograms] = useState([]);
+  const fetcher = useDataFetch();
 
   const toggleOpen = () => setOpen((cur) => !cur);
   const toggleModeOfStudy = () => setopenModeofStudy((cur) => !cur);
   const toogleOpenPrograms = () => setopenPrograms((cur) => !cur);
+
+  const loadData = async () => {
+    setisLoading(true);
+    const response = await fetcher.fetch({ url: UserUrls.courses });
+    console.log(response);
+    if (response) {
+      const MastersPrograms = response?.filter((program) => program?.category === "Masters Course")
+      setprograms(MastersPrograms);
+      setisLoading(false);
+    }
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const ResidentialPaymentData = [
     {
@@ -96,31 +116,16 @@ const MastersPrograms = () => {
                 We offer the following Masters programs
               </Typography>
               <ol className="mt-2 text-sm font-bold">
+              {programs?.map(({ id, course }, index) => {
+            return (
+             
                 <li className="flex ">
-                  <AcademicCapIcon height={20} className="" /> Masters of
-                  Divinity in Biblical Studies
-                </li>
-                <li className="flex ">
-                  <AcademicCapIcon height={20} className="" /> Masters of
-                  Divinity in Ministerial Studies
-                </li>
-                <li className="flex ">
-                  <AcademicCapIcon height={20} className="" /> Masters of
-                  Arts in Leadership
-                </li>
-                <li className="flex ">
-                  <AcademicCapIcon height={20} className=" " /> 
-                  Masters of
-                  Arts in Interlectual Studies(Mission)
-                </li>
-                <li className="flex ">
-                  <AcademicCapIcon height={20} className="" /> Masters of
-                  Arts in Education
-                </li>
-                <li className="flex ">
-                  <AcademicCapIcon height={20} className="" /> Masters of
-                  Arts in Biblical Studies
-                </li>
+                <AcademicCapIcon height={20} className="" />{course}
+              </li>
+            
+            )})}
+               
+            
               </ol>
             </CardBody>
           </Card>

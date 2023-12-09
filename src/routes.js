@@ -25,6 +25,9 @@ import Applications from "./Pages/ADMINPAGES/Applications";
 import UserContacts from "./Pages/ADMINPAGES/UserFeeds";
 import { ChangePassword } from "./Pages/ADMINPAGES/ChangePassword";
 import StaffPage from "./Pages/StaffPage";
+import StaffAdminPage from "./Pages/ADMINPAGES/StaffsPage";
+import CorsesAdminPage from "./Pages/ADMINPAGES/Courses";
+import Administration from "./Pages/ADMINPAGES/Administration";
 
 export default function Routeer() {
   const token = useSelector(selectCurrentToken);
@@ -77,6 +80,9 @@ export default function Routeer() {
         { path: "Applications", element: <Applications /> },
         { path: "contacts", element: <UserContacts /> },
         { path: "create_events", element: <CreateBlog /> },
+        { path: "staff", element: < StaffAdminPage/> },
+        { path: "courses", element: <CorsesAdminPage /> },
+        { path: "administration", element: <Administration /> },
         { path: "change_password", element: <ChangePassword /> },
       ],
     },

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Select, Radio, Option } from "@material-tailwind/react";
 import { data } from "autoprefixer";
 import swal from "sweetalert";
+import { UserUrls } from "../utils/apis";
+import { useDataFetch } from "../hooks/DataHook";
 
 const mastersp = [
   { id: 1, course: "Masters of Divinity in Biblical Studies" },
@@ -25,6 +27,24 @@ function ApplicantAcademicForm() {
   const [Degrees, setDegrees] = useState("");
   const [Residential, setResidential] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState("");
+  const [programs, setprograms] = useState([]);
+  const fetcher = useDataFetch();
+  const [isLoading, setisLoading] = useState(false);
+
+
+  const loadData = async () => {
+    setisLoading(true);
+    const response = await fetcher.fetch({ url: UserUrls.courses });
+    console.log(response);
+    if (response) {
+      const MastersPrograms = response?.filter((program) => program?.category === "Masters Course")
+      setprograms(MastersPrograms);
+      setisLoading(false);
+    }
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const handleSubmit = () => {
     const dataobj = {
@@ -245,7 +265,7 @@ function ApplicantAcademicForm() {
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-purple-400  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option selected>Choose a Program</option>
-                {mastersp.map((course) => (
+                {programs?.map((course) => (
                   <option key={course.id} value={course.course}>
                     {course.course}
                   </option>

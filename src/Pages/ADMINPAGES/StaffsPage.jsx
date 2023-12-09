@@ -17,72 +17,49 @@ import {
   Tooltip,
   Input,
 } from "@material-tailwind/react";
-import Menu from "../../components/adminComponents/Menu";
-import MenuItem from "../../components/adminComponents/MenuItem";
 import Badge from "../../components/adminComponents/Badge";
 import Empty from "../../components/adminComponents/Empty";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
-// import Button from "../../components/adminComponents/Button";
 import { useNavigate } from "react-router-dom";
 import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
+import { HiUserAdd } from "react-icons/hi";
+import { useDispatch, useSelector } from 'react-redux';
+import { showModal, selectModal } from "../../App/ModalSlice"; 
+import { TrashIcon } from "@heroicons/react/24/solid";
+import swal from "sweetalert";
 
-const authorsTableData = [
-  {
-    id: 12354,
-    name: "Baraka Ramadhani",
-    loc: " Mbezi, Dar es salaam",
-    avatar: "images/Screen Shot 2022-12-14 at 11.40 1.png",
-    validations: ["Manager", "Organization"],
-    online: true,
-    progress: 60,
-    date: "23/04/18",
-  },
-  {
-    id: 18845,
-    name: "Janneth Hulingo",
-    loc: " Mbezi, Dar es salaam",
-    avatar: "images/Screen Shot 2022-12-14 at 11.png",
-    validations: ["Programator", "Developer"],
-    online: false,
-    progress: 30,
-    date: "11/01/19",
-  },
-];
 
 const renderDateTime = (dateString) => {
   const dateTime = new Date(dateString);
   return dateTime.toLocaleDateString();
 };
 
-const PdfViewer = (pdfUrl) => {
-  console.log(pdfUrl);
-  return (
-    <div>
-      <h1>PDF Viewer</h1>
-      <iframe src={pdfUrl} width="800" height="600"></iframe>
-    </div>
-  );
-};
 
 
-const Applications = () => {
+const StaffAdminPage = () => {
   const navigate = useNavigate();
-  const [applications, setapplications] = useState([]);
+  const [staff, setstaff] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setisLoading] = useState(false);
+  const dispatch = useDispatch();
+  const { showModal: isModalVisible, modalType } = useSelector(selectModal);
+  
+
+  const handleShowModal = (modalType) => {
+    dispatch(showModal(modalType));
+  };
   const fetcher = useDataFetch();
   const itemsPerPage = 12
 
-  const totalPages = Math.ceil(applications.length / itemsPerPage);
+  const totalPages = Math.ceil(staff.length / itemsPerPage);
 
   const loadData = async () => {
     setisLoading(true);
-    const response = await fetcher.fetch({ url: UserUrls.Application });
+    const response = await fetcher.fetch({ url: UserUrls.staff });
     console.log(response);
     if (response) {
-      setapplications(response?.reverse());
+      setstaff(response?.reverse());
       setisLoading(false);
     }
   };
@@ -96,18 +73,49 @@ const Applications = () => {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentPageData = applications.slice(startIndex, endIndex);
+  const currentPageData = staff.slice(startIndex, endIndex);
 
 
-  if (!applications || !applications.length) {
+  if (!staff || !staff.length) {
     return (
       <div className="'flex justify-center items-center'">
-        <Empty message="There are no applications at the moment." />
+        <div>
+        <Empty message="There are no Staff at the moment." />
+        <Button
+        onClick={() => handleShowModal('staffsAdd')}
+        ><HiUserAdd strokeWidth={2} className="h-4 w-4" /> Add Staff</Button>
+        </div>
 
       </div>
     );
   }
 
+  const handle_delete = async (id) => {
+    swal({  
+      title: "",  
+    text: "Are you sure you want to remove the staff!",  
+    icon: "warning",  
+    buttons: ["no!", "yes!"],   
+      showCancelButton: true,  
+      confirmButtonClass: "danger",  
+      confirmButtonText: " Confirm, remove it!",  
+      closeOnConfirm: false  
+    }
+    ).then( async (willdelete) => {
+      if (willdelete) {
+        const response = await fetcher.fetch({ url: UserUrls.staffDelete + `?id=${id}` });
+        console.log(response);
+        if (response.delete) {
+          window.location.reload()
+        }
+      } else {
+        return
+      }
+    
+  
+    //delete
+  })
+}
 
 
   return (
@@ -117,21 +125,16 @@ const Applications = () => {
         <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <div>
             <Typography variant="h5" color="blue-gray" className="text-left">
-              All Applications
+              All ACTS Staff
             </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
-              These are details about the last transactions
-            </Typography>
+         
           </div>
           <div className="flex w-full shrink-0 gap-2 md:w-max">
-            <div className="w-full md:w-72">
-              <Input
-                label="Search"
-                icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-              />
-            </div>
-            <Button className="flex items-center gap-3" size="sm">
-              <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
+    
+            <Button className="flex items-center gap-3" size="sm"
+            onClick={() => handleShowModal('staffsAdd')}
+            >
+              <HiUserAdd strokeWidth={2} className="h-4 w-4" /> Add Staff
             </Button>
           </div>
         </div>
@@ -140,7 +143,7 @@ const Applications = () => {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["APPLICANT NAME", "PHONE", "APPLICATION EMAIL ", "APPLICATION DATE", "VIEW APPLICATION"].map(
+                {[" ","STAFF NAME", "TITLE", "", ].map(
                   (el) => (
                     <th
                       key={el}
@@ -160,7 +163,7 @@ const Applications = () => {
             <tbody>
               {currentPageData?.map(
                 (
-                  { id, first_name, last_name, email, created_at, phone, document },
+                  { id, full_name, titles, image, education },
                   key
                 ) => {
                   const className = `py-1 px-4 ${key === currentPageData.length - 1
@@ -171,20 +174,25 @@ const Applications = () => {
                   return (
                     <tr key={id}>
                       <td className={className}>
-                        <div className="flex items-center gap-4">
-                          <div class="flex relative  justify-center items-center m-1 mr-2 text-xl rounded-full text-white">
-                            {/* <Img
-                              src={avatar}
-                              className=" w-20 h-20 rounded-full"
-                            /> */}
-                          </div>
+                        <div className="flex items-center ">
+                        <Avatar
+                          src={baseUrl + `/${image}`}
+                          alt={full_name}
+                          size="md"
+                          className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1"
+                        />
+                        </div>
+                      </td>
+                      <td className={className}>
+                        <div className="flex items-center ">
+                          
                           <div>
                             <Typography
                               variant="small"
                               color="blue-gray"
                               className="font-semibold"
                             >
-                              {first_name} {last_name}
+                              {full_name}
                             </Typography>
                             {/* <Typography className="text-xs font-normal text-blue-gray-500">
                               ID:{id}
@@ -193,35 +201,35 @@ const Applications = () => {
                         </div>
                       </td>
                       <td className={className}>
+                        <div className="flex justify-center -ml-24">
                         <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {phone}
+                          {titles}
                         </Typography>
+                        </div>
 
                       </td>
+                  
+                    
                       <td className={className}>
-                        <Badge
-                          variant="gradient"
-                          color="primary"
-                          className="py-0.5 px-2 text-[11px] font-medium"
-                        >
-                          {email}
-                        </Badge>
-                      </td>
-                      <td className={className}>
-                        <Typography
-                          variant="small"
-                          className="mb-1 block text-xs font-medium text-blue-gray-600"
-                        >
-                          {renderDateTime(created_at)}
-                        </Typography>
-
-                      </td>
-                      <td className={className}>
-                      <Tooltip content="View application">
+                      <Tooltip content="View education">
                         <IconButton variant="text"
-                         onClick={() => window.open(`${baseUrl}${document}`, "_blank")}
+                        onClick={() => {
+                          swal({  
+                            title: `${full_name}`,  
+                          text: `${education}`,  
+                      
+                          }
+                          )
+                        }}
                         >
                           <EyeIcon className="h-4 w-4" />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip content="delete staff">
+                        <IconButton variant="text"
+                        onClick={() => {handle_delete(id)}}
+                        >
+                          <TrashIcon className="h-4 w-4" />
                         </IconButton>
                       </Tooltip>
                        
@@ -281,4 +289,4 @@ const Applications = () => {
   );
 };
 
-export default Applications;
+export default StaffAdminPage;

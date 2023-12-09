@@ -88,7 +88,7 @@ export const EventData = ({ event }) => {
               <span>{event?.date}</span>
             </Typography>
           </div>
-          <Typography variant="h6">
+          <Typography variant="h7" className="font-black">
             {" "}
             <strong>
               <a color="inherit" href="#" style={{ textDecoration: "none" }}>
@@ -200,7 +200,7 @@ const Home = () => {
         />
       </Carousel>
 
-      <div className="grid grid-cols-1 gap-4  md:grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 justify-around mt-16 shadow-sm px-5 lg:px-16">
+      <div className="grid grid-cols-1 gap-4  md:grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 justify-around mt-16 shadow-sm   max-w-7xl mx-auto">
         <QuickLinks />
 
         <div className="shadow-md p-10  sm:w-full">

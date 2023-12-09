@@ -9,10 +9,11 @@ import {
   HiUsers,
   HiAdjustments,
   HiLogout,
-  HiLockClosed
+  HiLockClosed,
+  HiBookOpen,
 } from "react-icons/hi";
 import IconButton from "./IconButton";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 // import Members from "../pages/Members";
 import Nav from "./Nav";
 import NavLink from "./NavLink";
@@ -21,19 +22,30 @@ import Logo from "./Logo";
 import Avatar from "./Avatar";
 import Button from "./Button";
 import Typography from "./Typography";
+import { showModal, selectModal, hideModal } from "../../App/ModalSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AddStaffModal } from "../AddStafModal";
+import { AddCoursesModal } from "../AddCorseModal";
+import { AddministrationModal } from "../AddAddministrationModal";
 // import ProfileMenu from "./ProfileMenu";
 
 const links = [
   { icon: HiHome, label: "Home", to: "AdminHome" },
   { icon: HiUsers, label: "Applications", to: "Applications" },
   { icon: HiPencilAlt, label: "Events", to: "events" },
-  { icon:HiUsers , label: "User Contacts", to: "contacts" },
-  { icon:HiLockClosed , label: "Change Password", to: "change_password" },
+  { icon: HiBookOpen, label: "Courses", to: "courses" },
+  { icon: HiUsers, label: "User Contacts", to: "contacts" },
+  { icon: HiUsers, label: "ACTS staff", to: "staff" },
+  { icon: HiUsers, label: "Administration", to: "administration" },
+  { icon: HiLockClosed, label: "Change Password", to: "change_password" },
 ];
 
 export default function AdminLayout(props) {
   const [open, setOpen] = useState(false);
   const isSmall = useBreakpoint("sm", "down");
+  const dispatch = useDispatch();
+  const location = useLocation(); 
+  const { showModal: isModalVisible, modalType } = useSelector(selectModal);
 
   return (
     <div className="flex font-syne">
@@ -51,7 +63,14 @@ export default function AdminLayout(props) {
       >
         <Nav orientation="vertical">
           {links.map((link) => (
-            <NavLink key={link.to} onClick={() => setOpen(false)} to={link.to}>
+            <NavLink
+              key={link.to}
+              onClick={() => setOpen(false)}
+              to={link.to}
+              className={`${
+                location.pathname.includes(link.to)? "bg-blue-600 text-white" : ""
+              } hover:bg-blue-gray-300 hover:text-white`}
+            >
               <link.icon className="mr-4" size={20} />
               {link.label}
             </NavLink>
@@ -60,32 +79,40 @@ export default function AdminLayout(props) {
         <span className="flex-grow" />
         <div className="flex items-center">
           {/* <Notifications /> */}
-         <Button className="flex items-center lg:mb-3"
-         onClick={() => {
-          localStorage.clear()
-          window.location.reload()
-         }}
-         >
-
+          <Button
+            className="flex items-center lg:mb-3"
+            onClick={() => {
+              localStorage.clear();
+              window.location.reload();
+            }}
+          >
             <HiLogout />
-          <Typography>Logout</Typography>
-         </Button>
+            <Typography>Logout</Typography>
+          </Button>
         </div>
 
         {/* <ProfileMenu /> */}
       </Sidebar>
       <main className="flex-grow">
-        {isSmall &&(
+        {isSmall && (
           <header className="flex items-center justify-between px-4 py-4">
             <IconButton className="-ml-2" onClick={() => setOpen(true)}>
               <HiMenu />
             </IconButton>
           </header>
         )}
-           <div className="lg:-ml-24 md:-ml-20">
-           <Outlet />
-           </div>
+        <div className="lg:-ml-4 md:-ml-20">
+          <Outlet />
+        </div>
       </main>
+      {isModalVisible && (
+        <div>
+          {/* Your modal content goes here based on the modalType */}
+          {modalType === "staffsAdd" && <AddStaffModal />}
+          {modalType === "courseAdd" && <AddCoursesModal />}
+          {modalType === "administrationAdd" && <AddministrationModal />}
+        </div>
+      )}
     </div>
   );
 }

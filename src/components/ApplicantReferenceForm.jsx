@@ -132,9 +132,10 @@ function ApplicantReferenceForm(props) {
               <input
                 type="tel"
                 id="first_name"
+                maxLength={12}
                 name="phone"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
-                placeholder="+..."
+                placeholder="ex. 255765678912"
                 value={phone}
                 onChange={(e) => setphone(e.target.value) }
                 required
@@ -193,7 +194,7 @@ function ApplicantReferenceForm(props) {
                 value={phone}
                 onChange={(e) => setphone(e.target.value) }
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
-                placeholder="+255"
+                placeholder="ex. 255765678912"
                 required
               />
             </div>
