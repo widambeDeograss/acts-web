@@ -29,23 +29,17 @@ function QuickLinks() {
 
           <div className="flex flex-col gap-5 text-left mt-10">
 
-            <a
-              href="https://www.trinitybiblecollege.edu/ph-d-application"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Application Form for Doctrate students{" "}
-            </a>
-
-            <hr />
+       
 
             <a
-             
+               href="https://my.globaluniversity.edu/?"
               style={{ textDecoration: "none", color: "white" }}
             >
               Masters students Portal{" "}
             </a>
               <hr/>
               <a
+
                   href="/acts/contact_us"
                   style={{ textDecoration: "none", color: "white" }}
 
@@ -54,6 +48,15 @@ function QuickLinks() {
               </a>
            
               <hr/>
+              <a
+              href='/acts/allEvents'
+              style={{ textDecoration: "none", color: "white" }}
+              onClick={() => navigate("/acts/allEvents")}
+            >
+              All ACTS events 
+            </a>
+
+            <hr />
               <a
                   href="/admission/acts_online_application"
                   style={{ textDecoration: "none", color: "white" }}

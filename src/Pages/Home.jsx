@@ -184,10 +184,10 @@ const Home = () => {
                 color="white"
                 className="mb-1 opacity-80 text-base lg:text-base md:text-sm sm:text-sm"
               >
-                `ACTS exists to develop God’s ministers who are capable of
+                "ACTS exists to develop God’s ministers who are capable of
                 pioneering indigenous churches with the potential to grow
                 spiritually, numerically, and geographically in the power of the
-                Holy Spirit, thus fulfilling the Great commission`,,
+                Holy Spirit, thus fulfilling the Great commission"
               </Typography>
             </div>
           </div>
