@@ -129,7 +129,8 @@ export default function Blogs() {
     <Page>
       <PageHeader
         extra={
-          <Button
+          <div className="flex ">
+            <Button
             color="primary"
             onClick={() => {
               navigate("/acts/admin/create_events");
@@ -137,6 +138,15 @@ export default function Blogs() {
           >
             Create event
           </Button>
+            <Button
+            color="primary"
+            onClick={() => {
+              navigate("/acts/admin/gallery");
+            }}
+          >
+            Acts Gallery
+          </Button>
+          </div>
         }
       >
         <Typography variant="h1">Events</Typography>

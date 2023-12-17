@@ -17,4 +17,13 @@ export const UserUrls = {
     staffDelete: baseUrl + "/manager/stuff-delete-update",
     administration: baseUrl + "/manager/admin-get-create",
     administrationDelete: baseUrl + "/manager/admin-delete-update",
+    mastersFees: baseUrl + "/manager/masters-cost-get-create",
+    mastersFeesDelete: baseUrl + "/manager/masters-cost-delete-update",
+    phdFees: baseUrl + "/manager/phd-cost-get-create",
+    phdFeesDelete: baseUrl + "/manager/phd-cost-delete-update",
+    siteInfo : baseUrl + "/manager/important-information-get-create",
+    siteInfoUpdate : baseUrl + "/manager/important-information-delete-update",
+    gellery : baseUrl + "/manager/gallery-get-create",
+    gelleryDelete : baseUrl + "/manager/gallery-delete-update",
+
 }

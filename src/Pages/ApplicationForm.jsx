@@ -166,6 +166,7 @@ const ApplicationForm = () => {
                   {
                     (activeStep === 0 && (
                       <ApplicantPersonalInfo
+                      handleNext = {handleNext}
                       // onChangeYourInfo={changeYourInfo}
                       // yourInfo={yourInfo}
                       // currentStep={stepNumber}
@@ -175,6 +176,7 @@ const ApplicationForm = () => {
                       (activeStep === 1 && (
                         <ApplicantReferenceForm
                         onAddReferences={handleReferences}
+                        handleNext = {handleNext}
                         // onChangeYourInfo={changeYourInfo}
                         // yourInfo={yourInfo}
                         // currentStep={stepNumber}
@@ -183,6 +185,7 @@ const ApplicationForm = () => {
                       )) ||
                       (activeStep === 2 && (
                         <ApplicantAcademicForm
+                        handleNext = {handleDisplaySummary}
                         
                         />
                       ))

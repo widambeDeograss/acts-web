@@ -34,36 +34,7 @@ import { useNavigate } from "react-router-dom";
 import { useDataFetch } from "../hooks/DataHook";
 import { UserUrls } from "../utils/apis";
 
-const tabData = [
-  {
-    label: "Message from the President",
-    title: "Dr. Immaculate Nhigula",
-    value: "message",
-    image: nhigula,
-    desc: `ACTS exists to develop God’s ministers
-    who are capable of pioneering
-    indigenous churches with the
-    potential to grow spiritually,
-    numerically, and geographically in
-    the power of the Holy Spirit, thus
-    fulfilling the Great commission`,
-  },
-  {
-    label: "Mission",
-    value: "mission",
-    title: " ",
-    image: pe8,
-    desc: `To prepare, empower and develop servant leaders with the best Pentecostal training, skills, integrity and passion for multiplying the church and reach the world with the gospel of Jesus Christ in the power of Holy Spirit.`,
-  },
 
-  {
-    label: "Vision",
-    value: "vision",
-    title: " ",
-    image: pl8,
-    desc: `To have servant leaders who are committed to God and His Word, spiritually transformed and empowered by Holy Spirit to reach and impact nations with the gospel of Jesus Christ.`,
-  },
-];
 
 export const EventData = ({ event }) => {
   const navigate = useNavigate();
@@ -78,6 +49,7 @@ export const EventData = ({ event }) => {
               state: {
                 event: event?.id,
               },
+              
             });
           }}
         >
@@ -110,18 +82,21 @@ export const EventData = ({ event }) => {
 };
 
 const Home = () => {
-  const [currentTab, setcurrentTab] = useState(tabData[0]);
   const fetcher = useDataFetch();
   const [blogs, setBlogs] = useState();
+
+  const [sitedata, setsitedata] = useState(null);
   const navigate = useNavigate();
   const [isLoading, setisLoading] = useState(false);
 
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.Events });
+    const siteresponse = await fetcher.fetch({ url: UserUrls.siteInfo });
     console.log(response);
     if (response) {
       setBlogs(response?.reverse());
+      setsitedata(siteresponse)
       setisLoading(false);
     }
   };
@@ -129,11 +104,38 @@ const Home = () => {
     loadData();
   }, []);
 
+  const tabData = [
+    {
+      label: "Message from the President",
+      title: "Dr. Immaculate Nhigula",
+      value: "message",
+      image: nhigula,
+      desc: sitedata?.message_from_president
+    },
+    {
+      label: "Mission",
+      value: "mission",
+      title: " ",
+      image: pe8,
+      desc: sitedata?.mission
+    },
+  
+    {
+      label: "Vision",
+      value: "vision",
+      title: " ",
+      image: pl8,
+      desc: sitedata?.vision
+    },
+  ];
+  const [currentTab, setcurrentTab] = useState(tabData[0]);
+  
   const imagetab = (value) => {
     const currentT = tabData.find((tab) => tab.value === value);
     console.log(currentT.image);
     setcurrentTab(currentT);
   };
+ 
   return (
     <div>
       <Carousel
@@ -184,10 +186,7 @@ const Home = () => {
                 color="white"
                 className="mb-1 opacity-80 text-base lg:text-base md:text-sm sm:text-sm"
               >
-                "ACTS exists to develop God’s ministers who are capable of
-                pioneering indigenous churches with the potential to grow
-                spiritually, numerically, and geographically in the power of the
-                Holy Spirit, thus fulfilling the Great commission"
+                {sitedata?.message_from_president}
               </Typography>
             </div>
           </div>

@@ -20,10 +20,14 @@ import PageHeroSection from "../components/PageHeroSection";
 import { useDataFetch } from "../hooks/DataHook";
 import { UserUrls } from "../utils/apis";
 import { baseUrl } from "../utils/BaseUrl";
+import { data } from "autoprefixer";
 
 const MastersPrograms = () => {
   const [open, setOpen] = useState(false);
   const [openModeofStudy, setopenModeofStudy] = useState(false);
+
+  const [noResidential, setnoResidential] = useState([]);
+  const [Residential, setResidential] = useState([]);
   const [openPrograms, setopenPrograms] = useState(false);
   const navigate = useNavigate();
   const [isLoading, setisLoading] = useState(false);
@@ -37,10 +41,19 @@ const MastersPrograms = () => {
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.courses });
+    setisLoading(true);
+    const nreindt = await fetcher.fetch({
+      url: UserUrls.mastersFees + `?type=NON_RESIDENTIAL`,
+    });
+    const residential = await fetcher.fetch({
+      url: UserUrls.mastersFees + `?type=RESIDENTIAL`,
+    });
     console.log(response);
     if (response) {
       const MastersPrograms = response?.filter((program) => program?.category === "Masters Course")
       setprograms(MastersPrograms);
+      setnoResidential(nreindt);
+      setResidential(residential);
       setisLoading(false);
     }
   };
@@ -194,7 +207,7 @@ const MastersPrograms = () => {
               <table className="w-full  overflow-x-scroll table-auto">
                 <thead>
                   <tr>
-                    {["No", "Description", "Amount in Usd"].map((el) => (
+                    {["No", "Description", "Units(PER SESSION)", "PRICE PER UNIT(USD)", "TOTAL PRICE (USD)"].map((el) => (
                       <th
                         key={el}
                         className="border-b border-blue-gray-50 py-3  "
@@ -210,44 +223,54 @@ const MastersPrograms = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {ResidentialPaymentData.map(
-                    ({ no, description, amount }, key) => {
+                  {Residential.data?.map(
+                   ({ id, description,units,price_per_unit ,total_price }, key) => {
                       const className = `py-3  ${
-                        key === ResidentialPaymentData.length - 1
+                        key === Residential?.data?.length - 1
                           ? ""
                           : "border-b border-blue-gray-50"
                       }`;
 
                       return (
-                        <tr key={no}>
-                          <td className={className}>
-                            
-                            
-                                <Typography
-                                  variant="small"
-                                  color="blue-gray"
-                                  className="font-semibold"
-                                >
-                                  {no}
-                                </Typography>
-                           
-                           
-                          </td>
-                          <td className={className}>
-                            <Typography className="text-xs text-center font-semibold text-blue-gray-600">
-                              {description}
-                            </Typography>
-                          </td>
+                        <tr key={id}>
+                        <td className={className}>
+                          
+                          
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-semibold"
+                              >
+                                {key+1}
+                              </Typography>
+                         
+                         
+                        </td>
+                        <td className={className}>
+                          <Typography className="text-xs text-center font-semibold text-blue-gray-600">
+                            {description}
+                          </Typography>
+                        </td>
+                        <td className={className}>
+                          <Typography className="text-xs text-center font-semibold text-blue-gray-600">
+                            {units}
+                          </Typography>
+                        </td>
+                        <td className={className}>
+                          <Typography className="text-xs text-center font-semibold text-blue-gray-600">
+                            {price_per_unit}
+                          </Typography>
+                        </td>
 
-                          <td className={className}>
-                            <Typography
-                              variant="small"
-                              className="mb-1  text-xs font-medium text-blue-gray-600"
-                            >
-                              {amount}
-                            </Typography>
-                          </td>
-                        </tr>
+                        <td className={className}>
+                          <Typography
+                            variant="small"
+                            className="mb-1  text-xs font-medium text-blue-gray-600"
+                          >
+                            {total_price}
+                          </Typography>
+                        </td>
+                      </tr>
                       );
                     }
                   )}
@@ -268,7 +291,7 @@ const MastersPrograms = () => {
                               variant="small"
                               className="mb-1 text-base font-bold text-blue-gray-600"
                             >
-                              1125.00
+                             {Residential?.total}
                             </Typography>
                           </td>
                           
@@ -310,8 +333,8 @@ const MastersPrograms = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {Non_ResidentialPaymentData.map(
-                    ({ no, description,units,price_per_unit ,amount }, key) => {
+                  {noResidential?.data?.map(
+                    ({ id, description,units,price_per_unit ,total_price }, key) => {
                       const className = `py-3  ${
                         key === ResidentialPaymentData.length - 1
                           ? ""
@@ -319,7 +342,7 @@ const MastersPrograms = () => {
                       }`;
 
                       return (
-                        <tr key={no}>
+                        <tr key={id}>
                           <td className={className}>
                             
                             
@@ -328,7 +351,7 @@ const MastersPrograms = () => {
                                   color="blue-gray"
                                   className="font-semibold"
                                 >
-                                  {no}
+                                  {key+1}
                                 </Typography>
                            
                            
@@ -354,7 +377,7 @@ const MastersPrograms = () => {
                               variant="small"
                               className="mb-1  text-xs font-medium text-blue-gray-600"
                             >
-                              {amount}
+                              {total_price}
                             </Typography>
                           </td>
                         </tr>
@@ -384,7 +407,7 @@ const MastersPrograms = () => {
                               variant="small"
                               className="mb-1  text-base font-bold text-blue-gray-600"
                             >
-                              1515.00
+                              {noResidential?.total}
                             </Typography>
                           </td>
                           

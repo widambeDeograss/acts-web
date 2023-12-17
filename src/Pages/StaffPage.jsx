@@ -66,7 +66,7 @@ const StaffPage = () => {
                       <Typography
                         variant="h5"
                         color="blue-gray"
-                        className="capitalize text-sm text-left bg-light-blue-500 p-[0.5] px-1 text-white w-"
+                        className="capitalize text-xs text-left bg-light-blue-500 p-[0.5] px-1 text-white w-"
                       >
                         {staff_titles} {staff_name}
                       </Typography>

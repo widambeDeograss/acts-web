@@ -1,11 +1,33 @@
-import React from "react";
-import { Typography } from "@material-tailwind/react";
+import React, {useState, useEffect} from "react";
+import { Spinner, Typography } from "@material-tailwind/react";
 import pe7 from "../assets/img/DJI_0973.jpeg";
 import pe8 from "../assets/img/DJI_0974.jpeg";
 import pe9 from "../assets/img/DJI_0981-min.JPG";
+import { useDataFetch } from "../hooks/DataHook";
+import { UserUrls } from "../utils/apis";
 
 
 function AboutUs() {
+    const fetcher = useDataFetch();
+    const [blogs, setBlogs] = useState();
+  
+    const [sitedata, setsitedata] = useState(null);
+    const [isLoading, setisLoading] = useState(false);
+  
+    const loadData = async () => {
+      setisLoading(true);
+      const response = await fetcher.fetch({ url: UserUrls.Events });
+      const siteresponse = await fetcher.fetch({ url: UserUrls.siteInfo });
+      console.log(response);
+      if (response) {
+        setBlogs(response?.reverse());
+        setsitedata(siteresponse)
+        setisLoading(false);
+      }
+    };
+    useEffect(() => {
+      loadData();
+    }, []);
     return (
         <div>
             <div className="relative h-64 w-11/12 mx-auto rounded-lg mt-5 overflow-hidden">
@@ -24,10 +46,7 @@ function AboutUs() {
                             color="white"
                             className="mb-12 opacity-80 text-base"
                         >
-                            ACTS exists to develop God’s ministers who are capable of
-                            pioneering indigenous churches with the potential to grow
-                            spiritually, numerically, and geographically in the power of the
-                            Holy Spirit, thus fulfilling the Great commission
+                           {sitedata?.message_from_president}
                         </Typography>
                     </div>
                 </div>
@@ -38,17 +57,20 @@ function AboutUs() {
                     <Typography variant="h4" className="mb-1 font-semibold text-left">
                         ACTS' HISTORY
                     </Typography>
+                    {isLoading? <div className="flex justify-center"><Spinner className="h-8 w-8"/></div>:
                     <Typography
-                        variant="h7"
-                        className="mb-2 font-normal text-left leading-normal"
-                    >
-                        This seminary started as a Unit of Postgraduate Studies at the
-                        Assemblies of God Central Bible College – CBC. It was launched in
-                        October 27, 2007 by the former Archbishop of that period Rev. Dr.
-                        Ranwell Mwanisongole; in a special inauguration ceremony held at the
-                        Tanzania Assemblies of God Bible College (AGBC).
-                    </Typography>
-                    <Typography
+                    variant="h7"
+                    className="mb-2 font-normal text-left leading-normal"
+                >
+                    {sitedata?.historical_background}
+                    {/* This seminary started as a Unit of Postgraduate Studies at the
+                    Assemblies of God Central Bible College – CBC. It was launched in
+                    October 27, 2007 by the former Archbishop of that period Rev. Dr.
+                    Ranwell Mwanisongole; in a special inauguration ceremony held at the
+                    Tanzania Assemblies of God Bible College (AGBC). */}
+                </Typography>
+                    }
+                    {/* <Typography
                         variant="h7"
                         className="mb-2 font-normal text-left leading-normal"
                     >
@@ -69,7 +91,7 @@ function AboutUs() {
                         of the Tanzanian Assemblies of God church that will serve not only
                         Tanzania but the entire continent of Africa. It is called “AFRICA’S
                         CONTINENTAL THEOLOGICAL SEMINARY.”
-                    </Typography>
+                    </Typography> */}
                 </div>
                 <div className="mt-5  overflow-hidden lg:w-[43%] md:w-10/12 sm:w-full">
                     <img

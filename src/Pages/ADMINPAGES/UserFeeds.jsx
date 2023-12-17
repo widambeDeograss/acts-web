@@ -100,7 +100,7 @@ const UserContacts = () => {
           variant="gradient"
           color="teal-900"
           title="Validators"
-          className="mb-2 mt-4 p-6 bg-purple-600 "
+          className="mb-2 mt-4 p-6 bg-blue-600 "
         >
           <div className="flex justify-between items-center">
             <Typography as="div" variant="h3">

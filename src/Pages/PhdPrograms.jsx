@@ -14,6 +14,7 @@ import {
   CalendarDaysIcon,
   ArrowRightIcon,
   CursorArrowRaysIcon,
+  AcademicCapIcon,
 } from "@heroicons/react/24/outline";
 import QuickLinks from "../components/QuickLinks";
 import { useNavigate } from "react-router-dom";
@@ -57,6 +58,7 @@ const PhdPrograms = () => {
   const [openModeofStudy, setopenModeofStudy] = useState(false);
   const [openPrograms, setopenPrograms] = useState(false);
   const [isLoading, setisLoading] = useState(false);
+  const [PhdFeeStracture, setPhdFeeStracture] = useState([]);
   const [programs, setprograms] = useState([]);
   const fetcher = useDataFetch();
   const navigate = useNavigate();
@@ -67,18 +69,38 @@ const PhdPrograms = () => {
   const toogleOpenPrograms = () => setopenPrograms((cur) => !cur);
 
   const loadData = async () => {
-    setisLoading(true);
-    const response = await fetcher.fetch({ url: UserUrls.courses });
-    console.log(response);
-    if (response) {
-      const MastersPrograms = response?.filter((program) => program?.category === "Phd Course")
-      setprograms(MastersPrograms);
+    try {
+      setisLoading(true);
+      const response = await fetcher.fetch({ url: UserUrls.courses });
+  
+      if (response) {
+        const PhdCourses = response.filter((program) => program?.category === "Phd Course");
+        const feePromises = PhdCourses.map(async (course) => {
+          const fee_response = await fetcher.fetch({
+            url: UserUrls.phdFees + `?id=${course?.id}`,
+          });
+          return fee_response;
+        });
+  
+        const feeResults = await Promise.all(feePromises);
+        setPhdFeeStracture(feeResults);
+  
+        setprograms(PhdCourses);
+        setisLoading(false);
+      }
+    } catch (error) {
+      console.error("Error loading data:", error);
+      // Handle error, set isLoading to false or show an error message
       setisLoading(false);
     }
   };
+  
   useEffect(() => {
     loadData();
   }, []);
+  
+  console.log(PhdFeeStracture[0]?.data);
+  
 
   return (
     <div>
@@ -100,13 +122,18 @@ const PhdPrograms = () => {
             ) : (
               <Card className="my-4 mx-auto lg:w-ful md:w-full sm:w-full">
                 <CardBody>
-                  {programs?.map(({ id, course }, index) => {
-                    return (
-                      <Typography className="font-semibold">
-                        {course}
-                      </Typography>
-                    );
-                  })}
+                <ol className="mt-2 text-xs font-bold">
+              {programs?.map(({ id, course }, index) => {
+            return (
+             
+                <li className="flex text-left justify-start mt-2">
+                <AcademicCapIcon height={20} className="" />{course}
+              </li>
+            
+            )})}
+               
+            
+              </ol>
                 </CardBody>
               </Card>
             )}
@@ -184,14 +211,23 @@ const PhdPrograms = () => {
           <Button
             onClick={toggleOpen}
             color={open ? "blue" : "gray"}
-            className="w-full mt-3"
+            className="w-full mt-3 "
           >
             Cost per term
           </Button>
           <Collapse open={open}>
+          {isLoading ? (
+              <div className="flex justify-center">
+                <Spinner className="h-8 w-8" />
+              </div>
+            ) : (
             <Card className="my-4 mx-auto  lg:w-full md:w-3/4 sm:w-full">
-              <CardBody>
-                <Typography className="font-bold">
+              {PhdFeeStracture?.map((fee) => 
+                <CardBody >
+                <Typography className="font-bold text-xs text-left">
+                  {fee.course?.course}
+                </Typography>
+                <Typography className="font-bold text-xs">
                   Cost per term is as follows
                 </Typography>
                 <table className="w-full  overflow-x-scroll table-auto">
@@ -213,7 +249,7 @@ const PhdPrograms = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {cost_per_term.map(({ no, description, amount }, key) => {
+                    {fee?.data?.map(({ id, description, amount }, key) => {
                       const className = `py-3  ${
                         key === cost_per_term.length - 1
                           ? ""
@@ -221,14 +257,14 @@ const PhdPrograms = () => {
                       }`;
 
                       return (
-                        <tr key={no}>
+                        <tr key={id}>
                           <td className={className}>
                             <Typography
                               variant="small"
                               color="blue-gray"
                               className="font-semibold"
                             >
-                              {no}
+                              {key+1}
                             </Typography>
                           </td>
                           <td className={className}>
@@ -263,14 +299,20 @@ const PhdPrograms = () => {
                           variant="small"
                           className="mb-1 text-base font-bold text-blue-gray-600"
                         >
-                          $1,300 per term
+                          {fee?.total}
                         </Typography>
                       </td>
                     </tr>
                   </tbody>
                 </table>
 
-                <Typography className="font-bold mt-3 text-left">
+              
+              </CardBody>
+               )
+              }
+
+            <div className="px-3">
+            <Typography className="font-bold mt-3 text-left">
                   Payment must be made to: EQUITY BANK
                 </Typography>
                 <Typography className="font-bold  text-left">
@@ -279,8 +321,10 @@ const PhdPrograms = () => {
                 <Typography className="font-bold  text-left">
                   A/C NUMBER: 3009211642182
                 </Typography>
-              </CardBody>
+            </div>
+              
             </Card>
+            )}
           </Collapse>
         </div>
 

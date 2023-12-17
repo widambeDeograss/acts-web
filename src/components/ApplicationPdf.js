@@ -428,8 +428,7 @@ const ApplicationPdf = () => {
             ):
             <Text style={styles.text}>
             
-                4-year program for
-                a Ph.D. in Practical Theology (research-based).
+            {applicant_education_data?.phd_course}
              
           </Text>
             }

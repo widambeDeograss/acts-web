@@ -11,7 +11,7 @@ function Sidebar({
   open,
   setOpen,
   title,
-  width = 280
+  width = 240
 }) {
   const isSmall = useBreakpoint("sm", "down");
 

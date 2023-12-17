@@ -401,16 +401,20 @@ const ApplicationSummary = () => {
           <Typography className="">
            Program of study:{applicant_education_data?.take_masters? "Masters Program": "Phd Program"}
           </Typography>
-          <Typography className="font-bold mb-4">
-           Masters Program: {applicant_education_data?.take_masters && (
+          <Typography className="font- mb-4">
+            {applicant_education_data?.take_masters ? (
             <div>
-              {applicant_education_data?.marsters_course}
-            </div>
-           )}
-          </Typography>
-          <Typography className="">
+            Masters Program:  {applicant_education_data?.marsters_course}
+              <Typography className="">
           Mode of study you want to use: {applicant_education_data?.residetial_student? "Residential": "Non Residential"}
           </Typography>
+            </div>
+           ):  <div>
+           Phd Program:  {applicant_education_data?.phd_course}
+             
+           </div> }
+          </Typography>
+         
          
           </div>
           <br />

@@ -27,6 +27,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddStaffModal } from "../AddStafModal";
 import { AddCoursesModal } from "../AddCorseModal";
 import { AddministrationModal } from "../AddAddministrationModal";
+import { AddFeeItemMasters } from "../AddFeeItemMasters";
+import { PhdFeesItem } from "../PhdFeesItem";
+import { AddGallery } from "../AddGallery";
 // import ProfileMenu from "./ProfileMenu";
 
 const links = [
@@ -35,6 +38,7 @@ const links = [
   { icon: HiPencilAlt, label: "Events", to: "events" },
   { icon: HiBookOpen, label: "Courses", to: "courses" },
   { icon: HiUsers, label: "User Contacts", to: "contacts" },
+  { icon: HiBookOpen, label: "Fee Structure", to: "fee_structure" },
   { icon: HiUsers, label: "ACTS staff", to: "staff" },
   { icon: HiUsers, label: "Administration", to: "administration" },
   { icon: HiLockClosed, label: "Change Password", to: "change_password" },
@@ -68,10 +72,10 @@ export default function AdminLayout(props) {
               onClick={() => setOpen(false)}
               to={link.to}
               className={`${
-                location.pathname.includes(link.to)? "bg-blue-600 text-white" : ""
-              } hover:bg-blue-gray-300 hover:text-white`}
+                location.pathname.includes(link.to)? "bg-blue-600  text-white" : ""
+              } hover:bg-blue-gray-300 hover:text-white text-sm w-44`}
             >
-              <link.icon className="mr-4" size={20} />
+              <link.icon className="mr-2 text-base" size={15} />
               {link.label}
             </NavLink>
           ))}
@@ -101,7 +105,7 @@ export default function AdminLayout(props) {
             </IconButton>
           </header>
         )}
-        <div className="lg:-ml-4 md:-ml-20">
+        <div className="lg:-ml-8 md:-ml-20">
           <Outlet />
         </div>
       </main>
@@ -111,6 +115,9 @@ export default function AdminLayout(props) {
           {modalType === "staffsAdd" && <AddStaffModal />}
           {modalType === "courseAdd" && <AddCoursesModal />}
           {modalType === "administrationAdd" && <AddministrationModal />}
+          {modalType === "feeItemMasters" && <AddFeeItemMasters />}
+          {modalType === "feeItemPhd" && <PhdFeesItem />}
+          {modalType === "galleryAdd" && <AddGallery />}
         </div>
       )}
     </div>

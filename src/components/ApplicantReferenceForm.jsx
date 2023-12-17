@@ -45,12 +45,26 @@ function ApplicantReferenceForm(props) {
       localStorage.setItem('referee_pastors_list', JSON.stringify(PasstorsList));
       localStorage.setItem('referee_employers_list', JSON.stringify(EducatorsList));
       swal({  
-        title: "",  
+        title: "",
         text: "Reference details added succesfully to proceed. Click NEXT!",  
-        icon: "success",  
+        icon: "success",
         button: "OK",  
-      });
-      // window.location.reload()
+        confirmButtonClass: "danger",  
+        confirmButtonText: "Confirm, remove it!",  
+        closeOnConfirm: false  
+      }
+      ).then( async (ok) => {
+        if (ok) {
+
+          // window.location.reload()
+          props.handleNext()
+        } else {
+          return
+        }
+ 
+    })
+      
+    
   }
 
   return (

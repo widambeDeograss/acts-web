@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import swal from "sweetalert";
 
-const ApplicantPersonalInfo = () => {
+const ApplicantPersonalInfo = ({  handleNext}) => {
   const [open, setOpen] = useState(false);
   const [openMinsterial, setOpenMinisterial] = useState(false);
   const formRef = useRef(null);
@@ -61,7 +61,9 @@ const ApplicantPersonalInfo = () => {
       }
       ).then( async (ok) => {
         if (ok) {
-          window.location.reload()
+
+          // window.location.reload()
+          handleNext()
         } else {
           return
         }

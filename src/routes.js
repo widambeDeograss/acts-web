@@ -28,6 +28,10 @@ import StaffPage from "./Pages/StaffPage";
 import StaffAdminPage from "./Pages/ADMINPAGES/StaffsPage";
 import CorsesAdminPage from "./Pages/ADMINPAGES/Courses";
 import Administration from "./Pages/ADMINPAGES/Administration";
+import FeeStracture from "./Pages/ADMINPAGES/FeeStracture";
+import PhdFeeStructure from "./Pages/ADMINPAGES/PhdFeeStructure";
+import Gallery from "./Pages/ADMINPAGES/Gallery";
+import StaffEditPage from "./Pages/ADMINPAGES/StaffEditPage";
 
 export default function Routeer() {
   const token = useSelector(selectCurrentToken);
@@ -77,11 +81,15 @@ export default function Routeer() {
         { element: <Navigate to="/acts/admin/AdminHome" />, index: true },
         { path: "AdminHome", element: <AdminHomePage /> },
         { path: "events", element: <Blogs /> },
+        { path: "gallery", element: <Gallery /> },
         { path: "Applications", element: <Applications /> },
         { path: "contacts", element: <UserContacts /> },
         { path: "create_events", element: <CreateBlog /> },
         { path: "staff", element: < StaffAdminPage/> },
+        { path: "staff/:id", element: < StaffEditPage/> },
         { path: "courses", element: <CorsesAdminPage /> },
+        { path: "fee_structure", element: <FeeStracture /> },
+        { path: "fee_structure/:id", element: <PhdFeeStructure /> },
         { path: "administration", element: <Administration /> },
         { path: "change_password", element: <ChangePassword /> },
       ],

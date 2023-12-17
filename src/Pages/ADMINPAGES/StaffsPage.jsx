@@ -3,6 +3,7 @@ import {
   ArrowDownTrayIcon,
   EyeIcon,
   MagnifyingGlassIcon,
+  PencilIcon,
 } from "@heroicons/react/24/outline";
 import {
   Card,
@@ -50,7 +51,7 @@ const StaffAdminPage = () => {
     dispatch(showModal(modalType));
   };
   const fetcher = useDataFetch();
-  const itemsPerPage = 12
+  const itemsPerPage = 6
 
   const totalPages = Math.ceil(staff.length / itemsPerPage);
 
@@ -230,6 +231,21 @@ const StaffAdminPage = () => {
                         onClick={() => {handle_delete(id)}}
                         >
                           <TrashIcon className="h-4 w-4" />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip content="edit staff">
+                        <IconButton variant="text"
+                        onClick={() => {
+                          navigate(`/acts/admin/staff/${id}`, {
+                            state: {
+                              staff: full_name,
+                              edu:education,
+                              tittle:titles
+                            },
+                          });
+                        }}
+                        >
+                          <PencilIcon className="h-4 w-4" />
                         </IconButton>
                       </Tooltip>
                        

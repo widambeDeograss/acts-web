@@ -48,7 +48,7 @@ const CorsesAdminPage = () => {
     dispatch(showModal(modalType));
   };
   const fetcher = useDataFetch();
-  const itemsPerPage = 12;
+  const itemsPerPage = 5;
 
   const totalPages = Math.ceil(corses.length / itemsPerPage);
 
@@ -172,7 +172,7 @@ const CorsesAdminPage = () => {
               </tr>
             </thead>
             <tbody>
-              {corses?.map(({ course, category,id }, index) => {
+              {currentPageData?.map(({ course, category,id }, index) => {
                 const isLast = index === corses.length - 1;
                 const classes = isLast
                   ? "p-4"
@@ -202,13 +202,27 @@ const CorsesAdminPage = () => {
                     </td>
 
                     <td className={classes}>
-                      <Tooltip content="Edit User">
+                      <Tooltip content="Delete">
                         <IconButton variant="text"
                         onClick={() => {handle_delete(id)}}
                         >
                           <TrashIcon className="h-4 w-4" />
                         </IconButton>
                       </Tooltip>
+                      {category === "Phd Course" && 
+                      (
+                        <Tooltip content="View fee structure">
+                        <IconButton variant="text"
+                        onClick={() => {
+                          navigate(`/acts/admin/fee_structure/${id}`, {
+                            
+                          });
+                        }}
+                        >
+                          <EyeIcon className="h-4 w-4" />
+                        </IconButton>
+                      </Tooltip>
+                      )}
                     </td>
                   </tr>
                 );
@@ -230,27 +244,6 @@ const CorsesAdminPage = () => {
               {currentPage} / {totalPages}
             </Badge>
 
-            {/* <IconButton variant="outlined" size="sm">
-            1
-          </IconButton>
-          <IconButton variant="text" size="sm">
-            2
-          </IconButton>
-          <IconButton variant="text" size="sm">
-            3
-          </IconButton>
-          <IconButton variant="text" size="sm">
-            ...
-          </IconButton>
-          <IconButton variant="text" size="sm">
-            8
-          </IconButton>
-          <IconButton variant="text" size="sm">
-            9
-          </IconButton>
-          <IconButton variant="text" size="sm">
-            10
-          </IconButton> */}
           </div>
           <Button
             variant="outlined"

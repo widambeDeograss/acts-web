@@ -14,7 +14,7 @@ const mastersp = [
   { id: 6, course: "Masters of Arts in Biblical Theology" },
 ];
 
-function ApplicantAcademicForm() {
+function ApplicantAcademicForm({handleNext}) {
   const [isPastor, setisPastor] = useState(true);
   const [EducatorsList, setEducatorsList] = useState([]);
   const [open, setOpen] = useState(false);
@@ -27,7 +27,9 @@ function ApplicantAcademicForm() {
   const [Degrees, setDegrees] = useState("");
   const [Residential, setResidential] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState("");
+  const [selectedPhdProgram, setselectedPhdProgram] = useState();
   const [programs, setprograms] = useState([]);
+  const [PhdPrograms, setPhdPrograms] = useState([]);
   const fetcher = useDataFetch();
   const [isLoading, setisLoading] = useState(false);
 
@@ -37,7 +39,9 @@ function ApplicantAcademicForm() {
     const response = await fetcher.fetch({ url: UserUrls.courses });
     console.log(response);
     if (response) {
-      const MastersPrograms = response?.filter((program) => program?.category === "Masters Course")
+      const MastersPrograms = response?.filter((program) => program?.category === "Masters Course");
+      const PhdPrograms = response?.filter((program) => program?.category === 'Phd Course');
+      setPhdPrograms(PhdPrograms);
       setprograms(MastersPrograms);
       setisLoading(false);
     }
@@ -71,15 +75,30 @@ function ApplicantAcademicForm() {
       educatorsList: EducatorsList,
       take_masters: open,
       marsters_course: selectedCourse,
+      phd_course:selectedPhdProgram,
       residetial_student: Residential,
     };
     localStorage.setItem("applicant_education_data", JSON.stringify(dataobj));
-    swal({
+   
+    swal({  
       title: "",
       text: "Education details added succesfully. View your application summary and send your Application!",
       icon: "success",
-      button: "OK",
-    });
+      button: "OK",  
+      confirmButtonClass: "danger",  
+      confirmButtonText: "Confirm, remove it!",  
+      closeOnConfirm: false  
+    }
+    ).then( async (ok) => {
+      if (ok) {
+
+        // window.location.reload()
+        handleNext()
+      } else {
+        return
+      }
+
+  })
   };
 
   return (
@@ -243,10 +262,22 @@ function ApplicantAcademicForm() {
           {openPhd && (
             <div className="mt-10 mb-10">
               <Typography className="font-semibold text-left mb-2">
-                ACTS in collaboration with TRINITY BIBLE COLLEGE AND GRADUATE
-                SCHOOL - North Dakota, USA, presents to you a 4-year program for
-                a Ph.D. in Practical Theology (research-based).
+                What is the program you want to enroll?
               </Typography>
+              <select
+                id="countries"
+                name="course"
+                value={selectedPhdProgram}
+                onChange={(e) => setselectedPhdProgram(e.target.value)}
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-purple-400  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option selected>Choose a Program</option>
+                {PhdPrograms?.map((course) => (
+                  <option key={course.id} value={course.course}>
+                    {course.course}
+                  </option>
+                ))}
+              </select>
             </div>
           )}
 
