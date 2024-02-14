@@ -12,6 +12,8 @@ import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
 import swal from "sweetalert";
+import  XLSX  from "sheetjs-style";
+import * as fileServer from "file-saver";
 // import ProductModal from "./BlogModal";
 
 function BlogCards({ blog }) {
@@ -107,6 +109,18 @@ export default function Blogs() {
     loadData();
   }, []);
 
+  
+const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
+const fileExtension = '.xlsx';
+
+const exportToExcel = async () => {
+const ws = XLSX.utils.json_to_sheet(blogs);
+const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+const data = new Blob ([excelBuffer], { type: fileType });
+fileServer.saveAs(data, "applications" + fileExtension);
+}
+
   //fetch blogs
   if (isLoading) return <h1>Loading.....</h1>;
   if (!blogs || !blogs.length) {
@@ -154,10 +168,18 @@ export default function Blogs() {
       <PageBody>
         <section class="bg-white dark:bg-gray-900">
           <div class="container px-6 py-10 mx-auto">
-            <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
+            <h1 class="text-xl font-semibold text-gray-800 capitalize dark:text-white">
               All acts events
             </h1>
-
+            <Button
+          color="primary"
+          onClick={() => {
+           exportToExcel()
+          }}
+          className="text-xs"
+        >
+        Export events
+        </Button>
             <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
               {blogs && blogs.reverse().map((blog) => <BlogCards blog={blog} />)}
             </div>

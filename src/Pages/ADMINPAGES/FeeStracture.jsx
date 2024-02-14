@@ -24,11 +24,12 @@ import { useNavigate } from "react-router-dom";
 import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
-import { HiUserAdd } from "react-icons/hi";
+import { HiDownload, HiUserAdd } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { showModal, selectModal } from "../../App/ModalSlice";
 import swal from "sweetalert";
-
+import XLSX from "sheetjs-style";
+import * as fileSever from "file-saver"; 
 const renderDateTime = (dateString) => {
   const dateTime = new Date(dateString);
   return dateTime.toLocaleDateString();
@@ -82,6 +83,19 @@ const FeeStracture = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+    
+const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
+const fileExtension = '.xlsx';
+
+const exportToExcel = async () => {
+const ws =await XLSX.utils.json_to_sheet(residential);
+const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+const data =  new Blob ([excelBuffer], { type: fileType });
+fileSever.saveAs(data, "feeStracture" + fileExtension);
+}
+
 
   const handle_delete = async (id) => {
     swal({
@@ -138,6 +152,13 @@ const FeeStracture = () => {
             </div>
             <div className="flex w-full shrink-0 gap-2 md:w-max">
               <div className="flex w-full shrink-0 gap-2 md:w-max">
+                <Button
+                  className="flex items-center gap-3"
+                  size="sm"
+                  onClick={() =>exportToExcel()}
+                >
+                  <HiDownload strokeWidth={2} className="h-4 w-4" /> Download
+                </Button>
                 <Button
                   className="flex items-center gap-3"
                   size="sm"

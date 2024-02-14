@@ -27,43 +27,12 @@ import { useNavigate } from "react-router-dom";
 import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
-
-const authorsTableData = [
-  {
-    id: 12354,
-    name: "Baraka Ramadhani",
-    loc: " Mbezi, Dar es salaam",
-    avatar: "images/Screen Shot 2022-12-14 at 11.40 1.png",
-    validations: ["Manager", "Organization"],
-    online: true,
-    progress: 60,
-    date: "23/04/18",
-  },
-  {
-    id: 18845,
-    name: "Janneth Hulingo",
-    loc: " Mbezi, Dar es salaam",
-    avatar: "images/Screen Shot 2022-12-14 at 11.png",
-    validations: ["Programator", "Developer"],
-    online: false,
-    progress: 30,
-    date: "11/01/19",
-  },
-];
+import * as fileServer from "file-saver";
+import XLSX  from "sheetjs-style";
 
 const renderDateTime = (dateString) => {
   const dateTime = new Date(dateString);
   return dateTime.toLocaleDateString();
-};
-
-const PdfViewer = (pdfUrl) => {
-  console.log(pdfUrl);
-  return (
-    <div>
-      <h1>PDF Viewer</h1>
-      <iframe src={pdfUrl} width="800" height="600"></iframe>
-    </div>
-  );
 };
 
 
@@ -76,6 +45,18 @@ const Applications = () => {
   const itemsPerPage = 12
 
   const totalPages = Math.ceil(applications.length / itemsPerPage);
+
+
+const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
+const fileExtension = '.xlsx';
+
+const exportToExcel = async () => {
+const ws = XLSX.utils.json_to_sheet(applications);
+const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+const data = new Blob ([excelBuffer], { type: fileType });
+fileServer.saveAs(data, "applications" + fileExtension);
+}
 
   const loadData = async () => {
     setisLoading(true);
@@ -108,8 +89,6 @@ const Applications = () => {
     );
   }
 
-
-
   return (
     <div className=" mx-auto p-10">
       <Card>
@@ -130,7 +109,9 @@ const Applications = () => {
                 icon={<MagnifyingGlassIcon className="h-5 w-5" />}
               />
             </div>
-            <Button className="flex items-center gap-3" size="sm">
+            <Button className="flex items-center gap-3" size="sm"
+            onClick={() => {exportToExcel()}}
+            >
               <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
             </Button>
           </div>

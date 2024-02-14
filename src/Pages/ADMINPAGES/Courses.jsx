@@ -24,10 +24,12 @@ import { useNavigate } from "react-router-dom";
 import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
-import { HiUserAdd } from "react-icons/hi";
+import { HiDownload, HiUserAdd } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { showModal, selectModal } from "../../App/ModalSlice";
 import swal from "sweetalert";
+import * as fileServer from "file-saver";
+import XLSX  from "sheetjs-style";
 
 const renderDateTime = (dateString) => {
   const dateTime = new Date(dateString);
@@ -51,6 +53,19 @@ const CorsesAdminPage = () => {
   const itemsPerPage = 5;
 
   const totalPages = Math.ceil(corses.length / itemsPerPage);
+
+  
+const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
+const fileExtension = '.xlsx';
+
+const exportToExcel = async () => {
+const ws = XLSX.utils.json_to_sheet(corses);
+const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+const data = new Blob ([excelBuffer], { type: fileType });
+fileServer.saveAs(data, "corses" + fileExtension);
+}
+
 
   const loadData = async () => {
     setisLoading(true);
@@ -130,11 +145,14 @@ const CorsesAdminPage = () => {
               </Typography>
             </div>
             <div className="flex w-full shrink-0 gap-2 md:w-max">
-              <div className="w-full md:w-72">
-                <Input
-                  label="Search"
-                  icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-                />
+              <div className="w-full">
+              <Button
+                  className="flex items-center gap-3"
+                  size="sm"
+                  onClick={() => exportToExcel()}
+                >
+                  <HiDownload strokeWidth={2} className="h-4 w-4" /> Download
+                </Button>
               </div>
               <div className="flex w-full shrink-0 gap-2 md:w-max">
                 <Button

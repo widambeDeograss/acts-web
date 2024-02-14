@@ -24,11 +24,13 @@ import { useNavigate } from "react-router-dom";
 import { UserUrls } from "../../utils/apis";
 import { useDataFetch } from "../../hooks/DataHook";
 import { baseUrl } from "../../utils/BaseUrl";
-import { HiUserAdd } from "react-icons/hi";
+import { HiDownload, HiUserAdd } from "react-icons/hi";
 import { useDispatch, useSelector } from 'react-redux';
 import { showModal, selectModal } from "../../App/ModalSlice"; 
 import { TrashIcon } from "@heroicons/react/24/solid";
 import swal from "sweetalert";
+import XLSX from "sheetjs-style";
+import * as fileServer from "file-saver";
 
 
 const renderDateTime = (dateString) => {
@@ -55,6 +57,17 @@ const StaffAdminPage = () => {
 
   const totalPages = Math.ceil(staff.length / itemsPerPage);
 
+
+  const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
+const fileExtension = '.xlsx';
+
+const exportToExcel = async () => {
+const ws =await XLSX.utils.json_to_sheet(staff);
+const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+const data =  new Blob ([excelBuffer], { type: fileType });
+fileServer.saveAs(data, "staff" + fileExtension);
+}
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.staff });
@@ -132,6 +145,11 @@ const StaffAdminPage = () => {
           </div>
           <div className="flex w-full shrink-0 gap-2 md:w-max">
     
+            <Button className="flex items-center gap-3" size="sm"
+            onClick={() =>exportToExcel()}
+            >
+              <HiDownload strokeWidth={2} className="h-4 w-4" /> Download
+            </Button>
             <Button className="flex items-center gap-3" size="sm"
             onClick={() => handleShowModal('staffsAdd')}
             >
