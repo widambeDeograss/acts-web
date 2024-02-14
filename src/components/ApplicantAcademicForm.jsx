@@ -103,7 +103,7 @@ function ApplicantAcademicForm({handleNext}) {
 
   return (
     <div>
-      <Typography className="font-bold text-left mt-10 ">
+      <Typography className="font-bold text-left mt-10 text-sm">
         ACADEMIC INFORMATION
       </Typography>
       <Typography
@@ -119,7 +119,7 @@ function ApplicantAcademicForm({handleNext}) {
           <div className="mb-3">
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Name of School
             </label>
@@ -127,7 +127,7 @@ function ApplicantAcademicForm({handleNext}) {
               type="text"
               id="first_name"
               name="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
               placeholder=""
               value={name}
               onChange={(e) => setname(e.target.value)}
@@ -137,7 +137,7 @@ function ApplicantAcademicForm({handleNext}) {
           <div className="mb-3">
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               City/state/country
             </label>
@@ -145,7 +145,7 @@ function ApplicantAcademicForm({handleNext}) {
               type="text"
               id="first_name"
               name="address"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
               placeholder=""
               value={city}
               onChange={(e) => setcity(e.target.value)}
@@ -157,7 +157,7 @@ function ApplicantAcademicForm({handleNext}) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Start date
               </label>
@@ -165,7 +165,7 @@ function ApplicantAcademicForm({handleNext}) {
                 type="date"
                 id="first_name"
                 name="phone"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 value={Sdate}
                 onChange={(e) => setSdate(e.target.value)}
@@ -175,7 +175,7 @@ function ApplicantAcademicForm({handleNext}) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 end date
               </label>
@@ -183,7 +183,7 @@ function ApplicantAcademicForm({handleNext}) {
                 type="date"
                 id="first_name"
                 name="phone"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 value={Edate}
                 onChange={(e) => seEdate(e.target.value)}
@@ -194,7 +194,7 @@ function ApplicantAcademicForm({handleNext}) {
           <div className="mb-3">
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Major
             </label>
@@ -202,7 +202,7 @@ function ApplicantAcademicForm({handleNext}) {
               type="text"
               id="first_name"
               name="phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
               placeholder=""
               value={major}
               onChange={(e) => setmajor(e.target.value)}
@@ -212,7 +212,7 @@ function ApplicantAcademicForm({handleNext}) {
           <div className="mb-3">
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Degrees
             </label>
@@ -220,7 +220,7 @@ function ApplicantAcademicForm({handleNext}) {
               type="text"
               id="first_name"
               name="phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
               placeholder=""
               value={Degrees}
               onChange={(e) => setDegrees(e.target.value)}
@@ -230,7 +230,7 @@ function ApplicantAcademicForm({handleNext}) {
         </div>
         <button
           onClick={() => handleSubmit()}
-          class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5  "
+          class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs w-full sm:w-auto px-5 py-2.5  "
         >
           Add information
         </button>
@@ -404,7 +404,7 @@ function ApplicantAcademicForm({handleNext}) {
 
       <button
         onClick={() => handleSubmitAcademicInfo()}
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 float-left mt-10 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 float-left mt-10 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs w-full sm:w-auto px-5 py-2.5 text-center "
       >
         Submit information
       </button>

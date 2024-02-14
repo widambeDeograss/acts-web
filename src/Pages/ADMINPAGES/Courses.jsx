@@ -44,8 +44,8 @@ const CorsesAdminPage = () => {
   const dispatch = useDispatch();
   const { showModal: isModalVisible, modalType } = useSelector(selectModal);
 
-  const handleShowModal = (modalType) => {
-    dispatch(showModal(modalType));
+  const handleShowModal = async (modalType) => {
+  await  dispatch(showModal(modalType));
   };
   const fetcher = useDataFetch();
   const itemsPerPage = 5;

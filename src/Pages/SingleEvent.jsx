@@ -70,7 +70,9 @@ const SingleEvent = () => {
                 <HiArrowRight height={20} width={30} className="mt-1" />
               </div>
             </div>
+            <div>
             <QuickLinks />
+            </div>
           </div>
         </div>
       </section>

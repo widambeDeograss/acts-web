@@ -11,7 +11,7 @@ function Sidebar({
   open,
   setOpen,
   title,
-  width = 240
+  width = 220
 }) {
   const isSmall = useBreakpoint("sm", "down");
 
@@ -72,7 +72,7 @@ function Sidebar({
   }
   return (
     <div
-      className="flex flex-col flex-shrink-0 min-h-screen bg-white"
+      className="flex flex-col flex-shrink-0 min-h-screen bg-white fixed left-0"
       style={{ width }}
     >
       {title && (

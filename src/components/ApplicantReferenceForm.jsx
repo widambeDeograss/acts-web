@@ -69,7 +69,7 @@ function ApplicantReferenceForm(props) {
 
   return (
     <div>
-      <Typography className="font-bold text-left mt-10 ">REFERENCE</Typography>
+      <Typography className="font-bold text-left mt-10 text-sm">REFERENCE</Typography>
       <Typography
         className="font-light
        text-left "
@@ -79,7 +79,7 @@ function ApplicantReferenceForm(props) {
         ability to pursue a graduate(post-baccalaureate) degree.
       </Typography>
       <div className="flex flex-row mt-3">
-        <Typography className="font-semibold text-left mt-3">
+        <Typography className="font-semibold text-left mt-3 text-xs">
           List of names of pastors and educators/ employers:{" "}
         </Typography>
         <div className="flex flex-wrap gap-3">
@@ -103,7 +103,7 @@ function ApplicantReferenceForm(props) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Pastor|Church leader name
               </label>
@@ -111,7 +111,7 @@ function ApplicantReferenceForm(props) {
                 type="text"
                 id="first_name"
                 name="name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 value={name}
                 onChange={(e) => setname(e.target.value) }
@@ -121,7 +121,7 @@ function ApplicantReferenceForm(props) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Address
               </label>
@@ -129,7 +129,7 @@ function ApplicantReferenceForm(props) {
                 type="text"
                 id="first_name"
                 name="address"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 value={address}
                 onChange={(e) => setaddress(e.target.value) }
@@ -139,7 +139,7 @@ function ApplicantReferenceForm(props) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Phone
               </label>
@@ -148,7 +148,7 @@ function ApplicantReferenceForm(props) {
                 id="first_name"
                 maxLength={12}
                 name="phone"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder="ex. 255765678912"
                 value={phone}
                 onChange={(e) => setphone(e.target.value) }
@@ -161,7 +161,7 @@ function ApplicantReferenceForm(props) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Educator|Employer name
               </label>
@@ -169,7 +169,7 @@ function ApplicantReferenceForm(props) {
                 type="text"
                 id="first_name"
                 name="name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 value={name}
                 onChange={(e) => setname(e.target.value) }
@@ -179,7 +179,7 @@ function ApplicantReferenceForm(props) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Address
               </label>
@@ -189,7 +189,7 @@ function ApplicantReferenceForm(props) {
                 name="address"
                 value={address}
                 onChange={(e) => setaddress(e.target.value) }
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 required
               />
@@ -197,7 +197,7 @@ function ApplicantReferenceForm(props) {
             <div className="mb-3">
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Phone
               </label>
@@ -207,7 +207,7 @@ function ApplicantReferenceForm(props) {
                 name="phone"
                 value={phone}
                 onChange={(e) => setphone(e.target.value) }
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder="ex. 255765678912"
                 required
               />
@@ -216,7 +216,7 @@ function ApplicantReferenceForm(props) {
         )}
          <button
           onClick={() => AddReference()}
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-5 "
+          class="text-white text-xs bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  w-full sm:w-auto px-5 py-2.5 text-center mt-5 "
         >
           Add Reference Information
         </button>
@@ -331,7 +331,7 @@ function ApplicantReferenceForm(props) {
 
       <button
           onClick={() => handleSubmit()}
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-20"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 text-xs focus:outline-none focus:ring-blue-300 font-medium rounded-lg  w-full sm:w-auto px-5 py-2.5 text-center mt-20"
         >
           Submit Reference Information
         </button>

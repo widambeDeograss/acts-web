@@ -37,30 +37,96 @@ function AboutUs() {
                         <Typography
                             variant="h4"
                             color="white"
-                            className=" mt-4 mb-4 text-lg md:text-base lg:text-xl"
+                            className=" mt-4 mb-4 text-sm md:text-xs lg:text-lg"
                         >
                             About ACTS
                         </Typography>
                         <Typography
                             variant="lead"
                             color="white"
-                            className="mb-12 opacity-80 text-base"
+                            className="mb-12 opacity-80  text-sm"
                         >
                            {sitedata?.message_from_president}
                         </Typography>
                     </div>
-                </div>
+                </div> 
             </div>
 
             <div className="flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-row  mt-10  mb-10 w-10/12 gap-1 mx-auto">
                 <div className=" lg:mr-16 sm:w-full md:w-full lg:w-1/2 sm:mr-0">
-                    <Typography variant="h4" className="mb-1 font-semibold text-left">
+                    <Typography variant="h4" className="mb-1 font-semibold text-left text-sm">
                         ACTS' HISTORY
                     </Typography>
-                    {isLoading? <div className="flex justify-center"><Spinner className="h-8 w-8"/></div>:
+                    {isLoading? 
+                    <div className="max-w-full animate-pulse">
+                    <Typography
+                      as="div"
+                      variant="h1"
+                      className="mb-4 h-3 w-56 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                    <Typography
+                      as="div"
+                      variant="paragraph"
+                      className="mb-2 h-2 w-96 rounded-full bg-gray-300"
+                    >
+                      &nbsp;
+                    </Typography>
+                  </div>
+                    :
                     <Typography
                     variant="h7"
-                    className="mb-2 font-normal text-left leading-normal"
+                    className="mb-2 font-normal text-left leading-normal text-sm"
                 >
                     {sitedata?.historical_background}
                     {/* This seminary started as a Unit of Postgraduate Studies at the

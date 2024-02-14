@@ -73,9 +73,9 @@ export default function AdminLayout(props) {
               to={link.to}
               className={`${
                 location.pathname.includes(link.to)? "bg-blue-600  text-white" : ""
-              } hover:bg-blue-gray-300 hover:text-white text-sm w-44`}
+              } hover:bg-blue-gray-300 hover:text-white text-xs w-44`}
             >
-              <link.icon className="mr-2 text-base" size={15} />
+              <link.icon className="mr-2 text-xs" size={15} />
               {link.label}
             </NavLink>
           ))}
@@ -91,7 +91,7 @@ export default function AdminLayout(props) {
             }}
           >
             <HiLogout />
-            <Typography>Logout</Typography>
+            <Typography className="text-xs">Logout</Typography>
           </Button>
         </div>
 
@@ -105,7 +105,7 @@ export default function AdminLayout(props) {
             </IconButton>
           </header>
         )}
-        <div className="lg:-ml-8 md:-ml-20">
+        <div className="lg:ml-52 md:ml-52  ">
           <Outlet />
         </div>
       </main>

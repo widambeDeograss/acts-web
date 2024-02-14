@@ -21,7 +21,7 @@ const navigate = useNavigate();
               as="a"
               href="#"
               color="white"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500 text-xs"
             >
               Privacy policy
             </Typography>
@@ -31,7 +31,7 @@ const navigate = useNavigate();
               as="a"
               href="#"
               color="white"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500 text-xs"
             >
               Terms and conditions
             </Typography>
@@ -44,7 +44,7 @@ const navigate = useNavigate();
               href="#"
               color="white"
 
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500 text-xs"
             >
               Copyright statements
             </Typography>
@@ -54,7 +54,7 @@ const navigate = useNavigate();
               as="a"
               href="#"
               color="white"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500 text-xs"
             >
               Contact Us
             </Typography>
@@ -66,7 +66,7 @@ const navigate = useNavigate();
           as="a"
           href="#"
           color="whitw"
-          className="font-normal transition-colors text-left mt-3"
+          className="font-normal transition-colors text-left mt-3 text-sm"
         >
           AFRICA’S CONTINENTAL THEOLOGICAL SEMINARY (ACTS)
         </Typography>
@@ -74,7 +74,7 @@ const navigate = useNavigate();
       <hr className="my-8 border-blue-gray-50" />
 
       <div className="flex justify-between">
-        <Typography color="white" className=" font-normal">
+        <Typography color="white" className=" font-normal text-xs">
           &copy; {new Date().getFullYear()} ACTS
         </Typography>
         <div className="flex justify-start items-center gap-2">
@@ -85,7 +85,7 @@ const navigate = useNavigate();
             className="opacity-80 transition-opacity hover:opacity-100 text-blue-600"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               viewBox="0 0 224 224"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ const navigate = useNavigate();
             className="opacity-80 transition-opacity hover:opacity-100 text-blue-300"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -124,7 +124,7 @@ const navigate = useNavigate();
             className="opacity-80 transition-opacity hover:opacity-100 text-red-300"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -142,7 +142,7 @@ const navigate = useNavigate();
             className="opacity-80 transition-opacity hover:opacity-100 text-red-300"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               viewBox="0 0 25 25"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

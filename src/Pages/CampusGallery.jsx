@@ -1,72 +1,62 @@
-import { Typography, Card, CardHeader, Spinner } from "@material-tailwind/react";
-import React, {useState, useEffect} from "react";
+import {
+  Typography,
+  Card,
+  CardHeader,
+  Spinner,
+} from "@material-tailwind/react";
+import React, { useState, useEffect } from "react";
 import PageHeroSection from "../components/PageHeroSection";
 import InfiniteImageCarousel from "../components/InfiniteImageCarosel";
 import { useDataFetch } from "../hooks/DataHook";
 import { UserUrls } from "../utils/apis";
-import acts_tour from '../assets/acts_tours.mp4'
-import pe2 from '../assets/img/DJI_0963.jpeg';
-import pe3 from '../assets/img/DJI_0964.jpeg';
-import pe4 from '../assets/img/DJI_0965.jpeg';
-// import pe5 from '../assets/img/DJI_0966.JPG';
-// import pe6 from '../assets/img/DJI_0967.JPG';
-import pe7 from '../assets/img/DJI_0973.jpeg';
-import pe8 from '../assets/img/DJI_0974.jpeg';
-import pe9 from '../assets/img/DJI_0981-min.JPG';
-// import ADMIN from '../assets/DJI_0962.JPG'
-import pl1 from '../assets/img/_MG_9787.jpg';
-import pl2 from '../assets/img/_MG_9791.jpg';
-import pl3 from '../assets/img/_MG_9704.jpg';
-import pl4 from '../assets/img/_MG_9706.jpg';
-import pl5 from '../assets/img/_MG_9709.jpg';
-import pl6 from '../assets/img/_MG_9710.jpg';
-import pl7 from '../assets/img/_MG_9779.jpg';
-import pl8 from '../assets/img/_MG_9770.jpg';
+import acts_tour from "../assets/acts_tours.mp4";
+import pe9 from "../assets/img/DJI_0981-min.JPG";
+import pl2 from "../assets/img/_MG_9791.jpg";
+import pl3 from "../assets/img/_MG_9704.jpg";
+import pl7 from "../assets/img/_MG_9779.jpg";
+import pl8 from "../assets/img/_MG_9770.jpg";
 import { baseUrl } from "../utils/BaseUrl";
 
 const itemData = [
   {
     img: pe9,
-    title: '',
-    author: 'ACTS Ground',
+    title: "",
+    author: "ACTS Ground",
   },
   {
     img: pl2,
-    title: '',
-    author: 'ACTS Canteen',
-  }, 
+    title: "",
+    author: "ACTS Canteen",
+  },
   {
     img: pl3,
-    title: '',
-    author: 'ACTS Hostel',
+    title: "",
+    author: "ACTS Hostel",
   },
-  
+
   // {
   //   img: pl6,
   //   title: '',
   //   author: 'ACTS Library',
   // },
-  
+
   {
     img: pl7,
-    title: '',
-    author: 'ACTS Library',
+    title: "",
+    author: "ACTS Library",
   },
-  
+
   {
     img: pl8,
-    title: '',
-    author: 'ACTS Library',
+    title: "",
+    author: "ACTS Library",
   },
-  
+
   {
     img: pe9,
-    title: '',
-    author: 'ACTS Ground',
+    title: "",
+    author: "ACTS Ground",
   },
-
-
- 
 ];
 
 function CampusGallery() {
@@ -97,7 +87,7 @@ function CampusGallery() {
   const closeModal = () => {
     setSelectedImage(null);
   };
- 
+
   return (
     <div>
       <PageHeroSection title="Campus Tour" />
@@ -114,23 +104,81 @@ function CampusGallery() {
         and geographically in the power of the Holy Spirit, thus fulfilling the
         Great commission
       </Typography>
-      
-          <div className="flex justify-center items-center  ">
-            <InfiniteImageCarousel images={itemData} />
-          </div>
-      
+
+      <div className="flex justify-center items-center  ">
+        <InfiniteImageCarousel images={itemData} />
+      </div>
+
       <div className="mx-auto mb-8 w-11/12">
-        <Typography variant="h5" className="mb-1 font-semibold text-left ">ACTS Tour </Typography>
-      <video className="h-full w-full rounded-lg" controls autoPlay muted>
-      <source src={acts_tour} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+        <Typography variant="h5" className="mb-1 font-semibold text-left ">
+          ACTS Tour{" "}
+        </Typography>
+        <video className="h-full w-full rounded-lg" controls autoPlay muted>
+          <source src={acts_tour} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div className="mx-auto mb-8 w-11/12">
-      <Typography variant="h6" className="mb-1 font-semibold text-left ">ACTS Gallery </Typography>
-     {isLoading? <div className="flex justify-center">
-      <Spinner className="h-8 w-8"/>
-     </div>: images?.length === 0 ? <div className="text-xs">There are no content in our Gallery for now</div>:<div className="grid grid-cols-1 gap-3 mx-auto lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  mt-3">
+        <Typography variant="h6" className="mb-1 font-semibold text-left ">
+          ACTS Gallery{" "}
+        </Typography>
+        {isLoading ? (
+          <div className="flex justify-center gap-10 flex-wrap">
+            <div className="grid h-full max-h-[200px] min-h-[160px] w-44 max-w-xs animate-pulse place-items-center rounded-lg bg-gray-300">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-12 w-12 text-gray-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+            </div>
+            <div className="grid h-full max-h-[200px] min-h-[160px] w-44 max-w-xs animate-pulse place-items-center rounded-lg bg-gray-300">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-12 w-12 text-gray-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+            </div>
+            <div className="grid h-full max-h-[200px] min-h-[160px] w-44 max-w-xs animate-pulse place-items-center rounded-lg bg-gray-300">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-12 w-12 text-gray-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+            </div>
+          </div>
+        ) : images?.length === 0 ? (
+          <div className="text-xs">
+            There are no content in our Gallery for now
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-3 mx-auto lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  mt-3">
             {images?.map((item) => {
               return (
                 <div>
@@ -148,13 +196,67 @@ function CampusGallery() {
                       {item?.title}
                     </div>
                   </div>
-                 
                 </div>
               );
             })}
-          </div> }
+          </div>
+        )}
 
-          <Typography className="text-left font-bold mt-10">ACTS events</Typography>
+        <Typography className="text-left font-bold mt-10">
+          ACTS events
+        </Typography>
+        {isLoading ? (
+          <div className="flex justify-center gap-10 flex-wrap">
+            <div className="grid h-full max-h-[300px] min-h-[160px] w-44 max-w-xs animate-pulse place-items-center rounded-lg bg-gray-300">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-12 w-12 text-gray-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+            </div>
+            <div className="grid h-full max-h-[300px] min-h-[160px] w-44 max-w-xs animate-pulse place-items-center rounded-lg bg-gray-300">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-12 w-12 text-gray-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+            </div>
+            <div className="grid h-full max-h-[100px] min-h-[160px] w-44 max-w-xs animate-pulse place-items-center rounded-lg bg-gray-300">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-12 w-12 text-gray-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+            </div>
+          </div>
+        ) : (
           <div className="grid grid-cols-1 gap-3 mx-auto lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 mt-3">
             {videos?.map((item) => {
               return (
@@ -181,17 +283,14 @@ function CampusGallery() {
                       {item?.title}
                     </div>
                   </div>
-               
                 </div>
               );
             })}
           </div>
+        )}
       </div>
 
-          
-         
-
-          {selectedImage && (
+      {selectedImage && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
           <div className="bg-black bg-opacity-50 absolute inset-0"></div>
           <div className="max-w-4xl mx-auto relative z-10">

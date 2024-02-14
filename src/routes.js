@@ -1,41 +1,42 @@
-import { Navigate, useRoutes } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./Pages/Home";
-import MastersPrograms from "./Pages/MastersPrograms";
-import PhdPrograms from "./Pages/PhdPrograms";
-import EntryRequirements from "./Pages/EntryRequirements";
-import ApplicationForm from "./Pages/ApplicationForm";
-import PageNotFound from "./Pages/PageNotFound";
-import AdminLayout from "./components/adminComponents/AdminLayout";
-import AdminHomePage from "./Pages/ADMINPAGES/Home";
-import CampusTour from "./Pages/CompusTour";
-import CampusGallery from "./Pages/CampusGallery";
-import ContactUs from "./Pages/ContactUs";
-import AboutUs from "./Pages/AboutUs";
-import Blogs from "./Pages/ADMINPAGES/Blog";
-import CreateBlog from "./Pages/ADMINPAGES/CreateBlog";
-import Login from "./Pages/ADMINPAGES/Login";
-import RequireAuth from "./App/AdminRequireAuth";
-import { useSelector } from "react-redux";
-import { selectCurrentToken } from "./App/AuthSlice";
-import SingleEvent from "./Pages/SingleEvent";
-import AllEvents from "./Pages/AllEvents";
-import Applications from "./Pages/ADMINPAGES/Applications";
-import UserContacts from "./Pages/ADMINPAGES/UserFeeds";
-import { ChangePassword } from "./Pages/ADMINPAGES/ChangePassword";
-import StaffPage from "./Pages/StaffPage";
-import StaffAdminPage from "./Pages/ADMINPAGES/StaffsPage";
-import CorsesAdminPage from "./Pages/ADMINPAGES/Courses";
-import Administration from "./Pages/ADMINPAGES/Administration";
-import FeeStracture from "./Pages/ADMINPAGES/FeeStracture";
-import PhdFeeStructure from "./Pages/ADMINPAGES/PhdFeeStructure";
-import Gallery from "./Pages/ADMINPAGES/Gallery";
-import StaffEditPage from "./Pages/ADMINPAGES/StaffEditPage";
+import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentToken } from './App/AuthSlice';
+import { useRoutes, Navigate } from 'react-router-dom';
+const Layout = React.lazy(() => import('./components/Layout'));
+const Home = React.lazy(() => import('./Pages/Home'));
+const MastersPrograms = React.lazy(() => import('./Pages/MastersPrograms'));
+const PhdPrograms = React.lazy(() => import('./Pages/PhdPrograms'));
+const EntryRequirements = React.lazy(() => import('./Pages/EntryRequirements'));
+const ApplicationForm = React.lazy(() => import('./Pages/ApplicationForm'));
+const PageNotFound = React.lazy(() => import('./Pages/PageNotFound'));
+const AdminLayout = React.lazy(() => import('./components/adminComponents/AdminLayout'));
+const AdminHomePage = React.lazy(() => import('./Pages/ADMINPAGES/Home'));
+const CampusTour = React.lazy(() => import('./Pages/CompusTour'));
+const CampusGallery = React.lazy(() => import('./Pages/CampusGallery'));
+const ContactUs = React.lazy(() => import('./Pages/ContactUs'));
+const AboutUs = React.lazy(() => import('./Pages/AboutUs'));
+const Blogs = React.lazy(() => import('./Pages/ADMINPAGES/Blog'));
+const CreateBlog = React.lazy(() => import('./Pages/ADMINPAGES/CreateBlog'));
+const Login = React.lazy(() => import('./Pages/ADMINPAGES/Login'));
+const RequireAuth = React.lazy(() => import('./App/AdminRequireAuth'));
+const SingleEvent = React.lazy(() => import('./Pages/SingleEvent'));
+const AllEvents = React.lazy(() => import('./Pages/AllEvents'));
+const Applications = React.lazy(() => import('./Pages/ADMINPAGES/Applications'));
+const UserContacts = React.lazy(() => import('./Pages/ADMINPAGES/UserFeeds'));
+const ChangePassword  = React.lazy(() => import('./Pages/ADMINPAGES/ChangePassword'));
+const StaffPage = React.lazy(() => import('./Pages/StaffPage'));
+const StaffAdminPage = React.lazy(() => import('./Pages/ADMINPAGES/StaffsPage'));
+const CorsesAdminPage = React.lazy(() => import('./Pages/ADMINPAGES/Courses'));
+const Administration = React.lazy(() => import('./Pages/ADMINPAGES/Administration'));
+const FeeStracture = React.lazy(() => import('./Pages/ADMINPAGES/FeeStracture'));
+const PhdFeeStructure = React.lazy(() => import('./Pages/ADMINPAGES/PhdFeeStructure'));
+const Gallery = React.lazy(() => import('./Pages/ADMINPAGES/Gallery'));
+const StaffEditPage = React.lazy(() => import('./Pages/ADMINPAGES/StaffEditPage'));
 
 export default function Routeer() {
   const token = useSelector(selectCurrentToken);
-  <Router></Router>;
+  const RouterLazy = React.lazy(() => import('react-router-dom'));
+
   const routes = useRoutes([
     {
       path: "/",
@@ -73,7 +74,7 @@ export default function Routeer() {
     {
       path: "/acts/admin/*",
       element: (
-        token?  
+        token?
          <AdminLayout />
          : <Navigate to="/actsAdimin/login"  />
       ),

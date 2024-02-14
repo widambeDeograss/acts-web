@@ -46,7 +46,7 @@ export default function NavBar() {
       >
         <a
           
-          className="flex items-center hover:border-b-2 hover:border-b-purple-900"
+          className="flex items-center hover:border-b-2 hover:border-b-purple-900 text-xs"
         >
           Home
         </a>
@@ -56,7 +56,7 @@ export default function NavBar() {
         <div class="relative hover-trigger">
           <a
             
-            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
+            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900 text-xs"
           >
             AboutUs
             <svg
@@ -80,13 +80,16 @@ export default function NavBar() {
               <List>
                 <ListItem
                  onClick={()=> navigate("acts/about_us")}
+                 className="text-xs"
                 >Historical Background</ListItem>
                 <ListItem
                  onClick={()=> navigate("acts/our_staff")}
+                 className="text-xs"
                 >Our Staff</ListItem>
                 
                 <ListItem
                 onClick={()=> navigate("acts/contact_us")}
+                className="text-xs"
                 >Contact Us</ListItem>
               </List>
             </Card>
@@ -98,7 +101,7 @@ export default function NavBar() {
       >
         <div class="relative ">
           <a
-            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
+            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900 text-xs"
           >
             Campus
 
@@ -109,7 +112,7 @@ export default function NavBar() {
         <div class="relative hover-trigger">
           <a
             href="#"
-            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
+            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900 text-xs"
           >
             Academics
             <svg
@@ -131,13 +134,15 @@ export default function NavBar() {
           <div class=" px-4 py-2  hover-target">
             <Card className="absolute z-50">
               <List>
-                <ListItem className="hover:text-purple-900"
+                <ListItem className="hover:text-purple-900 text-xs"
                 onClick={() => navigate("/academics/masters_programs")}
+               
                 >
                   Masters Programs
                 </ListItem>
                 <ListItem
                 onClick={() => navigate("/academics/Phd_programs")}
+                className="text-xs"
                 >Phd Programs</ListItem>
               </List>
             </Card>
@@ -147,7 +152,7 @@ export default function NavBar() {
       <Typography as="li" variant="small" className="p-1 font-normal">
         <div class="relative hover-trigger">
           <a
-            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900"
+            className="flex items-center cursor-pointer hover-trigger  hover:border-b-2 hover:border-b-purple-900 text-xs"
           >
              Admission
             <svg
@@ -171,9 +176,11 @@ export default function NavBar() {
               <List>
                 <ListItem
                 onClick={() => navigate("/admission/entry_requirements")}
+                className="text-xs"
                 >Entry Requirements</ListItem>
                 <ListItem
                 onClick={() => navigate("/admission/acts_online_application")}
+                className="text-xs"
                 >Apply online</ListItem>
               </List>
             </Card>
@@ -218,14 +225,14 @@ export default function NavBar() {
           <Typography as="li" variant="small" className="p-1 font-body text-xs">
             Follow Us:
           </Typography>
-          <Breadcrumbs className="-mt-1 h-8 ">
-            <a href="https://instagram.com/acts_official255?igshid=OGY3MTU3OGY1Mw==" className="opacity-60 -mt-1">
+          <Breadcrumbs className="-mt-1 h-8 text-xs">
+            <a href="https://instagram.com/acts_official255?igshid=OGY3MTU3OGY1Mw==" className="opacity-60 -mt-1  text-xs">
               instagram
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100095550401483" className="opacity-60 -mt-1">
+            <a href="https://www.facebook.com/profile.php?id=100095550401483" className="opacity-60 -mt-1  text-xs">
               facebook
             </a>
-            <a href="https://youtube.com/@Gmail.comyusuphkelvin?si=KAQAC_RJv1qXnR_5">youtube</a>
+            <a href="https://youtube.com/@Gmail.comyusuphkelvin?si=KAQAC_RJv1qXnR_5" className="opacity-60 -mt-1 text-xs ">youtube</a>
           </Breadcrumbs>
         </div>
       </div>
@@ -246,13 +253,13 @@ export default function NavBar() {
               color="purple"
               size="sm"
               fullWidth
-              className="mb-2"
+              className="mb-2 text-xs"
               style={{
                 backgroundColor: colors.primary,
               }}
               onClick={() => navigate("/admission/acts_online_application")}
             >
-              <span>Appy Now</span>
+              <span className="text-xs">Appy Now</span>
             </Button>
             <IconButton
               variant="text"

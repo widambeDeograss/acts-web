@@ -36,7 +36,7 @@ const AllEvents = () => {
     <div className="shadow-md p-5 sm:w-full">
         <Typography variant="h6">
             {" "}
-            <strong>All Events News&upadets </strong>
+            <strong>All Events, News and Upadets </strong>
           </Typography>
           {!blogs || !blogs.length && (
         <div className="'flex justify-center items-center'">
@@ -44,7 +44,40 @@ const AllEvents = () => {
   
         </div>
       )}
-        {blogs && blogs.map((blog) => <EventData event={blog} />)}
+        {isLoading? <div className="max-w-full animate-pulse mt-5">
+                <Typography
+                  as="div"
+                  variant="paragraph"
+                  className="mb-2 h-12 w- rounded-sm bg-gray-300"
+                >
+                  &nbsp;
+                </Typography>
+                <Typography
+                  as="div"
+                  variant="paragraph"
+                  className="mb-2 h-12 w- rounded-sm bg-gray-300"
+                >
+                  &nbsp;
+                </Typography>
+                <Typography
+                  as="div"
+                  variant="paragraph"
+                  className="mb-2 h-12 w- rounded-sm bg-gray-300"
+                >
+                  &nbsp;
+                </Typography>
+                <Typography
+                  as="div"
+                  variant="paragraph"
+                  className="mb-2 h-12 w- rounded-sm bg-gray-300"
+                >
+                  &nbsp;
+                </Typography>
+                
+              </div>: 
+            blogs
+              ?.slice(0, 3)
+              .map((blog) => <EventData event={blog} />)}
           
       
         </div>

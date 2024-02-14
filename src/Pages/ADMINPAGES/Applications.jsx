@@ -172,12 +172,7 @@ const Applications = () => {
                     <tr key={id}>
                       <td className={className}>
                         <div className="flex items-center gap-4">
-                          <div class="flex relative  justify-center items-center m-1 mr-2 text-xl rounded-full text-white">
-                            {/* <Img
-                              src={avatar}
-                              className=" w-20 h-20 rounded-full"
-                            /> */}
-                          </div>
+                          
                           <div>
                             <Typography
                               variant="small"
@@ -186,19 +181,19 @@ const Applications = () => {
                             >
                               {first_name} {last_name}
                             </Typography>
-                            {/* <Typography className="text-xs font-normal text-blue-gray-500">
-                              ID:{id}
-                            </Typography> */}
+                           
                           </div>
                         </div>
                       </td>
                       <td className={className}>
+                      <div className="flex items-center gap-4">
                         <Typography className="text-xs font-semibold text-blue-gray-600">
                           {phone}
                         </Typography>
-
+                        </div>
                       </td>
                       <td className={className}>
+                      <div className="flex items-center gap-4">
                         <Badge
                           variant="gradient"
                           color="primary"
@@ -206,17 +201,21 @@ const Applications = () => {
                         >
                           {email}
                         </Badge>
+                        </div>
                       </td>
                       <td className={className}>
+                      <div className="flex items-center ml-2">
+                     
                         <Typography
                           variant="small"
-                          className="mb-1 block text-xs font-medium text-blue-gray-600"
+                          className="mb-1 block text-xs font-medium text-blue-gray-600 "
                         >
                           {renderDateTime(created_at)}
                         </Typography>
-
+                       </div>
                       </td>
                       <td className={className}>
+                      <div className="flex items-center gap-4">
                       <Tooltip content="View application">
                         <IconButton variant="text"
                          onClick={() => window.open(`${baseUrl}${document}`, "_blank")}
@@ -224,7 +223,7 @@ const Applications = () => {
                           <EyeIcon className="h-4 w-4" />
                         </IconButton>
                       </Tooltip>
-                       
+                       </div>
                       </td>
                     </tr>
                   );

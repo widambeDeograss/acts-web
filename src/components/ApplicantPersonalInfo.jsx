@@ -76,12 +76,12 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
 
   return (
     <div class="  ">
-      <Typography className="font-bold text-left mt-28 sm:mt-1">
+      <Typography className="font-bold text-left mt-28 sm:mt-1 text-sm">
         PERSONAL INFORMATION{" "}
       </Typography>
       <form onSubmit={handleSubmit} ref={formRef} >
         <div className="flex flex-row mt-3">
-          <Typography className="font-semibold text-left mt-3">
+          <Typography className="font-semibold text-left mt-3 text-xs">
             Previous studies with Global University:{" "}
           </Typography>
           <div className="flex gap-3">
@@ -89,12 +89,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               id="ripple"
               name="ripple"
               label="Yes"
+              className="text-xs"
               onClick={() => setOpen(true)}
             />
             <Radio
               id="ripple"
               name="ripple"
               label="No"
+              className="text-xs"
               onClick={() => setOpen(false)}
             />
           </div>
@@ -104,14 +106,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
             <CardBody>
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                 Student No. (Former Global University Students only)
               </label>
               <input
                 type="text"
                 id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 name="global_university_student_no"
                 required = {open}
@@ -123,14 +125,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs  font-medium text-gray-900 dark:text-gray-300"
             >
               Family/Last Name
             </label>
             <input
               type="text"
               id="last_name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               name="last_name"
               required
@@ -139,7 +141,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="last_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Maiden Name(if applicable)
             </label>
@@ -147,7 +149,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="text"
               id="maiden_name"
               name="maiden_name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
 
             />
@@ -155,14 +157,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="company"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               First Name
             </label>
             <input
               type="text"
               id="first_name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               name="first_name"
               required
@@ -171,14 +173,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="phone"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Middle Name
             </label>
             <input
               type="text"
               id="middle_name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               name="middle_name"
               required
@@ -187,7 +189,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="website"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Date of Birth
             </label>
@@ -195,7 +197,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="date"
               id="date_of_birth"
               name="date_of_birth"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="flowbite.com"
               required
             />
@@ -203,7 +205,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           {/* <div>
             <label
               for="visitors"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               PASSSPORT PHOTO
             </label>
@@ -211,7 +213,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="file"
               id="passprt"
               name="passprt"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               accept="image/png, image/gif, image/jpeg"
               required
@@ -229,6 +231,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Ms"
                 name="Title"
                 label="Ms"
+                className="text-xs"
                 value="Ms"
                 onClick={() => {}}
               />
@@ -236,6 +239,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Mrs"
                 name="Title"
                 label="Mrs"
+                className="text-xs"
                 value="Mrs"
                 onClick={() => {}}
               />
@@ -243,6 +247,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Rev"
                 name="Title"
                 label="Rev"
+                className="text-xs"
                 value="Rev"
                 onClick={() => {}}
               />
@@ -250,6 +255,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Dr"
                 name="Title"
                 label="Dr"
+                className="text-xs"
                 value="Dr"
                 onClick={() => {}}
               />
@@ -264,6 +270,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Male-on"
                 name="gender"
                 value="Male"
+                className="text-xs"
                 label="Male"
                 ripple={true}
                 onClick={() => {}}
@@ -272,6 +279,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Female"
                 name="gender"
                 value="Female"
+                className="text-xs"
                 label="Female"
                 onClick={() => {}}
                 ripple={false}
@@ -290,6 +298,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 name="marital_status"
                 value="Single"
                 label="Single"
+                className="text-xs"
                 onClick={() => {}}
               />
               <Radio
@@ -297,12 +306,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 name="marital_status"
                 value="Married"
                 label="Married"
+                className="text-xs"
                 onClick={() => {}}
               />
               <Radio
                 id="Widowed"
                 name="marital_status"
                 value="Widowed"
+                className="text-xs"
                 label="Widowed"
                 onClick={() => {}}
               />
@@ -310,6 +321,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 id="Divorced"
                 name="marital_status"
                 value="Divorced"
+                className="text-xs"
                 label="Divorced"
                 onClick={() => {}}
               />
@@ -320,7 +332,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Home Address
             </label>
@@ -328,7 +340,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="text"
               id="home_address"
               name="home_address"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               required
             />
@@ -336,7 +348,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="contry_of_residence"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Country of Residence
             </label>
@@ -344,7 +356,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="text"
               id="contry_of_residence"
               name="contry_of_residence"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Tanzania"
               required
             />
@@ -352,7 +364,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="email"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Email Address
             </label>
@@ -360,7 +372,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="email"
               id="email"
               name="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="example@gmail.com"
               required
             />
@@ -368,7 +380,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="contry_of_citizenship"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Conutry of Citizenship
             </label>
@@ -376,7 +388,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="text"
               id="contry_of_citizenship"
               name="contry_of_citizenship"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Tanzania"
               //   pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               required
@@ -385,7 +397,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="primary_language"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Primary Language
             </label>
@@ -393,7 +405,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="text"
               id="primary_language"
               name="primary_language"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="English"
               required
             />
@@ -401,7 +413,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="primary_phone"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Primary phone
             </label>
@@ -409,7 +421,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="tel"
               id="primary_phone"
               name="primary_phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="..."
               maxLength={12}
               pattern="^\(?:[0-9]){6,14}[0-9]$"
@@ -421,7 +433,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="present_occcupation"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Present Occupation
             </label>
@@ -429,7 +441,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="text"
               id="present_occcupation"
               name="present_occcupation"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
               required
             />
@@ -437,7 +449,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div>
             <label
               for="other_phone"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
             >
               Other Phone
             </label>
@@ -445,7 +457,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               type="tel"
               id="other_phone"
               name="other_phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="ex. 255765678912"
               maxLength={12}
               pattern="^\(?:[0-9]){6,14}[0-9]$"
@@ -463,7 +475,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               name="primary_rerigious_affiliation"
               value="Assemblies of God"
               label={
-                <Typography color="blue-gray" className="font-medium flex">
+                <Typography color="blue-gray" className="font-medium flex text-xs">
                   Assemblies of God
                 </Typography>
               }
@@ -473,7 +485,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               name="primary_rerigious_affiliation"
               value="Other Pentecostal"
               label={
-                <Typography color="blue-gray" className="font-medium flex">
+                <Typography color="blue-gray" className="font-medium flex text-xs">
                   Other Pentecostal
                 </Typography>
               }
@@ -483,7 +495,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               name="primary_rerigious_affiliation"
               value="Other Protestant"
               label={
-                <Typography color="blue-gray" className="font-medium flex">
+                <Typography color="blue-gray" className="font-medium flex text-xs">
                   Other Protestant
                 </Typography>
               }
@@ -493,7 +505,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               name="primary_rerigious_affiliation"
               value="Roman Catholic"
               label={
-                <Typography color="blue-gray" className="font-medium flex">
+                <Typography color="blue-gray" className="font-medium flex text-xs">
                   Roman Catholic
                 </Typography>
               }
@@ -506,7 +518,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 label={
                   <Typography
                     color="blue-gray"
-                    className="font-medium flex  mr-2"
+                    className="font-medium flex  mr-2 text-xs"
                   >
                     Other(specify)
                   </Typography>
@@ -515,7 +527,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               <input
                 type="text"
                 id="password"
-                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50  border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
                 name="other_primary_rerigious_affiliation"
               />
@@ -548,14 +560,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div className="mb-3">
           <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                Organization
               </label>
               <input
                 type="text"
                 id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 name="ministerial_organization"
                 required={openMinsterial}
@@ -564,14 +576,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div className="mb-3">
           <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                Country
               </label>
               <input
                 type="text"
                 id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 name="ministerial_country"
                 required={openMinsterial}
@@ -580,14 +592,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div className="mb-3">
           <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                District
               </label>
               <input
                 type="text"
                 id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 name="ministerial_district"
                 required={openMinsterial}
@@ -596,14 +608,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div className="mb-3">
           <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                Cridential Level
               </label>
               <input
                 type="text"
                 id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 name="ministerial_credential_level"
                 required={openMinsterial}
@@ -612,14 +624,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           <div className="mb-3">
           <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
               >
                Date Obtained
               </label>
               <input
                 type="date"
                 id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   "
                 placeholder=""
                 name="ministerial_date_obtained"
                 required={openMinsterial}
@@ -639,7 +651,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               name="how_hear_about_us"
               value="Pastor or Church"
               label={
-                <Typography color="blue-gray" className="font-medium flex">
+                <Typography color="blue-gray" className="font-medium flex text-xs">
                   Church/Pastor
                 </Typography>
               }
@@ -649,7 +661,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               name="how_hear_about_us"
               value="Friend"
               label={
-                <Typography color="blue-gray" className="font-medium flex">
+                <Typography color="blue-gray" className="font-medium flex text-xs">
                   Friend
                 </Typography>
               }
@@ -662,7 +674,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 label={
                   <Typography
                     color="blue-gray"
-                    className="font-medium flex  mr-2"
+                    className="font-medium flex  mr-2 text-xs"
                   >
                 Internet(specify)
                   </Typography>
@@ -671,7 +683,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               <input
                 type="text"
                 id="password"
-                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50  border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
                 name="how_hear_about_us_internet"
               />
@@ -684,7 +696,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 label={
                   <Typography
                     color="blue-gray"
-                    className="font-medium flex  mr-2"
+                    className="font-medium flex  mr-2 text-xs"
                   >
                     Magazine(specify)
                   </Typography>
@@ -693,7 +705,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               <input
                 type="text"
                 id="password"
-                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50  border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
                 name="how_hear_about_us_magazine"
               />
@@ -706,7 +718,7 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
                 label={
                   <Typography
                     color="blue-gray"
-                    className="font-medium flex  mr-2"
+                    className="font-medium flex  mr-2 text-xs"
                   >
                     Other(specify)
                   </Typography>
@@ -715,14 +727,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
               <input
                 type="text"
                 id="password"
-                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50  border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
                 name="how_hear_about_us_other"
               />
             </div>
           </div>
         </div>
-        <div class="flex items-start mb-6">
+        {/* <div class="flex items-start mb-6">
           <div class="flex items-center h-5">
             <input
               id="remember"
@@ -735,14 +747,14 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
           </div>
           <label
             for="remember"
-            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+            class="ml-2 text-xs font-medium text-gray-900 dark:text-gray-400"
           >
             I agree {" "}
           </label>
-        </div>
+        </div> */}
         <button
           type="submit"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Submit
         </button>

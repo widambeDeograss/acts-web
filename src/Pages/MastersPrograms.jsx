@@ -123,6 +123,47 @@ const MastersPrograms = () => {
           Masters Programs
         </Button>
         <Collapse open={openPrograms}>
+        {isLoading ? (
+              <div className="flex justify-center">
+              <div className="max-w-full animate-pulse">
+      <Typography
+        as="div"
+        variant="h1"
+        className="mb-4 h-3 w-96 rounded-full bg-gray-300"
+      >
+        &nbsp;
+      </Typography>
+      <Typography
+        as="div"
+        variant="paragraph"
+        className="mb-2 h-2 w- rounded-full bg-gray-300"
+      >
+        &nbsp;
+      </Typography>
+      <Typography
+        as="div"
+        variant="paragraph"
+        className="mb-2 h-2 w- rounded-full bg-gray-300"
+      >
+        &nbsp;
+      </Typography>
+      <Typography
+        as="div"
+        variant="paragraph"
+        className="mb-2 h-2 w- rounded-full bg-gray-300"
+      >
+        &nbsp;
+      </Typography>
+      <Typography
+        as="div"
+        variant="paragraph"
+        className="mb-2 h-2 w- rounded-full bg-gray-300"
+      >
+        &nbsp;
+      </Typography>
+    </div>
+              </div>
+            ) : (
           <Card className="my-4 mx-auto lg:w-ful md:w-full sm:w-full">
             <CardBody>
               <Typography className="font-bold">
@@ -142,6 +183,7 @@ const MastersPrograms = () => {
               </ol>
             </CardBody>
           </Card>
+            )}
         </Collapse>
         <Button onClick={toggleModeOfStudy} color={openModeofStudy? "blue":"gray"} className="w-full" >
           Mode of study

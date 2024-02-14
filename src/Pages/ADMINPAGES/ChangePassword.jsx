@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../../App/AuthSlice";
 import axios from "axios";
 
-export const ChangePassword = () => {
+const ChangePassword = () => {
   const formRef = useRef();
   const navigate = useNavigate();
   const formPost = useFormPost();
@@ -23,7 +23,6 @@ export const ChangePassword = () => {
     setisLoading(true);
     event.preventDefault();
     //for image submission
-    if (true) {
       const formData = new FormData(formRef.current);
       console.log(formData);
       try {
@@ -56,7 +55,7 @@ export const ChangePassword = () => {
         });
       }
       setisLoading(false);
-    }
+    
   };
 
   return (
@@ -117,3 +116,5 @@ export const ChangePassword = () => {
     </Page>
   );
 };
+
+export default ChangePassword;

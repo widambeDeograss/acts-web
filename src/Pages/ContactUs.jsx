@@ -53,10 +53,10 @@ const ContactUs = () => {
 
           <div className="mx-auto text-center max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 ">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="text-xl font-bold tracking-tight text-gray-900 ">
                 Contact Us
               </h2>
-              <p className=" text-base leading-8 text-gray-600">
+              <p className=" text-base leading-8 text-gray-600 ">
                 AFRICA’S CONTINENTAL THEOLOGICAL SEMINARY (ACTS)
               </p>
               <p className=" text-base leading-8 text-gray-600">
@@ -80,14 +80,14 @@ const ContactUs = () => {
               <div class="grid items-center lg:grid-cols-2">
                 <div class="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
                   <div class="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px]  md:px-12 lg:-mr-14">
-                    <h2 class="mb-12 text-base text-lef font-bold">
+                    <h2 class="mb-12 text-xs text-lef font-bold">
                       Send us a message
                     </h2>
                     <form  onSubmit={handleSubmit}>
                       <div>
                         <label
                           for="first_name"
-                          class="block mb-2 text-sm text-left font-medium text-gray-900 "
+                          class="block mb-2 text-sm text-left font-medium text-gray-900 text-xs"
                         >
                           Name
                         </label>
@@ -104,14 +104,14 @@ const ContactUs = () => {
                       <div>
                         <label
                           for="first_name"
-                          class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-gray-300"
+                          class="block mb-2 text-xs text-left font-medium text-gray-900 dark:text-gray-300"
                         >
                           Email address
                         </label>
                         <input
                           type="email"
                           id="first_name"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                           placeholder=""
                           value={email}
                           onChange={(e) => setemail(e.target.value)}
@@ -121,14 +121,14 @@ const ContactUs = () => {
                       <div>
                         <label
                           for="first_name"
-                          class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-gray-300"
+                          class="block mb-2 text-xs text-left font-medium text-gray-900 dark:text-gray-300"
                         >
                           Message
                         </label>
                         <textarea
                           type="text"
                           id="first_name"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                           placeholder=""
                           value={message}
                           onChange={(e) => setmessage(e.target.value)}
@@ -137,7 +137,7 @@ const ContactUs = () => {
                       </div>
                       <button
                         type="submit"
-                        class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+                        class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  w-full sm:w-auto px-5 py-2.5 text-center text-xs"
                       >
                         {loading ? "Submiting message ..." :"Submit"}
                       </button>

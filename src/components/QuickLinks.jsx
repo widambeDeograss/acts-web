@@ -20,8 +20,8 @@ function QuickLinks() {
           }}
         >
           <div className="flex flex-row text-centre justify-center ">
-            <LinkIcon height={40} className="-mt-2  mr-3" />
-            <Typography variant="h5">
+            <LinkIcon height={30} className="-mt-2  mr-3" />
+            <Typography variant="h5" className="text-sm">
               {" "}
               <strong>Quick Links </strong>
             </Typography>
@@ -34,6 +34,7 @@ function QuickLinks() {
             <a
                href="https://my.globaluniversity.edu/?"
               style={{ textDecoration: "none", color: "white" }}
+              className='text-xs'
             >
               Masters students Portal{" "}
             </a>
@@ -42,6 +43,7 @@ function QuickLinks() {
 
                   href="/acts/contact_us"
                   style={{ textDecoration: "none", color: "white" }}
+                  className='text-xs'
 
               >
                   Contact us
@@ -52,6 +54,7 @@ function QuickLinks() {
               href='/acts/allEvents'
               style={{ textDecoration: "none", color: "white" }}
               onClick={() => navigate("/acts/allEvents")}
+              className='text-xs'
             >
               All ACTS events 
             </a>
@@ -60,7 +63,7 @@ function QuickLinks() {
               <a
                   href="/admission/acts_online_application"
                   style={{ textDecoration: "none", color: "white" }}
-
+                  className='text-xs'
               >
                   Apply online
               </a>
