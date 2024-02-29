@@ -307,7 +307,7 @@ const Home = () => {
                 
               </div>: 
             blogs
-              ?.slice(0, 3)?.reverse()
+              ?.slice(0, 3).reverse()
               .map((blog) => <EventData event={blog} />)}
          
           <hr />
@@ -521,7 +521,7 @@ const Home = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-10  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 mt-3">
-              {popular?.slice(1, 4).map( (event) => {
+              {popular?.slice(1, 4)?.map( (event) => {
                return(
                 <div className="mb-12 lg:mb-0 opacity- transition duration-300 ease-in-out hover:opacity-50"
                 key={event?.id}
