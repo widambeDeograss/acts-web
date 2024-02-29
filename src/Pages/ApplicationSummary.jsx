@@ -319,7 +319,7 @@ const ApplicationSummary = () => {
           <Typography className="text-xs ">
             An official transcript is required from each school where degree work was done after Grade 12
           </Typography>
-          <table className="w-full  overflow-x-scroll table-auto mt-8">
+          <table className="w-full  overflow-x-hidden table-auto mt-8">
             <thead>
               <tr>
                 {[

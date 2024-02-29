@@ -1,1 +1,1 @@
-export const baseUrl = 'http://actseminary.education/api'
+export const baseUrl = 'https://api.actseminary.education'
