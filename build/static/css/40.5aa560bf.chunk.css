@@ -1,0 +1,2 @@
+.object{background:#fff;border-color:#d3d3d3;border-radius:5%;border-width:thin;display:none;height:300px;opacity:0;width:300px}.button:hover+.object{display:block;-webkit-transform:scaleY(1) skewX(0deg);transform:scaleY(1) skewX(0deg)}.hover-trigger .hover-target{display:none}.hover-trigger:hover .hover-target{display:block;z-index:10}
+/*# sourceMappingURL=40.5aa560bf.chunk.css.map*/

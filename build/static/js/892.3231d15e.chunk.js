@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkacts_web=self.webpackChunkacts_web||[]).push([[892],{89892:function(s,e,n){n.r(e);var t=n(57689),c=n(59434),a=n(3260),u=n(80184);e.default=function(){var s=(0,c.v9)(a.D0);return(0,t.TH)(),console.log(s),s?(0,u.jsx)(t.j3,{}):(0,u.jsx)(t.Fg,{to:"/actsAdimin/login"})}}}]);
+//# sourceMappingURL=892.3231d15e.chunk.js.map
