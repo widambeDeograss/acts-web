@@ -49,7 +49,7 @@ const Gallery = () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.gellery });
 
-    console.log(response);
+    
     if (response) {
       const imgs = response?.filter((file) => file.type === "IMAGE");
       const vds = response?.filter((file) => file.type === "VIDEO");
@@ -81,7 +81,7 @@ const Gallery = () => {
         const response = await fetcher.fetch({
           url: UserUrls.gelleryDelete + `?id=${id}`,
         });
-        console.log(response);
+       
         if (response.delete) {
           window.location.reload();
         }

@@ -61,7 +61,7 @@ const StaffEditPage = () => {
     }
      } catch (error) {
       setisLoading(true);
-      console.log(error);
+      alert(error);
      }
      
       // dispatch(hideModal());

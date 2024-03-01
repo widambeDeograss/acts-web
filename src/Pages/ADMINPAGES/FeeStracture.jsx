@@ -71,7 +71,7 @@ const FeeStracture = () => {
     const residential = await fetcher.fetch({
       url: UserUrls.mastersFees + `?type=RESIDENTIAL`,
     });
-    console.log(response.total);
+    
     if (response) {
       setcorses(response?.data);
       settotalNoRes(response?.total);
@@ -112,7 +112,7 @@ fileSever.saveAs(data, "feeStracture" + fileExtension);
         const response = await fetcher.fetch({
           url: UserUrls.mastersFeesDelete + `?id=${id}`,
         });
-        console.log(response);
+        
         if (response.delete) {
           window.location.reload();
         }

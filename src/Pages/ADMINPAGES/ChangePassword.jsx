@@ -24,7 +24,7 @@ const ChangePassword = () => {
     event.preventDefault();
     //for image submission
       const formData = new FormData(formRef.current);
-      console.log(formData);
+   
       try {
         const response = await axios.put(
           `${baseUrl}/auth/change-password`,
@@ -36,7 +36,7 @@ const ChangePassword = () => {
             },
           }
         );
-        console.log(response);
+       
         if (response?.status) {
           
           swal({

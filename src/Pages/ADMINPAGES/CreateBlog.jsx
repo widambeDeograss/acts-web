@@ -22,14 +22,14 @@ function CreateBlog() {
     //for image submission
     if (true) {
       const formData = new FormData(formRef.current);
-      console.log(formData);
+      
       try {
         const response = await formPost.post({
           url:UserUrls.Events,
           data:formData
         });
         if (response.save == true) {
-          console.log(response);
+         
           swal({  
             title: "",  
             text: "Event created successfully!",  

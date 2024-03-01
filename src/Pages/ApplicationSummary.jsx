@@ -30,13 +30,13 @@ const ApplicationSummary = () => {
     formData.append("program", applicant_education_data.take_masters? "Masters Program": "Phd Program");
     formData.append("course", applicant_education_data.take_masters? applicant_education_data.marsters_course: "Phd Program" );
     formData.append("phone", applicant_personal_details.primary_phone);
-    console.log(applicant_personal_details);
+    
     try {
       const responce =await formPost.post({
         url:UserUrls.Application,
         data:formData
       })
-      console.log(responce);
+      
       if (responce.save === true) {
           localStorage.clear()
           swal({  

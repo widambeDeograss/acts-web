@@ -16,13 +16,10 @@ const SingleEvent = () => {
   const [isLoading, setisLoading] = useState(false);
   const params = useParams();
 
-  console.log(params);
-
-  console.log(state);
+  
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.SingleEvent + params.id });
-    console.log(response);
     if (response) {
       setBlogs(response);
       setisLoading(false);
@@ -44,7 +41,7 @@ const SingleEvent = () => {
               <div class="flex flex-col justify-between py-4">
                 <a
                   href="#"
-                  class="text-xl font-semibold text-gray-800 "
+                  class="text-base font- text-gray-800 text-justify"
                 >
                   {blogs?.description}
                 </a>

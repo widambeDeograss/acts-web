@@ -71,7 +71,7 @@ function CampusGallery() {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.gellery });
 
-    console.log(response);
+    
     if (response) {
       const imgs = response?.filter((file) => file.type === "IMAGE");
       const vds = response?.filter((file) => file.type === "VIDEO");

@@ -31,7 +31,7 @@ function BlogCards({ blog }) {
   }
 
   function openModal() {
-    console.log("open modal");
+    
     setModalOpen(true);
   }
 
@@ -49,7 +49,7 @@ function BlogCards({ blog }) {
     ).then( async (willdelete) => {
       if (willdelete) {
         const response = await fetcher.fetch({ url: UserUrls.EventsActions + id });
-        console.log(response);
+        
         if (response.delete) {
           window.location.reload()
         }
@@ -99,7 +99,7 @@ export default function Blogs() {
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.Events });
-    console.log(response);
+    
     if (response) {
       setBlogs(response);
       setisLoading(false);

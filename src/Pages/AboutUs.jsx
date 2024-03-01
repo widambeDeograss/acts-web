@@ -18,7 +18,7 @@ function AboutUs() {
       setisLoading(true);
       const response = await fetcher.fetch({ url: UserUrls.Events });
       const siteresponse = await fetcher.fetch({ url: UserUrls.siteInfo });
-      console.log(response);
+      
       if (response) {
         setBlogs(response?.reverse());
         setsitedata(siteresponse)

@@ -26,7 +26,7 @@ const ContactUs = () => {
         
 
       })
-      console.log(responce);
+      
       if (responce) {
         swal({  
           title: "",  

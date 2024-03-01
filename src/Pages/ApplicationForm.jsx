@@ -67,7 +67,7 @@ const ApplicationForm = () => {
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
   const handleDisplaySummary = () => {
     if (localStorage.getItem("applicant_education_data")=== null ) {
-      console.log('reached');
+      
       setdisplaySummary(false)
       swal({  
         title: "",  
@@ -83,7 +83,6 @@ const ApplicationForm = () => {
 
    
   const handleReferences = (reference_data) => {
-  console.log(reference_data);
 
     setreferences(prevState => {
       if (reference_data.pastors_reference) {

@@ -59,7 +59,7 @@ const PhdFeeStructure = () => {
         url: UserUrls.phdFees + `?id=${params?.id}`,
       });
     
-      console.log(response.total);
+      
       if (response) {
         setcorses(response?.data);
         settotalRes(response?.total);
@@ -86,7 +86,7 @@ const PhdFeeStructure = () => {
           const response = await fetcher.fetch({
             url: UserUrls.phdFeesDelete + `?id=${id}`,
           });
-          console.log(response);
+          
           if (response.delete) {
             window.location.reload();
           }

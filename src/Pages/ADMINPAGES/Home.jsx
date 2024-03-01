@@ -10,7 +10,7 @@ import { Card, CardHeader, Button } from "@material-tailwind/react";
 import swal from "sweetalert";
 
 export default function AdminHomePage() {
-  console.log("dfajfpoiafeafda");
+  
   const [optimizationData, setOptimizationData] = React.useState(null);
   const fetcher = useDataFetch();
   const [data, setdata] = useState();
@@ -22,7 +22,7 @@ export default function AdminHomePage() {
     // setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.Dashboard });
     const sitedata = await fetcher.fetch({ url: UserUrls.siteInfo });
-    console.log(response);
+    
     if (response) {
       setdata(response);
       setOptimizationData(sitedata);
@@ -46,7 +46,7 @@ export default function AdminHomePage() {
       url:UserUrls.siteInfoUpdate + `?id=${optimizationData?.id}`,
       data:formData
     })
-    console.log(responce);
+    
     setisLoading(true);
     if (responce?.update) {
       swal({  
@@ -70,7 +70,7 @@ export default function AdminHomePage() {
   }
    } catch (error) {
     setisLoading(true);
-    console.log(error);
+   alert(error);
    }
    
     // dispatch(hideModal());

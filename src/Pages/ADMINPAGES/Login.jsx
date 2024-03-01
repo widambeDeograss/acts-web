@@ -31,7 +31,7 @@ const Login = () => {
             login:true
           });
 
-          console.log(response);
+          
           const localStorageUser = {id:response.user, role:response.user.role}
     
           localStorage.setItem("user", JSON.stringify(localStorageUser));

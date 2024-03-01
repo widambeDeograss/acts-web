@@ -30,11 +30,11 @@ const ApplicantPersonalInfo = ({  handleNext}) => {
 
     if (Object.keys(errors).length > 0) {
       // Handle errors here or set them in your state, depending on your design
-      console.log(errors);
+     
     } else {
       // Handle form submission
       for (let [name, value] of formData.entries()) {
-        console.log(`${name}: ${value}`);
+       
         // if (name === 'passprt') {
         //   const reader = new FileReader();
         //   reader.onload = () => {

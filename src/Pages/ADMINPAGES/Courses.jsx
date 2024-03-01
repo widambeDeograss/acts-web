@@ -70,7 +70,7 @@ fileServer.saveAs(data, "corses" + fileExtension);
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.courses });
-    console.log(response);
+    
     if (response) {
       setcorses(response?.reverse());
       setisLoading(false);
@@ -102,7 +102,7 @@ fileServer.saveAs(data, "corses" + fileExtension);
     ).then( async (willdelete) => {
       if (willdelete) {
         const response = await fetcher.fetch({ url: UserUrls.courseDelete + `?id=${id}` });
-        console.log(response);
+        
         if (response.delete) {
           window.location.reload()
         }

@@ -157,7 +157,7 @@ export function AddStaffModal() {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" onClick={handleConfirm} type="submit">
+          <Button variant="gradient" onClick={handleConfirm} type="submit" disabled={isLoading}>
             <span>{isLoading?"Adding Staff...":"Add staff"}</span>
           </Button>
         </form>

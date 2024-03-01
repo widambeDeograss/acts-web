@@ -9,6 +9,7 @@ import {
   ListItem,
   Card,
   Breadcrumbs,
+  Collapse
 } from "@material-tailwind/react";
 import {
   EnvelopeIcon,
@@ -300,7 +301,7 @@ export default function NavBar() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <Collapse open={openNav}>
           {navList}
           <Button
             variant="gradient"
@@ -312,7 +313,7 @@ export default function NavBar() {
           >
             <span>Appy Now</span>
           </Button>
-        </MobileNav>
+        </Collapse>
       </Navbar>
     </>
   );

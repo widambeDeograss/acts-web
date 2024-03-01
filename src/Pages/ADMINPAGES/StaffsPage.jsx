@@ -195,7 +195,7 @@ fileServer.saveAs(data, "staff" + fileExtension);
                       <td className={className}>
                         <div className="flex items-center ">
                         <Avatar
-                          src={baseUrl + `/${image}`}
+                          src={baseUrl + `${image}`}
                           alt={full_name}
                           size="md"
                           className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1"

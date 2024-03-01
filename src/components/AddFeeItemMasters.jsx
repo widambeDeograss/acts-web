@@ -173,7 +173,7 @@ export function AddFeeItemMasters() {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" onClick={handleConfirm} type="submit">
+          <Button variant="gradient" onClick={handleConfirm} type="submit" disabled={isLoading}>
             <span>{isLoading?"Adding Item...":"Add Item"}</span>
           </Button>
           </form>

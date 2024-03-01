@@ -48,7 +48,7 @@ const MastersPrograms = () => {
     const residential = await fetcher.fetch({
       url: UserUrls.mastersFees + `?type=RESIDENTIAL`,
     });
-    console.log(response);
+    
     if (response) {
       const MastersPrograms = response?.filter((program) => program?.category === "Masters Course")
       setprograms(MastersPrograms);

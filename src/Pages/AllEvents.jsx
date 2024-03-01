@@ -17,7 +17,7 @@ const AllEvents = () => {
     const loadData = async () => {
       setisLoading(true);
       const response = await fetcher.fetch({ url: UserUrls.Events });
-      console.log(response);
+      
       if (response) {
         setBlogs(response);
         setisLoading(false);

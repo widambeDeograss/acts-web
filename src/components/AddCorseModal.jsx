@@ -125,7 +125,7 @@ export function AddCoursesModal() {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" onClick={handleConfirm} type="submit">
+          <Button variant="gradient" onClick={handleConfirm} type="submit" disabled={isLoading}>
             <span>{isLoading?"Adding Course...":"Add Course"}</span>
           </Button>
           </form>

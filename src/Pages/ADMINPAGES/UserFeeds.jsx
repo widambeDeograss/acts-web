@@ -38,7 +38,7 @@ const UserContacts = () => {
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.userContact });
-    console.log(response);
+   
     if (response) {
       setapplications(response);
       setisLoading(false);
@@ -66,7 +66,7 @@ const UserContacts = () => {
     ).then( async (willdelete) => {
       if (willdelete) {
         const response = await fetcher.fetch({ url: UserUrls.DeleteEvent + id });
-        console.log(response);
+       
         if (response.delete) {
           window.location.reload()
         }

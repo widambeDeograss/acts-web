@@ -61,7 +61,7 @@ fileServer.saveAs(data, "applications" + fileExtension);
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.Application });
-    console.log(response);
+    
     if (response) {
       setapplications(response?.reverse());
       setisLoading(false);

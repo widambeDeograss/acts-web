@@ -24,7 +24,7 @@ import colors from "../constants/colors";
 import QuickLinks from "../components/QuickLinks";
 import pe9 from "../assets/img/DJI_0981-min.JPG";
 import pe8 from "../assets/img/DJI_0974.jpeg";
-import nhigula from "../assets/img/nhigula faculty.png";
+import nhigula from "../assets/img/nhigula2.png";
 import buildingACt from "../assets/img/topActs.jpeg";
 import pl8 from "../assets/img/_MG_9770.jpg";
 import fred from "../assets/img/msuguFred.jpg";
@@ -179,7 +179,8 @@ const Home = () => {
     <div>
       <Carousel
         className="rounded-xl h-96"
-        transition={{ duration: 2 }}
+        transition={{ duration: 4 }}
+        autoplay={true}
         prevArrow={({ handlePrev }) => (
           <IconButton
             variant="text"
@@ -329,7 +330,7 @@ const Home = () => {
             <img
               src={currentTab?.image}
               alt={currentTab?.value}
-              className="h-full w-full object-cover  hidden md:block lg:block sm:hidden rounded-lg"
+              className="h-64 w-full object-fit  hidden md:block lg:block sm:hidden rounded-lg"
             />
           </div>
           <div className="lg:w-3/4 sm:w-full">

@@ -37,7 +37,7 @@ function ApplicantAcademicForm({handleNext}) {
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.courses });
-    console.log(response);
+   
     if (response) {
       const MastersPrograms = response?.filter((program) => program?.category === "Masters Course");
       const PhdPrograms = response?.filter((program) => program?.category === 'Phd Course');
@@ -67,7 +67,7 @@ function ApplicantAcademicForm({handleNext}) {
     setSdate("");
     setcity("");
     setmajor("");
-    console.log(dataobj);
+    
   };
 
   const handleSubmitAcademicInfo = () => {

@@ -154,7 +154,7 @@ export function AddministrationModal() {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" onClick={handleConfirm} type="submit">
+          <Button variant="gradient" onClick={handleConfirm} type="submit" disabled={isLoading} >
             <span>{isLoading?"Adding Position...":"Add Position"}</span>
           </Button>
           </form>

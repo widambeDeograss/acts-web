@@ -119,8 +119,8 @@ const StaffPage = () => {
                 <figure className="relative h-64 w-full" key={id}>
                   <img
                     className="h-full w-full rounded-xl object-fill "
-                    src={baseUrl + `/${image}`}
-                    alt="nature image"
+                    src={baseUrl + `${image}`}
+                    alt={admin_title}
                   />
                   <figcaption className="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-gray-400 bg-[#862F8E]/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm ">
                     <div>
@@ -197,8 +197,8 @@ const StaffPage = () => {
                   <figure className="relative h-64 w-full mt-5">
                     <img
                       className="h-full w-full object-fill "
-                      src={baseUrl + `/${image}`}
-                      alt="nature image"
+                      src={baseUrl + `${image}`}
+                      alt={full_name}
                     />
                   </figure>
                   <Typography

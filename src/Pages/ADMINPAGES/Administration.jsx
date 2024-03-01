@@ -53,7 +53,6 @@ const Administration = () => {
   const loadData = async () => {
     setisLoading(true);
     const response = await fetcher.fetch({ url: UserUrls.administration });
-    console.log(response);
     if (response) {
       setpositions(response?.reverse());
       setisLoading(false);
@@ -113,7 +112,7 @@ fileServer.saveAs(data, "Administratiion" + fileExtension);
     ).then( async (willdelete) => {
       if (willdelete) {
         const response = await fetcher.fetch({ url: UserUrls.administrationDelete + `?id=${id}` });
-        console.log(response);
+      
         if (response.delete) {
           window.location.reload()
         }
